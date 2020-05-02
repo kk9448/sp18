@@ -126,7 +126,7 @@ public class ArrayDeque<T> {
             if(remain > sizeTail) {
                 return null;
             } else {
-                return item[remain];
+                return item[remain + tailFirst];
             }
         } else {
             return item[head + 1 + index];
@@ -140,6 +140,7 @@ public class ArrayDeque<T> {
         System.arraycopy(item,head+1,item2,item2.length - sizeHead, sizeHead);
         item = item2;
         head = item2.length - sizeHead -1;
+        FirstEnd = item.length-1;
     }
 
 }

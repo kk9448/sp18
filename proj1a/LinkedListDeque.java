@@ -83,7 +83,7 @@ public class LinkedListDeque<T> {
     }
 
     public boolean isEmpty() {
-        if (sentinel.rest == null) {
+        if (sentinel.size == 0) {
             return true;
         }
         return false;
@@ -101,6 +101,7 @@ public class LinkedListDeque<T> {
         if (sentinel.rest.rest == null) {
             sentinel.LastPointer.rest = null;
             sentinel.LastPointer = null;
+            sentinel.rest = null;
             sentinel.size = sentinel.size - 1;
             return tmp;
         }
