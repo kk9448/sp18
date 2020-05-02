@@ -8,7 +8,7 @@ public class ArrayDeque<Type> {
 
 
     public void addFirst(Type x) {
-        if(size == item.length) {
+        if (size == item.length) {
             resize();
         }
         item[head] = x;
@@ -27,16 +27,20 @@ public class ArrayDeque<Type> {
         size = sizeHead + sizeTail;
     }
 
-    public void removeLast() {
+    public Type removeLast() {
+        int tmp = tail;
         tail = tail - 1;
         sizeTail = sizeTail -1;
         size = sizeHead + sizeTail;
+        return item[tmp];
     }
 
-    public void removeFirst() {
+    public Type removeFirst() {
+        int tmp = head;
         head = head + 1;
         sizeHead = sizeHead -1;
         size = sizeHead + sizeTail;
+        return item[tmp];
     }
 
     public boolean isEmpty() {

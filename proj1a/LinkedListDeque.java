@@ -9,12 +9,12 @@ public class LinkedListDeque<Type> {
         private Node prev;
         private Node rest;
 
-        public Node(){
+        public Node() {
 //            Type;
             size = 0;
             rest = null;
         }
-        public Node(Type x){
+        public Node(Type x) {
             item = x;
             size = 1;
             rest = null;
@@ -37,7 +37,7 @@ public class LinkedListDeque<Type> {
 
     public void printDeque() {
         Node A = sentinel.rest;
-        for(;A.rest != null; A=A.rest){
+        for (;A.rest != null; A=A.rest) {
             System.out.print(A.item + " ");
         }
         System.out.print(A.item + " ");
@@ -45,7 +45,7 @@ public class LinkedListDeque<Type> {
 
     public void addFirst(Type x){
         Node A = new Node(x);
-        if(sentinel.size == 0) {
+        if (sentinel.size == 0) {
             sentinel.LastPointer = A;
             sentinel.rest = A;
         } else {
@@ -62,7 +62,7 @@ public class LinkedListDeque<Type> {
 
 
         Node A = new Node(x);
-        if(sentinel.LastPointer == null) {
+        if (sentinel.LastPointer == null) {
             sentinel.rest = A;
             sentinel.LastPointer = A;
         }
@@ -74,7 +74,7 @@ public class LinkedListDeque<Type> {
     }
 
     public boolean isEmpty() {
-        if(sentinel.rest == null) {
+        if (sentinel.rest == null) {
             return true;
         }
         return false;
@@ -85,7 +85,7 @@ public class LinkedListDeque<Type> {
     }
 
     public Type removeFirst() {
-        if(sentinel.rest == null) {
+        if (sentinel.rest == null) {
             return null;
         }
         Type tmp = sentinel.rest.item;
