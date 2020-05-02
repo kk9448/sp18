@@ -80,17 +80,46 @@ public class NodeTest {
     @Test
     public void getADTest() {
         ArrayDeque ArrayDeque= new ArrayDeque();
-        ArrayDeque.addFirst(0);
-        ArrayDeque.addFirst(1);
-        ArrayDeque.addFirst(2);
-        ArrayDeque.addFirst(3);
-        ArrayDeque.addFirst(4);
-        ArrayDeque.addFirst(5);
-        ArrayDeque.addFirst(6);
+        ArrayDeque.addLast(0);
+        ArrayDeque.removeFirst()  ;
+        ArrayDeque.isEmpty();
+        assertEquals( "true",Boolean.toString(ArrayDeque.isEmpty()));
 
-        int b = (int) ArrayDeque.removeFirst();
-//        a.removeFirst();
+    }
+
+    @Test
+    public void getADTest2() {
+        ArrayDeque ArrayDeque= new ArrayDeque();
+        ArrayDeque.addLast(0);
+        ArrayDeque.size();
+        ArrayDeque.size();
+        ArrayDeque.isEmpty();
+        ArrayDeque.addLast(4);
+        ArrayDeque.addLast(5);
+        ArrayDeque.addLast(6);
+        ArrayDeque.addFirst(7);
+        ArrayDeque.addFirst(8);
+        int b = (int) ArrayDeque.removeLast();
         System.out.print(b);
+
+    }
+
+    @Test
+    public void getADTest3() {
+        ArrayDeque ArrayDeque= new ArrayDeque();
+        ArrayDeque.size();
+        ArrayDeque.addFirst(1);
+        ArrayDeque.addLast(2);
+        assertEquals(2,ArrayDeque.removeLast());
+
+    }
+
+    @Test
+    public void getADTest4() {
+        ArrayDeque ArrayDeque= new ArrayDeque();
+        ArrayDeque.addLast(0);
+        ArrayDeque.get(0);
+        assertEquals(0,ArrayDeque.get(0));
 
     }
 

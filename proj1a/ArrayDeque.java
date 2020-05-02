@@ -31,11 +31,16 @@ public class ArrayDeque<T> {
 
     public T removeLast() {
         if (sizeTail == 0) {
+            if (sizeHead ==0) {
+                return null;
+            }
+            sizeHead = sizeHead - 1;
+            size = sizeHead + sizeTail;
             T a = removeFirstEnd();
             return a;
         }
-        int tmp = tail;
-        tail = tail - 1;
+        int tmp = tail - 1;
+        tail = tail - 2;
         sizeTail = sizeTail -1;
         size = sizeHead + sizeTail;
         return item[tmp];
@@ -50,6 +55,11 @@ public class ArrayDeque<T> {
 
     public T removeFirst() {
         if (sizeHead == 0) {
+            if (sizeTail ==0) {
+                return null;
+            }
+            sizeTail = sizeTail - 1;
+            size = sizeHead + sizeTail;
             T a = removeTailFirst();
             return a;
         }
@@ -96,12 +106,12 @@ public class ArrayDeque<T> {
         if(index < 0){
             return null;
         }
-        if(index > sizeHead) {
+        if(index >= sizeHead) {
             int remain = index - sizeHead;
             if(remain > sizeTail) {
                 return null;
             } else {
-                return item[remain -1];
+                return item[remain];
             }
         } else {
             return item[head + index];
