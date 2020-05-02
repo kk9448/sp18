@@ -99,7 +99,9 @@ public class LinkedListDeque<T> {
         }
         T tmp = sentinel.rest.item;
         sentinel.rest = sentinel.rest.rest;
-        sentinel.size = sentinel.size - 1;
+        if (sentinel.size != 0) {
+            sentinel.size = sentinel.size - 1;
+        }
         return tmp;
     }
 
@@ -110,6 +112,9 @@ public class LinkedListDeque<T> {
         T A = sentinel.LastPointer.item;
         sentinel.LastPointer = sentinel.LastPointer.prev;
         sentinel.LastPointer.rest = null;
+        if (sentinel.size != 0) {
+            sentinel.size = sentinel.size - 1;
+        }
 
         return A;
 
