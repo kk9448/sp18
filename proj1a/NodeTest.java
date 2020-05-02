@@ -23,21 +23,14 @@ public class NodeTest {
 
     @Test
     public void LLD() {
-        LinkedListDeque<Integer> a= new LinkedListDeque<>();
+        LinkedListDeque LinkedListDeque= new LinkedListDeque();
 
-        a.removeLast();
-        a.removeLast();
-        a.removeLast();
-        a.printDeque();
-        System.out.println("size is " + a.size());
+        LinkedListDeque.addFirst(0);
+        LinkedListDeque.addFirst(1);
+        LinkedListDeque.removeFirst() ;
+//        LinkedListDeque.removeLast();
 
-        LinkedListDeque b= new LinkedListDeque<String>();
-        b.addFirst("123");
-        b.addFirst("456");
-        String c = (String) b.removeLast();
-
-        b.printDeque();
-        System.out.println("removed is " + c);
+        assertEquals(0, LinkedListDeque.removeLast());
 
     }
 
