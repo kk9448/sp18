@@ -78,7 +78,7 @@ public class ArrayDeque<T> {
             T a = removeTailFirst();
             return a;
         }
-        int tmp = head+1;
+        int tmp = head;
         head = head + 1;
         sizeHead = sizeHead -1;
         size = sizeHead + sizeTail;
@@ -137,7 +137,7 @@ public class ArrayDeque<T> {
     private void resize() {
         T[] item2 = (T[]) new Object[item.length*2];
         System.arraycopy(item,0,item2,0,sizeTail);
-        System.arraycopy(item,head+1,item2,item2.length - sizeHead, sizeHead);
+        System.arraycopy(item, head , item2,item2.length - sizeHead - 1, sizeHead + 1 );
         item = item2;
         head = item2.length - sizeHead -1;
         FirstEnd = item.length-1;

@@ -180,6 +180,7 @@ public class NodeTest {
     }
 
 
+
     @Test
     public void ArrayListTest() {
         ArrayDeque ArrayDeque = new ArrayDeque();
@@ -397,5 +398,21 @@ public class NodeTest {
         assertEquals(19, ArrayDeque.get(1));
     }
 
+    @Test
+    public void getADTest14() {
+        ArrayDeque ArrayDeque= new ArrayDeque();
+        ArrayDeque.addFirst(0);
+        ArrayDeque.addFirst(1);
+        ArrayDeque.addFirst(2);
+        ArrayDeque.addFirst(3);
+        ArrayDeque.addFirst(4);
+        ArrayDeque.addFirst(5);
+        ArrayDeque.isEmpty();
+        ArrayDeque.addFirst(7);
+        ArrayDeque.addFirst(8);
+//        ArrayDeque.removeFirst();
+
+        assertEquals(8,  ArrayDeque.removeFirst());
+    }
 
 }
