@@ -6,17 +6,19 @@ public class NodeTest {
     @Test
     public void addLastTest() {
         LinkedListDeque LinkedListDeque= new LinkedListDeque();
-        LinkedListDeque.addLast(0);
-        LinkedListDeque.removeFirst() ;
-        LinkedListDeque.addLast(2);
+        LinkedListDeque.addFirst(0);
+        LinkedListDeque.removeLast() ;
         LinkedListDeque.addLast(3);
-        LinkedListDeque.addLast(4);
-        LinkedListDeque.addLast(5);
-        LinkedListDeque.addLast(6);
-        LinkedListDeque.addLast(7);
+        LinkedListDeque.addFirst(4);
+        LinkedListDeque.addFirst(5);
+        LinkedListDeque.addFirst(6);
+        LinkedListDeque.getRecursive(0);
         LinkedListDeque.addLast(8);
-        LinkedListDeque.addLast(9);
-        System.out.print(LinkedListDeque.isEmpty());
+        LinkedListDeque.addFirst(9);
+        System.out.print(LinkedListDeque.removeLast());
+       LinkedListDeque.removeLast();
+//        LinkedListDeque.removeFirst();
+        System.out.print(LinkedListDeque.removeFirst());
     }
 
     @Test
@@ -77,17 +79,17 @@ public class NodeTest {
 
     @Test
     public void getADTest() {
-        ArrayDeque a= new ArrayDeque();
-        a.addLast(1);
-        a.addLast(2);
-        a.addLast(3);
-        a.addLast(4);
-        a.addLast(5);
-        a.addLast(6);
-        a.addLast(7);
-        a.addLast(8);
+        ArrayDeque ArrayDeque= new ArrayDeque();
+        ArrayDeque.addFirst(0);
+        ArrayDeque.addFirst(1);
+        ArrayDeque.addFirst(2);
+        ArrayDeque.addFirst(3);
+        ArrayDeque.addFirst(4);
+        ArrayDeque.addFirst(5);
+        ArrayDeque.addFirst(6);
+
+        int b = (int) ArrayDeque.removeFirst();
 //        a.removeFirst();
-        int b = (int) a.get(7);
         System.out.print(b);
 
     }

@@ -5,6 +5,8 @@ public class ArrayDeque<T> {
     private int sizeHead = 0;
     private int sizeTail = 0;
     private int size = 0;
+    private int FirstEnd = item.length-1;
+    private int tailFirst = 0;
 
 
     public void addFirst(T x) {
@@ -28,6 +30,10 @@ public class ArrayDeque<T> {
     }
 
     public T removeLast() {
+        if (sizeTail == 0) {
+            T a = removeFirstEnd();
+            return a;
+        }
         int tmp = tail;
         tail = tail - 1;
         sizeTail = sizeTail -1;
@@ -35,12 +41,30 @@ public class ArrayDeque<T> {
         return item[tmp];
     }
 
+    private T removeFirstEnd() {
+        int tmp = FirstEnd;
+        FirstEnd = FirstEnd - 1;
+        return item[tmp];
+
+    }
+
     public T removeFirst() {
-        int tmp = head;
-        head = head + 1;
+        if (sizeHead == 0) {
+            T a = removeTailFirst();
+            return a;
+        }
+        int tmp = head+1;
+        head = head + 2;
         sizeHead = sizeHead -1;
         size = sizeHead + sizeTail;
         return item[tmp];
+    }
+
+    private T removeTailFirst() {
+        int tmp = tailFirst;
+        tailFirst = tailFirst + 1;
+        return item[tmp];
+
     }
 
     public boolean isEmpty() {
