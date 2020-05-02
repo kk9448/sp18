@@ -1,5 +1,5 @@
-public class ArrayDeque<Type> {
-    Type[] item = (Type[]) new Object[8];
+public class ArrayDeque<T> {
+    T[] item = (T[]) new Object[8];
     int tail = 0;
     int head = item.length - 1;
     int sizeHead = 0;
@@ -7,7 +7,7 @@ public class ArrayDeque<Type> {
     int size = 0;
 
 
-    public void addFirst(Type x) {
+    public void addFirst(T x) {
         if (size == item.length) {
             resize();
         }
@@ -17,7 +17,7 @@ public class ArrayDeque<Type> {
         size = sizeHead + sizeTail;
     }
 
-    public void addLast(Type x) {
+    public void addLast(T x) {
         if(size == item.length) {
             resize();
         }
@@ -27,7 +27,7 @@ public class ArrayDeque<Type> {
         size = sizeHead + sizeTail;
     }
 
-    public Type removeLast() {
+    public T removeLast() {
         int tmp = tail;
         tail = tail - 1;
         sizeTail = sizeTail -1;
@@ -35,7 +35,7 @@ public class ArrayDeque<Type> {
         return item[tmp];
     }
 
-    public Type removeFirst() {
+    public T removeFirst() {
         int tmp = head;
         head = head + 1;
         sizeHead = sizeHead -1;
@@ -68,7 +68,7 @@ public class ArrayDeque<Type> {
         }
     }
 
-    public Type get(int index) {
+    public T get(int index) {
         if(index < 0){
             return null;
         }
@@ -86,7 +86,7 @@ public class ArrayDeque<Type> {
     }
 
     private void resize() {
-        Type[] item2 = (Type[]) new Object[item.length*2];
+        T[] item2 = (T[]) new Object[item.length*2];
         System.arraycopy(item,0,item2,0,sizeTail);
         System.arraycopy(item,head+1,item2,item2.length - sizeHead, sizeHead);
         item = item2;

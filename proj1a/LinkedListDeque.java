@@ -1,9 +1,9 @@
-public class LinkedListDeque<Type> {
+public class LinkedListDeque<T> {
 
     Node sentinel;
 
     private class Node{
-        private Type item;
+        private T item;
         private int size;
         Node LastPointer;
         private Node prev;
@@ -14,7 +14,7 @@ public class LinkedListDeque<Type> {
             size = 0;
             rest = null;
         }
-        public Node(Type x) {
+        public Node(T x) {
             item = x;
             size = 1;
             rest = null;
@@ -27,7 +27,7 @@ public class LinkedListDeque<Type> {
        sentinel = new Node();
     }
 
-    public LinkedListDeque(Type x) {
+    public LinkedListDeque(T x) {
         sentinel = new Node();
         Node B = new Node(x);
         sentinel.rest = B;
@@ -43,7 +43,7 @@ public class LinkedListDeque<Type> {
         System.out.print(A.item + " ");
     }
 
-    public void addFirst(Type x){
+    public void addFirst(T x){
         Node A = new Node(x);
         if (sentinel.size == 0) {
             sentinel.LastPointer = A;
@@ -58,7 +58,7 @@ public class LinkedListDeque<Type> {
 
 
     }
-    public void addLast(Type x) {
+    public void addLast(T x) {
 
 
         Node A = new Node(x);
@@ -84,33 +84,51 @@ public class LinkedListDeque<Type> {
         return sentinel.size;
     }
 
-    public Type removeFirst() {
+    public T removeFirst() {
         if (sentinel.rest == null) {
             return null;
         }
-        Type tmp = sentinel.rest.item;
+        T tmp = sentinel.rest.item;
         sentinel.rest = sentinel.rest.rest;
         sentinel.size = sentinel.size - 1;
         return tmp;
     }
 
-    public Type removeLast() {
+    public T removeLast() {
         if(sentinel.rest == null) {
             return null;
         }
-        Type A = sentinel.LastPointer.item;
+        T A = sentinel.LastPointer.item;
         sentinel.LastPointer = sentinel.LastPointer.prev;
         sentinel.LastPointer.rest = null;
 
         return A;
 
     }
-    public Type get(int index) {
-        Node A = sentinel.rest;
-        for(int i = 0; i < index; A = A.rest, i ++) {
+    public T get(int index) {
+        Node A = sentinel;
+        for(int i = 0; i < index; A = A.rest, i++) {
 
         }
         return A.item;
+    }
+
+    public T getRecursive(int index) {
+        Node A = sentinel;
+        T B = recursive(0, index, A);
+        return B;
+
+
+    }
+
+    private T recursive(int x, int index, Node A) {
+        if (x == index) {
+            return A.item;
+        }
+        A = A.rest;
+        T B;
+        B = recursive(x+1,index, A);
+        return B;
     }
 
 

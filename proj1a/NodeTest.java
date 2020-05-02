@@ -50,4 +50,16 @@ public class NodeTest {
         a.removeFirst();
         a.printDeque();
     }
+
+    @Test
+    public void getTest() {
+        LinkedListDeque a= new LinkedListDeque();
+        a.addLast(3);
+        a.addLast(5);
+//        a.removeFirst();
+       int b = (int) a.getRecursive(2);
+       System.out.print(b);
+
+    }
+
 }
