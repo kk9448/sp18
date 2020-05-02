@@ -78,7 +78,7 @@ public class ArrayDeque<T> {
             T a = removeTailFirst();
             return a;
         }
-        int tmp = head;
+        int tmp = head + 1;
         head = head + 1;
         sizeHead = sizeHead -1;
         size = sizeHead + sizeTail;
@@ -139,7 +139,7 @@ public class ArrayDeque<T> {
         System.arraycopy(item,0,item2,0,sizeTail);
         System.arraycopy(item, head , item2,item2.length - sizeHead - 1, sizeHead + 1 );
         item = item2;
-        head = item2.length - sizeHead -1;
+        head = item2.length - sizeHead - 2 ;
         FirstEnd = item.length-1;
     }
 

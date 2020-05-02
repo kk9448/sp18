@@ -415,4 +415,15 @@ public class NodeTest {
         assertEquals(8,  ArrayDeque.removeFirst());
     }
 
+    @Test
+    public void getADTest15() {
+        ArrayDeque ArrayDeque= new ArrayDeque();
+
+        ArrayDeque.addLast(0);
+        ArrayDeque.addFirst(1);
+//        ArrayDeque.removeFirst();
+//        ArrayDeque.removeFirst();
+        assertEquals(1,  ArrayDeque.removeFirst());
+    }
+
 }
