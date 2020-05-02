@@ -1,6 +1,6 @@
 public class LinkedListDeque<T> {
 
-    Node sentinel;
+    private Node sentinel;
 
     private class Node{
         private T item;
@@ -27,15 +27,18 @@ public class LinkedListDeque<T> {
        sentinel = new Node();
     }
 
-    public LinkedListDeque(T x) {
-        sentinel = new Node();
-        Node B = new Node(x);
-        sentinel.rest = B;
-        sentinel.size = sentinel.size + 1;
-        sentinel.LastPointer = B;
-    }
+//    public LinkedListDeque(T x) {
+//        sentinel = new Node();
+//        Node B = new Node(x);
+//        sentinel.rest = B;
+//        sentinel.size = sentinel.size + 1;
+//        sentinel.LastPointer = B;
+//    }
 
     public void printDeque() {
+        if (sentinel.rest == null) {
+            return ;
+        }
         Node A = sentinel.rest;
         for (;A.rest != null; A=A.rest) {
             System.out.print(A.item + " ");
@@ -106,6 +109,9 @@ public class LinkedListDeque<T> {
 
     }
     public T get(int index) {
+        if (index < 0) {
+            return null;
+        }
         Node A = sentinel;
         for(int i = 0; i < index; A = A.rest, i++) {
 
@@ -114,6 +120,9 @@ public class LinkedListDeque<T> {
     }
 
     public T getRecursive(int index) {
+        if (index < 0) {
+            return null;
+        }
         Node A = sentinel;
         T B = recursive(0, index, A);
         return B;

@@ -1,10 +1,10 @@
 public class ArrayDeque<T> {
-    T[] item = (T[]) new Object[8];
-    int tail = 0;
-    int head = item.length - 1;
-    int sizeHead = 0;
-    int sizeTail = 0;
-    int size = 0;
+    private T[] item = (T[]) new Object[8];
+    private int tail = 0;
+    private int head = item.length - 1;
+    private int sizeHead = 0;
+    private int sizeTail = 0;
+    private int size = 0;
 
 
     public void addFirst(T x) {
