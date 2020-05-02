@@ -145,6 +145,40 @@ public class NodeTest {
 
     }
 
+    @Test
+    public void LLD9() {
+        LinkedListDeque LinkedListDeque= new LinkedListDeque();
+
+
+        LinkedListDeque.isEmpty();
+        LinkedListDeque.addLast(1);
+        LinkedListDeque.removeFirst() ;
+        LinkedListDeque.addLast(3);
+        LinkedListDeque.addLast(4);
+        LinkedListDeque.removeFirst() ;
+        LinkedListDeque.removeFirst() ;
+        LinkedListDeque.isEmpty();
+        assertEquals( "true",Boolean.toString( LinkedListDeque.isEmpty()));
+
+
+    }
+
+    @Test
+    public void LLD10() {
+        LinkedListDeque LinkedListDeque= new LinkedListDeque();
+
+
+        LinkedListDeque.addLast(0);
+        LinkedListDeque.addFirst(1);
+        LinkedListDeque.removeFirst()  ;
+        LinkedListDeque.get(0);
+        LinkedListDeque.addFirst(4);
+//        LinkedListDeque.removeLast();
+        assertEquals( 0,LinkedListDeque.removeLast());
+
+
+    }
+
 
     @Test
     public void ArrayListTest() {
@@ -330,7 +364,38 @@ public class NodeTest {
         ArrayDeque.get(1);
 
         assertEquals(7, ArrayDeque.get(1));
-        ;    }
+    }
+
+    @Test
+    public void getADTest13() {
+        ArrayDeque ArrayDeque= new ArrayDeque();
+        ArrayDeque.addLast(0);
+        ArrayDeque.get(0) ;
+        ArrayDeque.addLast(2);
+        ArrayDeque.removeLast() ;
+        ArrayDeque.get(0) ;
+        ArrayDeque.removeFirst()  ;
+        ArrayDeque.addFirst(6);
+        ArrayDeque.addLast(7);
+        ArrayDeque.removeFirst()  ;
+        ArrayDeque.removeFirst()  ;
+        ArrayDeque.addFirst(10);
+        ArrayDeque.addFirst(11);
+        ArrayDeque.addFirst(12);
+        ArrayDeque.addLast(13);
+        ArrayDeque.get(1)   ;
+        ArrayDeque.addLast(15);
+        ArrayDeque.addLast(16);
+        ArrayDeque.removeFirst() ;
+        ArrayDeque.get(3) ;
+        ArrayDeque.addFirst(19);
+        ArrayDeque.addLast(20);
+        ArrayDeque.addFirst(21);
+        ArrayDeque.removeLast() ;
+        ArrayDeque.get(1);
+
+        assertEquals(19, ArrayDeque.get(1));
+    }
 
 
 }
