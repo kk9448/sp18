@@ -6,11 +6,17 @@ public class NodeTest {
     @Test
     public void addLastTest() {
         LinkedListDeque a= new LinkedListDeque();
-        a.addLast(3);
-        a.addLast(5);
-//        a.removeFirst();
+        a.addLast(0);
+//        a.removeFirst() ;
+        a.addLast(1);
         a.removeLast();
-        a.printDeque();
+        a.removeLast();
+        a.isEmpty();
+        System.out.println(a.isEmpty());
+//        a.removeFirst() ;
+//        a.removeFirst();
+//        a.removeLast();
+//        a.printDeque();
 
     }
 

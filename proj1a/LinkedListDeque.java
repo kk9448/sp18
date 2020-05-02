@@ -68,12 +68,15 @@ public class LinkedListDeque<T> {
         if (sentinel.LastPointer == null) {
             sentinel.rest = A;
             sentinel.LastPointer = A;
+            A.prev = sentinel;
+        } else {
+            sentinel.LastPointer.rest = A;
+            A.prev = sentinel.LastPointer;
+            sentinel.LastPointer = A;
+            sentinel.size = sentinel.size + 1;
         }
 
-        sentinel.LastPointer.rest = A;
-        A.prev = sentinel.LastPointer;
-        sentinel.LastPointer = A;
-        sentinel.size = sentinel.size + 1;
+
     }
 
     public boolean isEmpty() {
@@ -112,7 +115,7 @@ public class LinkedListDeque<T> {
         if (index < 0) {
             return null;
         }
-        Node A = sentinel;
+        Node A = sentinel.rest;
         for(int i = 0; i < index; A = A.rest, i++) {
 
         }
@@ -123,7 +126,7 @@ public class LinkedListDeque<T> {
         if (index < 0) {
             return null;
         }
-        Node A = sentinel;
+        Node A = sentinel.rest;
         T B = recursive(0, index, A);
         return B;
 
