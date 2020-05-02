@@ -54,8 +54,9 @@ public class LinkedListDeque<T> {
             A.prev = sentinel;
         } else {
             A.rest = sentinel.rest;
-            sentinel.rest.prev = A;
             sentinel.rest = A;
+            sentinel.rest.prev = A;
+
         }
 
         sentinel.size = sentinel.size + 1;
@@ -74,9 +75,10 @@ public class LinkedListDeque<T> {
             sentinel.LastPointer.rest = A;
             A.prev = sentinel.LastPointer;
             sentinel.LastPointer = A;
-            sentinel.size = sentinel.size + 1;
+
         }
 
+        sentinel.size = sentinel.size + 1;
 
     }
 

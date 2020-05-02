@@ -5,19 +5,18 @@ public class NodeTest {
 
     @Test
     public void addLastTest() {
-        LinkedListDeque a= new LinkedListDeque();
-        a.addFirst(0);
-//        a.removeFirst() ;
-//        a.addLast(1);
-        a.removeLast();
-//        a.removeLast();
-        a.isEmpty();
-        System.out.println(a.isEmpty());
-//        a.removeFirst() ;
-//        a.removeFirst();
-//        a.removeLast();
-//        a.printDeque();
-
+        LinkedListDeque LinkedListDeque= new LinkedListDeque();
+        LinkedListDeque.addLast(0);
+        LinkedListDeque.removeFirst() ;
+        LinkedListDeque.addLast(2);
+        LinkedListDeque.addLast(3);
+        LinkedListDeque.addLast(4);
+        LinkedListDeque.addLast(5);
+        LinkedListDeque.addLast(6);
+        LinkedListDeque.addLast(7);
+        LinkedListDeque.addLast(8);
+        LinkedListDeque.addLast(9);
+        System.out.print(LinkedListDeque.isEmpty());
     }
 
     @Test
