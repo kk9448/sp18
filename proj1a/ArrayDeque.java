@@ -40,7 +40,11 @@ public class ArrayDeque<T> {
             return a;
         }
         int tmp = tail - 1;
-        tail = tail - 2;
+        if (tail == 1) {
+            tail = 0;
+        } else {
+            tail = tail - 2;
+        }
         sizeTail = sizeTail -1;
         size = sizeHead + sizeTail;
         return item[tmp];
