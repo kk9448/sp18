@@ -14,9 +14,14 @@ public class ArrayDeque<T> {
             resize();
         }
         item[head] = x;
-        head = head - 1;
-        sizeHead = sizeHead +1;
-        size = sizeHead + sizeTail;
+        if (head != 0) {
+            head = head - 1;
+            sizeHead = sizeHead +1;
+            size = sizeHead + sizeTail;
+        } else {
+            resize();
+        }
+
     }
 
     public void addLast(T x) {
@@ -24,9 +29,14 @@ public class ArrayDeque<T> {
             resize();
         }
         item[tail] = x;
-        tail = tail + 1;
-        sizeTail = sizeTail +1;
-        size = sizeHead + sizeTail;
+        if (tail != item.length -1) {
+            tail = tail + 1;
+            sizeTail = sizeTail +1;
+            size = sizeHead + sizeTail;
+        } else {
+            resize();
+        }
+
     }
 
     public T removeLast() {
@@ -40,11 +50,12 @@ public class ArrayDeque<T> {
             return a;
         }
         int tmp = tail - 1;
-        if (tail == 1) {
-            tail = 0;
-        } else {
-            tail = tail - 2;
-        }
+//        if (tail == 1) {
+//            tail = 0;
+//        } else {
+//            tail = tail - 2;
+//        }
+        tail = tail - 1;
         sizeTail = sizeTail -1;
         size = sizeHead + sizeTail;
         return item[tmp];
@@ -68,7 +79,7 @@ public class ArrayDeque<T> {
             return a;
         }
         int tmp = head+1;
-        head = head + 2;
+        head = head + 1;
         sizeHead = sizeHead -1;
         size = sizeHead + sizeTail;
         return item[tmp];

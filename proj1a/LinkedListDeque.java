@@ -98,6 +98,11 @@ public class LinkedListDeque<T> {
             return null;
         }
         T tmp = sentinel.rest.item;
+        if (sentinel.rest.rest == null) {
+            sentinel.LastPointer.rest = null;
+            sentinel.LastPointer = null;
+            return tmp;
+        }
         sentinel.rest.rest.prev = sentinel;
         sentinel.rest = sentinel.rest.rest;
 //        sentinel.LastPointer = sentinel.LastPointer.prev;

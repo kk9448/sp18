@@ -53,6 +53,62 @@ public class NodeTest {
     }
 
     @Test
+    public void LLD3() {
+        LinkedListDeque LinkedListDeque= new LinkedListDeque();
+
+
+        LinkedListDeque.addFirst(0);
+        LinkedListDeque.removeFirst();
+//        LinkedListDeque.removeLast();
+//        assertEquals(3,LinkedListDeque.removeFirst());
+
+
+
+    }
+
+    @Test
+    public void LLD4() {
+        LinkedListDeque LinkedListDeque= new LinkedListDeque();
+
+
+        LinkedListDeque.addLast(0);
+        LinkedListDeque.addLast(1);
+        LinkedListDeque.removeFirst() ;
+        LinkedListDeque.isEmpty();
+        LinkedListDeque.removeFirst();
+
+
+
+    }
+    @Test
+    public void LLD5() {
+        LinkedListDeque LinkedListDeque= new LinkedListDeque();
+
+
+        LinkedListDeque.size();
+        LinkedListDeque.addFirst(1);
+        LinkedListDeque.addFirst(2);
+        LinkedListDeque.removeLast() ;
+        LinkedListDeque.removeFirst();
+
+
+
+    }
+
+    @Test
+    public void LLD6() {
+        LinkedListDeque LinkedListDeque= new LinkedListDeque();
+
+
+        LinkedListDeque.addLast(0);
+        LinkedListDeque.removeFirst();
+
+
+
+    }
+
+
+    @Test
     public void ArrayListTest() {
         ArrayDeque ArrayDeque = new ArrayDeque();
         ArrayDeque.addFirst(1);
@@ -144,5 +200,45 @@ public class NodeTest {
 //        assertEquals(8,ArrayDeque.get(0));
 
     }
+
+    @Test
+    public void getADTest6() {
+        ArrayDeque ArrayDeque= new ArrayDeque();
+        ArrayDeque.addFirst(0);
+        ArrayDeque.removeFirst();
+        ArrayDeque.addFirst(2);
+//        assertEquals(8,ArrayDeque.get(0));
+
+    }
+
+    @Test
+    public void getADTest7() {
+        ArrayDeque ArrayDeque= new ArrayDeque();
+        ArrayDeque.addFirst(0);
+        ArrayDeque.isEmpty();
+        ArrayDeque.addFirst(2);
+        ArrayDeque.addFirst(3);
+        ArrayDeque.addFirst(4);
+        ArrayDeque.addFirst(5);
+        ArrayDeque.isEmpty();
+        ArrayDeque.removeLast() ;
+        ArrayDeque.addFirst(8);
+        ArrayDeque.addFirst(9);
+        ArrayDeque.addFirst(10);
+        ArrayDeque.addFirst(11);
+
+    }
+
+
+
+    @Test
+    public void getADTest9() {
+        ArrayDeque ArrayDeque= new ArrayDeque();
+        ArrayDeque.addFirst(0);
+        ArrayDeque.size();
+        ArrayDeque.removeFirst();    
+        ArrayDeque.addFirst(3);
+    }
+
 
 }
