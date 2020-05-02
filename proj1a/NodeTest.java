@@ -107,6 +107,28 @@ public class NodeTest {
 
     }
 
+    @Test
+    public void LLD7() {
+        LinkedListDeque LinkedListDeque= new LinkedListDeque();
+
+
+        LinkedListDeque.isEmpty();
+        LinkedListDeque.addFirst(1);
+        LinkedListDeque.isEmpty();
+        LinkedListDeque.removeLast() ;
+        LinkedListDeque.addLast(4);
+        LinkedListDeque.removeFirst() ;
+        LinkedListDeque.addLast(6);
+        LinkedListDeque.removeLast()  ;
+        LinkedListDeque.addLast(8);
+        LinkedListDeque.removeLast()  ;
+        LinkedListDeque.size();
+        assertEquals( 0,    LinkedListDeque.size());
+
+
+
+    }
+
 
     @Test
     public void ArrayListTest() {
@@ -236,9 +258,25 @@ public class NodeTest {
         ArrayDeque ArrayDeque= new ArrayDeque();
         ArrayDeque.addFirst(0);
         ArrayDeque.size();
-        ArrayDeque.removeFirst();    
+        ArrayDeque.removeFirst();
         ArrayDeque.addFirst(3);
     }
+
+    @Test
+    public void getADTest10() {
+        ArrayDeque ArrayDeque= new ArrayDeque();
+        ArrayDeque.addLast(0);
+        ArrayDeque.addFirst(1);
+        ArrayDeque.addLast(2);
+        ArrayDeque.addLast(3);
+        ArrayDeque.get(2) ;
+        ArrayDeque.get(2) ;
+        ArrayDeque.get(2) ;
+        ArrayDeque.removeLast()  ;
+        ArrayDeque.addFirst(8);
+        ArrayDeque.removeLast()  ;
+        assertEquals(8,ArrayDeque.get(0));
+;    }
 
 
 }

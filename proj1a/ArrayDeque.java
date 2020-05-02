@@ -129,7 +129,7 @@ public class ArrayDeque<T> {
                 return item[remain];
             }
         } else {
-            return item[head + index];
+            return item[head + 1 + index];
         }
 
     }
