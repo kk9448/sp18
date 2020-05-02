@@ -424,6 +424,34 @@ public class NodeTest {
 //        ArrayDeque.removeFirst();
 //        ArrayDeque.removeFirst();
         assertEquals(1,  ArrayDeque.removeFirst());
+}
+
+    @Test
+    public void getADTest16() {
+        ArrayDeque ArrayDeque= new ArrayDeque();
+
+        ArrayDeque.addLast(0);
+        ArrayDeque.removeLast();
+        ArrayDeque.addLast(2);
+        ArrayDeque.removeFirst();
+        ArrayDeque.addFirst(4);
+        ArrayDeque.addFirst(5);
+        ArrayDeque.removeFirst();
+        ArrayDeque.get(0);
+        ArrayDeque.get(0);
+        ArrayDeque.addLast(9);
+        ArrayDeque.addFirst(10);
+        ArrayDeque.addLast(11);
+        ArrayDeque.addLast(12);
+        ArrayDeque.addFirst(13);
+        ArrayDeque.get(1);
+        ArrayDeque.addFirst(15);
+        ArrayDeque.removeFirst() ;
+        ArrayDeque.get(1) ;
+        ArrayDeque.addFirst(18);
+        ArrayDeque.addLast(19);
+//        ArrayDeque.removeFirst();
+        assertEquals(18,  ArrayDeque.removeFirst());
     }
 
 }
