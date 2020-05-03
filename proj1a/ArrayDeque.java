@@ -143,6 +143,8 @@ public class ArrayDeque<T> {
         item = item2;
         head = item2.length - sizeHead - 1 ;
         FirstEnd = item.length-1;
+        tail = tail - tailFirst;
+        tailFirst = 0;
     }
 
 }
