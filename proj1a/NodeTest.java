@@ -454,4 +454,27 @@ public class NodeTest {
         assertEquals(18,  ArrayDeque.removeFirst());
     }
 
+    @Test
+    public void getADTest17() {
+        ArrayDeque ArrayDeque= new ArrayDeque();
+
+        ArrayDeque.addFirst(0);
+        ArrayDeque.removeLast();
+        ArrayDeque.addLast(2);
+        ArrayDeque.removeFirst();
+        ArrayDeque.addLast(4);
+        ArrayDeque.addLast(5);
+        ArrayDeque.removeLast();
+        ArrayDeque.removeLast();
+        ArrayDeque.addLast(8);
+        ArrayDeque.removeFirst();
+        ArrayDeque.addLast(10);
+        ArrayDeque.addLast(11);
+        ArrayDeque.get(0);
+        ArrayDeque.addFirst(13);
+        ArrayDeque.addFirst(14);
+//        ArrayDeque.removeLast();
+        assertEquals(11,  ArrayDeque.removeLast());
+    }
+
 }
