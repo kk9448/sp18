@@ -522,7 +522,7 @@ public class NodeTest {
         assertEquals(8, ArrayDeque.removeFirst());
     }
 
-<<<<<<<HEAD
+
 
     @Test
     public void getADTest20() {
