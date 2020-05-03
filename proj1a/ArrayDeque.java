@@ -1,4 +1,4 @@
-import java.lang.Math;
+
 public class ArrayDeque<T> {
     private T[] item = (T[]) new Object[8];
     private int tail = 0;
@@ -6,7 +6,7 @@ public class ArrayDeque<T> {
     private int sizeHead = 0;
     private int sizeTail = 0;
     private int size = 0;
-    private int FirstEnd = item.length-1;
+    private int FirstEnd = item.length - 1;
     private int tailFirst = 0;
 
 
@@ -17,7 +17,7 @@ public class ArrayDeque<T> {
         item[head] = x;
         if (head != 0) {
             head = head - 1;
-            sizeHead = sizeHead +1;
+            sizeHead = sizeHead + 1;
             size = sizeHead + sizeTail;
         } else {
             resize();
@@ -26,7 +26,7 @@ public class ArrayDeque<T> {
     }
 
     public void addLast(T x) {
-        if(size == item.length || head == tail || tail == head ) {
+        if (size == item.length || head == tail || tail == head) {
 //            sizeTail = sizeTail +1;
             resize();
         }
@@ -62,7 +62,7 @@ public class ArrayDeque<T> {
 //            tail = tail - 2;
 //        }
         tail = tail - 1;
-        sizeTail = sizeTail -1;
+        sizeTail = sizeTail - 1;
         size = sizeHead + sizeTail;
         return item[tmp];
     }
@@ -89,7 +89,7 @@ public class ArrayDeque<T> {
         }
         int tmp = head + 1;
         head = head + 1;
-        sizeHead = sizeHead -1;
+        sizeHead = sizeHead - 1;
         size = sizeHead + sizeTail;
         return item[tmp];
     }
@@ -102,7 +102,7 @@ public class ArrayDeque<T> {
     }
 
     public boolean isEmpty() {
-        if(size == 0) {
+        if (size == 0) {
             return true;
         } else {
             return false;
@@ -114,25 +114,25 @@ public class ArrayDeque<T> {
     }
 
     public void printDeque() {
-        if(sizeHead > 0) {
-            for(int i = head+1; i <= item.length - 1; i++, head++) {
+        if (sizeHead > 0) {
+            for (int i = head + 1; i <= item.length - 1; i++, head++) {
                 System.out.print(item[i] + " ");
             }
         }
-        if(sizeTail > 0) {
-            for(int i = 0; i <= tail - 1; i++) {
+        if (sizeTail > 0) {
+            for (int i = 0; i <= tail - 1; i++) {
                 System.out.print(item[i] + " ");
             }
         }
     }
 
     public T get(int index) {
-        if(index < 0){
+        if (index < 0) {
             return null;
         }
-        if(index >= sizeHead) {
+        if (index >= sizeHead) {
             int remain = index - sizeHead;
-            if(remain > sizeTail) {
+            if (remain > sizeTail) {
                 return null;
             } else {
                 return item[remain + tailFirst];
@@ -144,26 +144,21 @@ public class ArrayDeque<T> {
     }
 
     private void resize() {
-        T[] item2 = (T[]) new Object[item.length*2];
-        System.arraycopy(item, tailFirst, item2,0, sizeTail);
-        System.arraycopy(item, head , item2,item2.length - sizeHead - 1, sizeHead + 1 );
+        T[] item2 = (T[]) new Object[item.length * 2];
+        System.arraycopy(item, tailFirst, item2, 0, sizeTail);
+        System.arraycopy(item, head, item2, item2.length - sizeHead - 1, sizeHead + 1);
         item = item2;
-        head = item2.length - sizeHead - 1 ;
+        head = item2.length - sizeHead - 1;
         FirstEnd = item.length - 1;
         tail = tail - tailFirst;
         tailFirst = 0;
     }
 
     private void contractedSize() {
-        T[] item2 = (T[]) new Object[item.length/2];
-        System.arraycopy(item,tailFirst, item2,0, sizeTail);
-        System.arraycopy(item, head , item2,item2.length - sizeHead - 1, sizeHead + 1 );
+        T[] item2 = (T[]) new Object[item.length / 2];
+        System.arraycopy(item, tailFirst, item2, 0, sizeTail);
+        System.arraycopy(item, head, item2, item2.length - sizeHead - 1, sizeHead + 1);
         item = item2;
-    }
-
-    public static int log2(int x)
-    {
-        return (int) (Math.log(x) / Math.log(2));
     }
 
 }
