@@ -1,3 +1,4 @@
+import java.lang.Math;
 public class ArrayDeque<T> {
     private T[] item = (T[]) new Object[8];
     private int tail = 0;
@@ -42,6 +43,9 @@ public class ArrayDeque<T> {
     }
 
     public T removeLast() {
+        if (size < item.length/8) {
+            contractedSize();
+        }
         if (sizeTail == 0) {
             if (sizeHead == 0) {
                 return null;
@@ -71,6 +75,9 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
+        if (size < item.length/8) {
+            contractedSize();
+        }
         if (sizeHead == 0) {
             if (sizeTail == 0) {
                 return null;
@@ -145,6 +152,18 @@ public class ArrayDeque<T> {
         FirstEnd = item.length - 1;
         tail = tail - tailFirst;
         tailFirst = 0;
+    }
+
+    private void contractedSize() {
+        T[] item2 = (T[]) new Object[item.length/2];
+        System.arraycopy(item,tailFirst, item2,0, sizeTail);
+        System.arraycopy(item, head , item2,item2.length - sizeHead - 1, sizeHead + 1 );
+        item = item2;
+    }
+
+    public static int log2(int x)
+    {
+        return (int) (Math.log(x) / Math.log(2));
     }
 
 }
