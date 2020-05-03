@@ -30,9 +30,9 @@ public class ArrayDeque<T> {
             resize();
         }
         item[tail] = x;
-        if (tail != item.length -1) {
+        if (tail != item.length - 1) {
             tail = tail + 1;
-            sizeTail = sizeTail +1;
+            sizeTail = sizeTail + 1;
             size = sizeHead + sizeTail;
         } else {
 //            sizeTail = sizeTail +1;
@@ -43,7 +43,7 @@ public class ArrayDeque<T> {
 
     public T removeLast() {
         if (sizeTail == 0) {
-            if (sizeHead ==0) {
+            if (sizeHead == 0) {
                 return null;
             }
             sizeHead = sizeHead - 1;
@@ -72,7 +72,7 @@ public class ArrayDeque<T> {
 
     public T removeFirst() {
         if (sizeHead == 0) {
-            if (sizeTail ==0) {
+            if (sizeTail == 0) {
                 return null;
             }
             sizeTail = sizeTail - 1;
@@ -113,7 +113,7 @@ public class ArrayDeque<T> {
             }
         }
         if(sizeTail > 0) {
-            for(int i = 0; i <= tail -1; i++) {
+            for(int i = 0; i <= tail - 1; i++) {
                 System.out.print(item[i] + " ");
             }
         }
@@ -138,11 +138,11 @@ public class ArrayDeque<T> {
 
     private void resize() {
         T[] item2 = (T[]) new Object[item.length*2];
-        System.arraycopy(item,tailFirst,item2,0,sizeTail);
+        System.arraycopy(item,tailFirst, item2,0, sizeTail);
         System.arraycopy(item, head , item2,item2.length - sizeHead - 1, sizeHead + 1 );
         item = item2;
         head = item2.length - sizeHead - 1 ;
-        FirstEnd = item.length-1;
+        FirstEnd = item.length - 1;
         tail = tail - tailFirst;
         tailFirst = 0;
     }

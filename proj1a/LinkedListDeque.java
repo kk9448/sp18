@@ -24,7 +24,7 @@ public class LinkedListDeque<T> {
 
 
     public LinkedListDeque() {
-       sentinel = new Node();
+        sentinel = new Node();
     }
 
 //    public LinkedListDeque(T x) {
@@ -40,7 +40,7 @@ public class LinkedListDeque<T> {
             return ;
         }
         Node A = sentinel.rest;
-        for (;A.rest != null; A=A.rest) {
+        for (;A.rest != null; A = A.rest) {
             System.out.print(A.item + " ");
         }
         System.out.print(A.item + " ");
@@ -159,7 +159,7 @@ public class LinkedListDeque<T> {
         }
         A = A.rest;
         T B;
-        B = recursive(x+1,index, A);
+        B = recursive(x+1, index, A);
         return B;
     }
 
