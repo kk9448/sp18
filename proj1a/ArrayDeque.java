@@ -26,6 +26,7 @@ public class ArrayDeque<T> {
 
     public void addLast(T x) {
         if(size == item.length || head == tail || tail == head ) {
+//            sizeTail = sizeTail +1;
             resize();
         }
         item[tail] = x;
@@ -34,6 +35,7 @@ public class ArrayDeque<T> {
             sizeTail = sizeTail +1;
             size = sizeHead + sizeTail;
         } else {
+//            sizeTail = sizeTail +1;
             resize();
         }
 
@@ -136,10 +138,10 @@ public class ArrayDeque<T> {
 
     private void resize() {
         T[] item2 = (T[]) new Object[item.length*2];
-        System.arraycopy(item,0,item2,0,sizeTail);
+        System.arraycopy(item,tailFirst,item2,0,sizeTail);
         System.arraycopy(item, head , item2,item2.length - sizeHead - 1, sizeHead + 1 );
         item = item2;
-        head = item2.length - sizeHead - 2 ;
+        head = item2.length - sizeHead - 1 ;
         FirstEnd = item.length-1;
     }
 
