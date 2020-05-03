@@ -521,7 +521,7 @@ public class NodeTest {
 
         assertEquals(8, ArrayDeque.removeFirst());
     }
-    
+
     @Test
     public void getADTest20() {
         ArrayDeque ArrayDeque = new ArrayDeque();
