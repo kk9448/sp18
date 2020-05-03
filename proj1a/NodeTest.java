@@ -5,59 +5,59 @@ public class NodeTest {
 
     @Test
     public void addLastTest() {
-        LinkedListDeque LinkedListDeque = new LinkedListDeque();
-        LinkedListDeque.addFirst(0);
-        LinkedListDeque.removeLast();
-        LinkedListDeque.addLast(3);
-        LinkedListDeque.addFirst(4);
-        LinkedListDeque.addFirst(5);
-        LinkedListDeque.addFirst(6);
-        LinkedListDeque.getRecursive(0);
-        LinkedListDeque.addLast(8);
-        LinkedListDeque.addFirst(9);
-        System.out.print(LinkedListDeque.removeLast());
-        LinkedListDeque.removeLast();
+        LinkedListDeque linkedListDeque = new LinkedListDeque();
+        linkedListDeque.addFirst(0);
+        linkedListDeque.removeLast();
+        linkedListDeque.addLast(3);
+        linkedListDeque.addFirst(4);
+        linkedListDeque.addFirst(5);
+        linkedListDeque.addFirst(6);
+        linkedListDeque.getRecursive(0);
+        linkedListDeque.addLast(8);
+        linkedListDeque.addFirst(9);
+        System.out.print(linkedListDeque.removeLast());
+        linkedListDeque.removeLast();
 //        LinkedListDeque.removeFirst();
-        System.out.print(LinkedListDeque.removeFirst());
+        System.out.print(linkedListDeque.removeFirst());
     }
 
     @Test
     public void LLD() {
-        LinkedListDeque LinkedListDeque = new LinkedListDeque();
+        LinkedListDeque linkedListDeque = new LinkedListDeque();
 
-        LinkedListDeque.addFirst(0);
-        LinkedListDeque.addFirst(1);
-        LinkedListDeque.removeFirst();
+        linkedListDeque.addFirst(0);
+        linkedListDeque.addFirst(1);
+        linkedListDeque.removeFirst();
 //        LinkedListDeque.removeLast();
 
-        assertEquals(0, LinkedListDeque.removeLast());
+        assertEquals(0, linkedListDeque.removeLast());
 
     }
 
     @Test
     public void LLD2() {
-        LinkedListDeque LinkedListDeque = new LinkedListDeque();
+        LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
-        LinkedListDeque.addLast(3);
-        LinkedListDeque.addLast(5);
-        LinkedListDeque.addLast(6);
-        LinkedListDeque.addLast(7);
-        LinkedListDeque.addLast(8);
+        linkedListDeque.addLast(3);
+        linkedListDeque.addLast(5);
+        linkedListDeque.addLast(6);
+        linkedListDeque.addLast(7);
+        linkedListDeque.addLast(8);
 
 //        LinkedListDeque.removeLast();
-        assertEquals(3, LinkedListDeque.removeFirst());
+        assertEquals(3, linkedListDeque.removeFirst());
 
 
     }
 
     @Test
     public void LLD3() {
-        LinkedListDeque LinkedListDeque = new LinkedListDeque();
+        LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
-        LinkedListDeque.addFirst(0);
-        LinkedListDeque.removeFirst();
+        linkedListDeque.addFirst(0);
+        linkedListDeque.removeFirst();
 //        LinkedListDeque.removeLast();
 //        assertEquals(3,LinkedListDeque.removeFirst());
 
@@ -66,110 +66,110 @@ public class NodeTest {
 
     @Test
     public void LLD4() {
-        LinkedListDeque LinkedListDeque = new LinkedListDeque();
+        LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
-        LinkedListDeque.addLast(0);
-        LinkedListDeque.addLast(1);
-        LinkedListDeque.removeFirst();
-        LinkedListDeque.isEmpty();
-        LinkedListDeque.removeFirst();
+        linkedListDeque.addLast(0);
+        linkedListDeque.addLast(1);
+        linkedListDeque.removeFirst();
+        linkedListDeque.isEmpty();
+        linkedListDeque.removeFirst();
 
 
     }
 
     @Test
     public void LLD5() {
-        LinkedListDeque LinkedListDeque = new LinkedListDeque();
+        LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
-        LinkedListDeque.size();
-        LinkedListDeque.addFirst(1);
-        LinkedListDeque.addFirst(2);
-        LinkedListDeque.removeLast();
-        LinkedListDeque.removeFirst();
+        linkedListDeque.size();
+        linkedListDeque.addFirst(1);
+        linkedListDeque.addFirst(2);
+        linkedListDeque.removeLast();
+        linkedListDeque.removeFirst();
 
 
     }
 
     @Test
     public void LLD6() {
-        LinkedListDeque LinkedListDeque = new LinkedListDeque();
+        LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
-        LinkedListDeque.addLast(0);
-        LinkedListDeque.removeFirst();
+        linkedListDeque.addLast(0);
+        linkedListDeque.removeFirst();
 
 
     }
 
     @Test
     public void LLD7() {
-        LinkedListDeque LinkedListDeque = new LinkedListDeque();
+        LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
-        LinkedListDeque.isEmpty();
-        LinkedListDeque.addFirst(1);
-        LinkedListDeque.isEmpty();
-        LinkedListDeque.removeLast();
-        LinkedListDeque.addLast(4);
-        LinkedListDeque.removeFirst();
-        LinkedListDeque.addLast(6);
-        LinkedListDeque.removeLast();
-        LinkedListDeque.addLast(8);
-        LinkedListDeque.removeLast();
-        LinkedListDeque.size();
-        assertEquals(0, LinkedListDeque.size());
+        linkedListDeque.isEmpty();
+        linkedListDeque.addFirst(1);
+        linkedListDeque.isEmpty();
+        linkedListDeque.removeLast();
+        linkedListDeque.addLast(4);
+        linkedListDeque.removeFirst();
+        linkedListDeque.addLast(6);
+        linkedListDeque.removeLast();
+        linkedListDeque.addLast(8);
+        linkedListDeque.removeLast();
+        linkedListDeque.size();
+        assertEquals(0, linkedListDeque.size());
 
 
     }
 
     @Test
     public void LLD8() {
-        LinkedListDeque LinkedListDeque = new LinkedListDeque();
+        LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
-        LinkedListDeque.isEmpty();
-        LinkedListDeque.addFirst(1);
-        LinkedListDeque.removeFirst();
-        LinkedListDeque.addFirst(3);
-        LinkedListDeque.removeFirst();
-        LinkedListDeque.isEmpty();
-        assertEquals("true", Boolean.toString(LinkedListDeque.isEmpty()));
+        linkedListDeque.isEmpty();
+        linkedListDeque.addFirst(1);
+        linkedListDeque.removeFirst();
+        linkedListDeque.addFirst(3);
+        linkedListDeque.removeFirst();
+        linkedListDeque.isEmpty();
+        assertEquals("true", Boolean.toString(linkedListDeque.isEmpty()));
 
 
     }
 
     @Test
     public void LLD9() {
-        LinkedListDeque LinkedListDeque = new LinkedListDeque();
+        LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
-        LinkedListDeque.isEmpty();
-        LinkedListDeque.addLast(1);
-        LinkedListDeque.removeFirst();
-        LinkedListDeque.addLast(3);
-        LinkedListDeque.addLast(4);
-        LinkedListDeque.removeFirst();
-        LinkedListDeque.removeFirst();
-        LinkedListDeque.isEmpty();
-        assertEquals("true", Boolean.toString(LinkedListDeque.isEmpty()));
+        linkedListDeque.isEmpty();
+        linkedListDeque.addLast(1);
+        linkedListDeque.removeFirst();
+        linkedListDeque.addLast(3);
+        linkedListDeque.addLast(4);
+        linkedListDeque.removeFirst();
+        linkedListDeque.removeFirst();
+        linkedListDeque.isEmpty();
+        assertEquals("true", Boolean.toString(linkedListDeque.isEmpty()));
 
 
     }
 
     @Test
     public void LLD10() {
-        LinkedListDeque LinkedListDeque = new LinkedListDeque();
+        LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
-        LinkedListDeque.addLast(0);
-        LinkedListDeque.addFirst(1);
-        LinkedListDeque.removeFirst();
-        LinkedListDeque.get(0);
-        LinkedListDeque.addFirst(4);
+        linkedListDeque.addLast(0);
+        linkedListDeque.addFirst(1);
+        linkedListDeque.removeFirst();
+        linkedListDeque.get(0);
+        linkedListDeque.addFirst(4);
 //        LinkedListDeque.removeLast();
-        assertEquals(0, LinkedListDeque.removeLast());
+        assertEquals(0, linkedListDeque.removeLast());
 
 
     }
@@ -177,35 +177,35 @@ public class NodeTest {
 
     @Test
     public void ArrayListTest() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
-        ArrayDeque.addFirst(1);
-        ArrayDeque.addFirst(2);
-        ArrayDeque.addFirst(3);
-        ArrayDeque.addFirst(4);
-        ArrayDeque.addFirst(5);
-        ArrayDeque.addFirst(6);
-        ArrayDeque.addFirst(7);
-        ArrayDeque.addFirst(8);
-        ArrayDeque.addFirst(9);
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.addFirst(1);
+        arrayDeque.addFirst(2);
+        arrayDeque.addFirst(3);
+        arrayDeque.addFirst(4);
+        arrayDeque.addFirst(5);
+        arrayDeque.addFirst(6);
+        arrayDeque.addFirst(7);
+        arrayDeque.addFirst(8);
+        arrayDeque.addFirst(9);
 
-        ArrayDeque.removeLast();
-        ArrayDeque.removeFirst();
-        ArrayDeque.printDeque();
+        arrayDeque.removeLast();
+        arrayDeque.removeFirst();
+        arrayDeque.printDeque();
     }
 
     @Test
     public void getTest() {
-        LinkedListDeque LinkedListDeque = new LinkedListDeque();
-        LinkedListDeque.addLast(1);
-        LinkedListDeque.addLast(2);
-        LinkedListDeque.addLast(3);
-        LinkedListDeque.addLast(4);
-        LinkedListDeque.addLast(5);
-        LinkedListDeque.addLast(6);
-        LinkedListDeque.addLast(7);
-        LinkedListDeque.addLast(8);
+        LinkedListDeque linkedListDeque = new LinkedListDeque();
+        linkedListDeque.addLast(1);
+        linkedListDeque.addLast(2);
+        linkedListDeque.addLast(3);
+        linkedListDeque.addLast(4);
+        linkedListDeque.addLast(5);
+        linkedListDeque.addLast(6);
+        linkedListDeque.addLast(7);
+        linkedListDeque.addLast(8);
 //        a.removeFirst();
-        int b = (int) LinkedListDeque.get(7);
+        int b = (int) linkedListDeque.get(7);
         System.out.print(b);
 
     }
@@ -213,333 +213,334 @@ public class NodeTest {
 
     @Test
     public void getADTest() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
-        ArrayDeque.addLast(0);
-        ArrayDeque.removeFirst();
-        ArrayDeque.isEmpty();
-        assertEquals("true", Boolean.toString(ArrayDeque.isEmpty()));
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.addLast(0);
+        arrayDeque.removeFirst();
+        arrayDeque.isEmpty();
+        assertEquals("true", Boolean.toString(arrayDeque.isEmpty()));
 
     }
 
     @Test
     public void getADTest2() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
-        ArrayDeque.addLast(0);
-        ArrayDeque.size();
-        ArrayDeque.size();
-        ArrayDeque.isEmpty();
-        ArrayDeque.addLast(4);
-        ArrayDeque.addLast(5);
-        ArrayDeque.addLast(6);
-        ArrayDeque.addFirst(7);
-        ArrayDeque.addFirst(8);
-        int b = (int) ArrayDeque.removeLast();
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.addLast(0);
+        arrayDeque.size();
+        arrayDeque.size();
+        arrayDeque.isEmpty();
+        arrayDeque.addLast(4);
+        arrayDeque.addLast(5);
+        arrayDeque.addLast(6);
+        arrayDeque.addFirst(7);
+        arrayDeque.addFirst(8);
+        int b = (int) arrayDeque.removeLast();
         System.out.print(b);
 
     }
 
     @Test
     public void getADTest3() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
-        ArrayDeque.size();
-        ArrayDeque.addFirst(1);
-        ArrayDeque.addLast(2);
-        assertEquals(2, ArrayDeque.removeLast());
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.size();
+        arrayDeque.addFirst(1);
+        arrayDeque.addLast(2);
+        assertEquals(2, arrayDeque.removeLast());
 
     }
 
     @Test
     public void getADTest4() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
-        ArrayDeque.addLast(0);
-        ArrayDeque.get(0);
-        assertEquals(0, ArrayDeque.get(0));
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.addLast(0);
+        arrayDeque.get(0);
+        assertEquals(0, arrayDeque.get(0));
 
     }
 
     @Test
     public void getADTest5() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
-        ArrayDeque.addLast(0);
-        ArrayDeque.addFirst(1);
-        ArrayDeque.removeLast();
-        ArrayDeque.addLast(3);
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.addLast(0);
+        arrayDeque.addFirst(1);
+        arrayDeque.removeLast();
+        arrayDeque.addLast(3);
 //        assertEquals(8,ArrayDeque.get(0));
 
     }
 
     @Test
     public void getADTest6() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
-        ArrayDeque.addFirst(0);
-        ArrayDeque.removeFirst();
-        ArrayDeque.addFirst(2);
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.addFirst(0);
+        arrayDeque.removeFirst();
+        arrayDeque.addFirst(2);
 //        assertEquals(8,ArrayDeque.get(0));
 
     }
 
     @Test
     public void getADTest7() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
-        ArrayDeque.addFirst(0);
-        ArrayDeque.isEmpty();
-        ArrayDeque.addFirst(2);
-        ArrayDeque.addFirst(3);
-        ArrayDeque.addFirst(4);
-        ArrayDeque.addFirst(5);
-        ArrayDeque.isEmpty();
-        ArrayDeque.removeLast();
-        ArrayDeque.addFirst(8);
-        ArrayDeque.addFirst(9);
-        ArrayDeque.addFirst(10);
-        ArrayDeque.addFirst(11);
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.addFirst(0);
+        arrayDeque.isEmpty();
+        arrayDeque.addFirst(2);
+        arrayDeque.addFirst(3);
+        arrayDeque.addFirst(4);
+        arrayDeque.addFirst(5);
+        arrayDeque.isEmpty();
+        arrayDeque.removeLast();
+        arrayDeque.addFirst(8);
+        arrayDeque.addFirst(9);
+        arrayDeque.addFirst(10);
+        arrayDeque.addFirst(11);
 
     }
 
 
     @Test
     public void getADTest9() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
-        ArrayDeque.addFirst(0);
-        ArrayDeque.size();
-        ArrayDeque.removeFirst();
-        ArrayDeque.addFirst(3);
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.addFirst(0);
+        arrayDeque.size();
+        arrayDeque.removeFirst();
+        arrayDeque.addFirst(3);
     }
 
     @Test
     public void getADTest10() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
-        ArrayDeque.addLast(0);
-        ArrayDeque.addFirst(1);
-        ArrayDeque.addLast(2);
-        ArrayDeque.addLast(3);
-        ArrayDeque.get(2);
-        ArrayDeque.get(2);
-        ArrayDeque.get(2);
-        ArrayDeque.removeLast();
-        ArrayDeque.addFirst(8);
-        ArrayDeque.removeLast();
-        assertEquals(8, ArrayDeque.get(0));
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.addLast(0);
+        arrayDeque.addFirst(1);
+        arrayDeque.addLast(2);
+        arrayDeque.addLast(3);
+        arrayDeque.get(2);
+        arrayDeque.get(2);
+        arrayDeque.get(2);
+        arrayDeque.removeLast();
+        arrayDeque.addFirst(8);
+        arrayDeque.removeLast();
+        assertEquals(8, arrayDeque.get(0));
         ;
     }
 
     @Test
     public void getADTest11() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
-        ArrayDeque.addFirst(0);
-        ArrayDeque.addFirst(1);
-        ArrayDeque.addFirst(2);
-        ArrayDeque.addFirst(3);
-        ArrayDeque.addFirst(4);
-        ArrayDeque.addFirst(5);
-        ArrayDeque.addFirst(6);
-        ArrayDeque.addFirst(7);
-        ArrayDeque.addFirst(8);
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.addFirst(0);
+        arrayDeque.addFirst(1);
+        arrayDeque.addFirst(2);
+        arrayDeque.addFirst(3);
+        arrayDeque.addFirst(4);
+        arrayDeque.addFirst(5);
+        arrayDeque.addFirst(6);
+        arrayDeque.addFirst(7);
+        arrayDeque.addFirst(8);
 //        ArrayDeque.removeLast();
 
-        assertEquals(0, ArrayDeque.removeLast());
+        assertEquals(0, arrayDeque.removeLast());
     }
 
     @Test
     public void getADTest12() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
-        ArrayDeque.addLast(0);
-        ArrayDeque.addLast(1);
-        ArrayDeque.addLast(2);
-        ArrayDeque.removeLast();
-        ArrayDeque.removeLast();
-        ArrayDeque.removeFirst();
-        ArrayDeque.addLast(6);
-        ArrayDeque.addLast(7);
-        ArrayDeque.addFirst(8);
-        ArrayDeque.get(0);
-        ArrayDeque.addLast(10);
-        ArrayDeque.removeFirst();
-        ArrayDeque.removeLast();
-        ArrayDeque.get(1);
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.addLast(0);
+        arrayDeque.addLast(1);
+        arrayDeque.addLast(2);
+        arrayDeque.removeLast();
+        arrayDeque.removeLast();
+        arrayDeque.removeFirst();
+        arrayDeque.addLast(6);
+        arrayDeque.addLast(7);
+        arrayDeque.addFirst(8);
+        arrayDeque.get(0);
+        arrayDeque.addLast(10);
+        arrayDeque.removeFirst();
+        arrayDeque.removeLast();
+        arrayDeque.get(1);
 
-        assertEquals(7, ArrayDeque.get(1));
+        assertEquals(7, arrayDeque.get(1));
     }
 
     @Test
     public void getADTest13() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
-        ArrayDeque.addLast(0);
-        ArrayDeque.get(0);
-        ArrayDeque.addLast(2);
-        ArrayDeque.removeLast();
-        ArrayDeque.get(0);
-        ArrayDeque.removeFirst();
-        ArrayDeque.addFirst(6);
-        ArrayDeque.addLast(7);
-        ArrayDeque.removeFirst();
-        ArrayDeque.removeFirst();
-        ArrayDeque.addFirst(10);
-        ArrayDeque.addFirst(11);
-        ArrayDeque.addFirst(12);
-        ArrayDeque.addLast(13);
-        ArrayDeque.get(1);
-        ArrayDeque.addLast(15);
-        ArrayDeque.addLast(16);
-        ArrayDeque.removeFirst();
-        ArrayDeque.get(3);
-        ArrayDeque.addFirst(19);
-        ArrayDeque.addLast(20);
-        ArrayDeque.addFirst(21);
-        ArrayDeque.removeLast();
-        ArrayDeque.get(1);
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.addLast(0);
+        arrayDeque.get(0);
+        arrayDeque.addLast(2);
+        arrayDeque.removeLast();
+        arrayDeque.get(0);
+        arrayDeque.removeFirst();
+        arrayDeque.addFirst(6);
+        arrayDeque.addLast(7);
+        arrayDeque.removeFirst();
+        arrayDeque.removeFirst();
+        arrayDeque.addFirst(10);
+        arrayDeque.addFirst(11);
+        arrayDeque.addFirst(12);
+        arrayDeque.addLast(13);
+        arrayDeque.get(1);
+        arrayDeque.addLast(15);
+        arrayDeque.addLast(16);
+        arrayDeque.removeFirst();
+        arrayDeque.get(3);
+        arrayDeque.addFirst(19);
+        arrayDeque.addLast(20);
+        arrayDeque.addFirst(21);
+        arrayDeque.removeLast();
+        arrayDeque.get(1);
 
-        assertEquals(19, ArrayDeque.get(1));
+        assertEquals(19, arrayDeque.get(1));
     }
 
     @Test
     public void getADTest14() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
-        ArrayDeque.addFirst(0);
-        ArrayDeque.addFirst(1);
-        ArrayDeque.addFirst(2);
-        ArrayDeque.addFirst(3);
-        ArrayDeque.addFirst(4);
-        ArrayDeque.addFirst(5);
-        ArrayDeque.isEmpty();
-        ArrayDeque.addFirst(7);
-        ArrayDeque.addFirst(8);
+        ArrayDeque arrayDeque = new ArrayDeque();
+        arrayDeque.addFirst(0);
+        arrayDeque.addFirst(1);
+        arrayDeque.addFirst(2);
+        arrayDeque.addFirst(3);
+        arrayDeque.addFirst(4);
+        arrayDeque.addFirst(5);
+        arrayDeque.isEmpty();
+        arrayDeque.addFirst(7);
+        arrayDeque.addFirst(8);
 //        ArrayDeque.removeFirst();
 
-        assertEquals(8, ArrayDeque.removeFirst());
+        assertEquals(8, arrayDeque.removeFirst());
     }
 
     @Test
     public void getADTest15() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
+        ArrayDeque arrayDeque = new ArrayDeque();
 
-        ArrayDeque.addLast(0);
-        ArrayDeque.addFirst(1);
+        arrayDeque.addLast(0);
+        arrayDeque.addFirst(1);
 //        ArrayDeque.removeFirst();
 //        ArrayDeque.removeFirst();
-        assertEquals(1, ArrayDeque.removeFirst());
+        assertEquals(1, arrayDeque.removeFirst());
     }
 
     @Test
     public void getADTest16() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
+        ArrayDeque arrayDeque = new ArrayDeque();
 
-        ArrayDeque.addLast(0);
-        ArrayDeque.removeLast();
-        ArrayDeque.addLast(2);
-        ArrayDeque.removeFirst();
-        ArrayDeque.addFirst(4);
-        ArrayDeque.addFirst(5);
-        ArrayDeque.removeFirst();
-        ArrayDeque.get(0);
-        ArrayDeque.get(0);
-        ArrayDeque.addLast(9);
-        ArrayDeque.addFirst(10);
-        ArrayDeque.addLast(11);
-        ArrayDeque.addLast(12);
-        ArrayDeque.addFirst(13);
-        ArrayDeque.get(1);
-        ArrayDeque.addFirst(15);
-        ArrayDeque.removeFirst();
-        ArrayDeque.get(1);
-        ArrayDeque.addFirst(18);
-        ArrayDeque.addLast(19);
+        arrayDeque.addLast(0);
+        arrayDeque.removeLast();
+        arrayDeque.addLast(2);
+        arrayDeque.removeFirst();
+        arrayDeque.addFirst(4);
+        arrayDeque.addFirst(5);
+        arrayDeque.removeFirst();
+        arrayDeque.get(0);
+        arrayDeque.get(0);
+        arrayDeque.addLast(9);
+        arrayDeque.addFirst(10);
+        arrayDeque.addLast(11);
+        arrayDeque.addLast(12);
+        arrayDeque.addFirst(13);
+        arrayDeque.get(1);
+        arrayDeque.addFirst(15);
+        arrayDeque.removeFirst();
+        arrayDeque.get(1);
+        arrayDeque.addFirst(18);
+        arrayDeque.addLast(19);
 //        ArrayDeque.removeFirst();
-        assertEquals(18, ArrayDeque.removeFirst());
+        assertEquals(18, arrayDeque.removeFirst());
     }
 
     @Test
     public void getADTest17() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
+        ArrayDeque arrayDeque = new ArrayDeque();
 
-        ArrayDeque.addFirst(0);
-        ArrayDeque.removeLast();
-        ArrayDeque.addLast(2);
-        ArrayDeque.removeFirst();
-        ArrayDeque.addLast(4);
-        ArrayDeque.addLast(5);
-        ArrayDeque.removeLast();
-        ArrayDeque.removeLast();
-        ArrayDeque.addLast(8);
-        ArrayDeque.removeFirst();
-        ArrayDeque.addLast(10);
-        ArrayDeque.addLast(11);
-        ArrayDeque.get(0);
-        ArrayDeque.addFirst(13);
-        ArrayDeque.addFirst(14);
+        arrayDeque.addFirst(0);
+        arrayDeque.removeLast();
+        arrayDeque.addLast(2);
+        arrayDeque.removeFirst();
+        arrayDeque.addLast(4);
+        arrayDeque.addLast(5);
+        arrayDeque.removeLast();
+        arrayDeque.removeLast();
+        arrayDeque.addLast(8);
+        arrayDeque.removeFirst();
+        arrayDeque.addLast(10);
+        arrayDeque.addLast(11);
+        arrayDeque.get(0);
+        arrayDeque.addFirst(13);
+        arrayDeque.addFirst(14);
 //        ArrayDeque.removeLast();
-        assertEquals(11, ArrayDeque.removeLast());
+        assertEquals(11, arrayDeque.removeLast());
     }
 
     @Test
     public void getADTest18() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
+        ArrayDeque arrayDeque = new ArrayDeque();
 
-        ArrayDeque.addFirst(0);
-        ArrayDeque.get(0);
-        ArrayDeque.get(0);
-        ArrayDeque.get(0);
-        ArrayDeque.removeLast();
-        ArrayDeque.addLast(5);
-        ArrayDeque.addLast(6);
-        ArrayDeque.addFirst(7);
-        ArrayDeque.removeFirst();
-        ArrayDeque.get(0);
-        ArrayDeque.removeFirst();
-        ArrayDeque.addLast(11);
-        ArrayDeque.addFirst(12);
-        ArrayDeque.get(1);
-        ArrayDeque.addLast(14);
-        ArrayDeque.get(0);
-        ArrayDeque.addLast(16);
-        ArrayDeque.removeLast();
-        ArrayDeque.addFirst(18);
-        ArrayDeque.get(2);
+        arrayDeque.addFirst(0);
+        arrayDeque.get(0);
+        arrayDeque.get(0);
+        arrayDeque.get(0);
+        arrayDeque.removeLast();
+        arrayDeque.addLast(5);
+        arrayDeque.addLast(6);
+        arrayDeque.addFirst(7);
+        arrayDeque.removeFirst();
+        arrayDeque.get(0);
+        arrayDeque.removeFirst();
+        arrayDeque.addLast(11);
+        arrayDeque.addFirst(12);
+        arrayDeque.get(1);
+        arrayDeque.addLast(14);
+        arrayDeque.get(0);
+        arrayDeque.addLast(16);
+        arrayDeque.removeLast();
+        arrayDeque.addFirst(18);
+        arrayDeque.get(2);
 //        ArrayDeque.removeLast();
 //        ArrayDeque.removeLast();
-        assertEquals(14, ArrayDeque.removeLast());
+        assertEquals(14, arrayDeque.removeLast());
     }
 
     @Test
     public void getADTest19() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
+        ArrayDeque arrayDeque = new ArrayDeque();
 
-        ArrayDeque.addLast(0);
-        ArrayDeque.addLast(1);
-        ArrayDeque.addLast(2);
-        ArrayDeque.addLast(3);
-        ArrayDeque.removeLast();
-        ArrayDeque.addLast(5);
-        ArrayDeque.removeFirst();
-        ArrayDeque.addLast(7);
-        ArrayDeque.addFirst(8);
-        ArrayDeque.addLast(9);
+        arrayDeque.addLast(0);
+        arrayDeque.addLast(1);
+        arrayDeque.addLast(2);
+        arrayDeque.addLast(3);
+        arrayDeque.removeLast();
+        arrayDeque.addLast(5);
+        arrayDeque.removeFirst();
+        arrayDeque.addLast(7);
+        arrayDeque.addFirst(8);
+        arrayDeque.addLast(9);
 //        ArrayDeque.get(0);
-        ArrayDeque.addFirst(11);
-        ArrayDeque.removeFirst();
+        arrayDeque.addFirst(11);
+        arrayDeque.removeFirst();
 //        ArrayDeque.removeFirst();
 
-        assertEquals(8, ArrayDeque.removeFirst());
+        assertEquals(8, arrayDeque.removeFirst());
     }
+
 
     @Test
     public void getADTest20() {
-        ArrayDeque ArrayDeque = new ArrayDeque();
+        ArrayDeque arrayDeque = new ArrayDeque();
 
-        ArrayDeque.addLast(0);
-        ArrayDeque.addLast(1);
-        ArrayDeque.removeFirst();
-        ArrayDeque.addLast(3);
-        ArrayDeque.addLast(4);
-        ArrayDeque.addLast(5);
-        ArrayDeque.addLast(6);
-        ArrayDeque.addLast(7);
-        ArrayDeque.addLast(8);
-        ArrayDeque.addLast(9);
-        ArrayDeque.addLast(10);
+        arrayDeque.addLast(0);
+        arrayDeque.addLast(1);
+        arrayDeque.removeFirst();
+        arrayDeque.addLast(3);
+        arrayDeque.addLast(4);
+        arrayDeque.addLast(5);
+        arrayDeque.addLast(6);
+        arrayDeque.addLast(7);
+        arrayDeque.addLast(8);
+        arrayDeque.addLast(9);
+        arrayDeque.addLast(10);
 //        ArrayDeque.removeFirst();
 
-        assertEquals(1, ArrayDeque.removeFirst());
+        assertEquals(1, arrayDeque.removeFirst());
     }
 
 }
