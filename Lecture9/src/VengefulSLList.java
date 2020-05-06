@@ -30,11 +30,13 @@ public class VengefulSLList<Item> extends SLList<Item> {
         vs1.addLast(10);
         vs1.addLast(13);
         // vs1 is now: [1, 5, 10, 13]
-
-        SLList<Integer> sl = vs1;
         VengefulSLList<Integer> vsl2, vsl3;
-        vsl2 = (VengefulSLList<Integer>) sl;
-        vsl3 = sl;
+        SLList<Integer> sl = vs1;
+        SLList<Integer> s2 = new SLList();
+        vsl2 = (VengefulSLList<Integer>) s2;
+
+
+//        vsl3 = sl;
 
 
         vs1.removeLast();
