@@ -14,6 +14,18 @@ public class Dog implements Comparable<Dog> {
         return size - uddaDog.size;
     }
 
+    private static class NameComparator implements Comparator<Dog> {
+
+        @Override
+        public int compare(Dog x1, Dog x2) {
+            return x1.name.compareTo(x2.name);
+        }
+    }
+
+    public static Comparator<Dog> getNameComparator() {
+        return new NameComparator();
+    }
+
 
 
     public void bark() {
