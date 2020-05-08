@@ -43,9 +43,9 @@ public class ArrayDeque<T> {
     }
 
     public T removeLast() {
-//        if (size < item.length/8) {
-//            contractedSize();
-//        }
+        if (size < item.length/4) {
+            contractedSize();
+        }
         if (sizeTail == 0) {
             if (sizeHead == 0) {
                 return null;
@@ -75,9 +75,9 @@ public class ArrayDeque<T> {
     }
 
     public T removeFirst() {
-//        if (size < item.length/8) {
-//            contractedSize();
-//        }
+        if (size < item.length/4) {
+            contractedSize();
+        }
         if (sizeHead == 0) {
             if (sizeTail == 0) {
                 return null;
@@ -159,6 +159,10 @@ public class ArrayDeque<T> {
         System.arraycopy(item, tailFirst, item2, 0, sizeTail);
         System.arraycopy(item, head, item2, item2.length - sizeHead - 1, sizeHead + 1);
         item = item2;
+        head = item2.length - sizeHead - 1;
+        FirstEnd = item.length - 1;
+        tail = tail - tailFirst;
+        tailFirst = 0;
     }
 
 }

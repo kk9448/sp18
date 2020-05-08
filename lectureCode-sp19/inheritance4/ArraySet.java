@@ -123,7 +123,7 @@ public class ArraySet<T> implements Iterable<T> {
         aset.add(42);
 
         //iteration
-        for (int i : aset) {
+        for (int i: aset) {
             System.out.println(i);
         }
 
@@ -152,3 +152,4 @@ public class ArraySet<T> implements Iterable<T> {
     3. Implement an equals() method.
     */
 }
+
