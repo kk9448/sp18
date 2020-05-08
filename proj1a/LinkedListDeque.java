@@ -5,7 +5,7 @@ public class LinkedListDeque<T> {
     private class Node {
         private T item;
         private int size;
-        Node LastPointer;
+        Node lastPointer;
         private Node prev;
         private Node rest;
 
@@ -49,7 +49,7 @@ public class LinkedListDeque<T> {
     public void addFirst(T x) {
         Node A = new Node(x);
         if (sentinel.size == 0) {
-            sentinel.LastPointer = A;
+            sentinel.lastPointer = A;
             sentinel.rest = A;
         } else {
             A.rest = sentinel.rest;
@@ -67,14 +67,14 @@ public class LinkedListDeque<T> {
 
 
         Node A = new Node(x);
-        if (sentinel.LastPointer == null) {
+        if (sentinel.lastPointer == null) {
             sentinel.rest = A;
-            sentinel.LastPointer = A;
+            sentinel.lastPointer = A;
             A.prev = sentinel;
         } else {
-            sentinel.LastPointer.rest = A;
-            A.prev = sentinel.LastPointer;
-            sentinel.LastPointer = A;
+            sentinel.lastPointer.rest = A;
+            A.prev = sentinel.lastPointer;
+            sentinel.lastPointer = A;
 
         }
 
@@ -99,8 +99,8 @@ public class LinkedListDeque<T> {
         }
         T tmp = sentinel.rest.item;
         if (sentinel.rest.rest == null) {
-            sentinel.LastPointer.rest = null;
-            sentinel.LastPointer = null;
+            sentinel.lastPointer.rest = null;
+            sentinel.lastPointer = null;
             sentinel.rest = null;
             if (sentinel.size != 0) {
                 sentinel.size = sentinel.size - 1;
@@ -121,9 +121,9 @@ public class LinkedListDeque<T> {
         if (sentinel.rest == null) {
             return null;
         }
-        T A = sentinel.LastPointer.item;
-        sentinel.LastPointer = sentinel.LastPointer.prev;
-        sentinel.LastPointer.rest = null;
+        T A = sentinel.lastPointer.item;
+        sentinel.lastPointer = sentinel.lastPointer.prev;
+        sentinel.lastPointer.rest = null;
         if (sentinel.size != 0) {
             sentinel.size = sentinel.size - 1;
         }

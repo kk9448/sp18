@@ -64,9 +64,9 @@ public class LinkedListDequeTest {
 	/** Adds an item, then removes an item, and ensures that dll is empty afterwards. */
 	public static void addRemoveTest() {
 
-//		System.out.println("Running add/remove test.");
+//	System.out.println("Running add/remove test.");
 //
-//		System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
+//  System.out.println("Make sure to uncomment the lines below (and delete this print statement).");
 
 		LinkedListDeque<Integer> lld1 = new LinkedListDeque<Integer>();
 		// should be empty
