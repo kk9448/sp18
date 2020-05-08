@@ -6,7 +6,7 @@ public class ArrayDeque<T> {
     private int sizeHead = 0;
     private int sizeTail = 0;
     private int size = 0;
-    private int FirstEnd = item.length - 1;
+    private int firstEnd = item.length - 1;
     private int tailFirst = 0;
 
 
@@ -43,7 +43,7 @@ public class ArrayDeque<T> {
     }
 
     public T removeLast() {
-        if (size < item.length/4) {
+        if (size < item.length / 4) {
             contractedSize();
         }
         if (sizeTail == 0) {
@@ -68,14 +68,14 @@ public class ArrayDeque<T> {
     }
 
     private T removeFirstEnd() {
-        int tmp = FirstEnd;
-        FirstEnd = FirstEnd - 1;
+        int tmp = firstEnd;
+        firstEnd = firstEnd - 1;
         return item[tmp];
 
     }
 
     public T removeFirst() {
-        if (size < item.length/4) {
+        if (size < item.length / 4) {
             contractedSize();
         }
         if (sizeHead == 0) {
@@ -102,11 +102,12 @@ public class ArrayDeque<T> {
     }
 
     public boolean isEmpty() {
-        if (size == 0) {
-            return true;
-        } else {
-            return false;
-        }
+//        if (size == 0) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+        return size == 0;
     }
 
     public int size() {
@@ -149,7 +150,7 @@ public class ArrayDeque<T> {
         System.arraycopy(item, head, item2, item2.length - sizeHead - 1, sizeHead + 1);
         item = item2;
         head = item2.length - sizeHead - 1;
-        FirstEnd = item.length - 1;
+        firstEnd = item.length - 1;
         tail = tail - tailFirst;
         tailFirst = 0;
     }
@@ -160,7 +161,7 @@ public class ArrayDeque<T> {
         System.arraycopy(item, head, item2, item2.length - sizeHead - 1, sizeHead + 1);
         item = item2;
         head = item2.length - sizeHead - 1;
-        FirstEnd = item.length - 1;
+        firstEnd = item.length - 1;
         tail = tail - tailFirst;
         tailFirst = 0;
     }

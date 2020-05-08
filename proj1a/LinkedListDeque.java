@@ -37,16 +37,16 @@ public class LinkedListDeque<T> {
 
     public void printDeque() {
         if (sentinel.rest == null) {
-            return ;
+            return;
         }
         Node A = sentinel.rest;
-        for (;A.rest != null; A = A.rest) {
+        for (; A.rest != null; A = A.rest) {
             System.out.print(A.item + " ");
         }
         System.out.print(A.item + " ");
     }
 
-    public void addFirst(T x){
+    public void addFirst(T x) {
         Node A = new Node(x);
         if (sentinel.size == 0) {
             sentinel.LastPointer = A;
@@ -118,7 +118,7 @@ public class LinkedListDeque<T> {
     }
 
     public T removeLast() {
-        if(sentinel.rest == null) {
+        if (sentinel.rest == null) {
             return null;
         }
         T A = sentinel.LastPointer.item;
@@ -136,8 +136,8 @@ public class LinkedListDeque<T> {
             return null;
         }
         Node A = sentinel.rest;
-        for(int i = 0; i < index; A = A.rest, i++) {
-
+        for (int i = 0; i < index; A = A.rest) {
+            i++;
         }
         return A.item;
     }
@@ -159,7 +159,7 @@ public class LinkedListDeque<T> {
         }
         A = A.rest;
         T B;
-        B = recursive(x+1, index, A);
+        B = recursive(x + 1, index, A);
         return B;
     }
 

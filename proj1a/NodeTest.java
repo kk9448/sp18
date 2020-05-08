@@ -22,7 +22,7 @@ public class NodeTest {
     }
 
     @Test
-    public void LLD() {
+    public void llD() {
         LinkedListDeque linkedListDeque = new LinkedListDeque();
 
         linkedListDeque.addFirst(0);
@@ -35,7 +35,7 @@ public class NodeTest {
     }
 
     @Test
-    public void LLD2() {
+    public void llD2() {
         LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
@@ -52,7 +52,7 @@ public class NodeTest {
     }
 
     @Test
-    public void LLD3() {
+    public void llD3() {
         LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
@@ -65,7 +65,7 @@ public class NodeTest {
     }
 
     @Test
-    public void LLD4() {
+    public void llD4() {
         LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
@@ -79,7 +79,7 @@ public class NodeTest {
     }
 
     @Test
-    public void LLD5() {
+    public void llD5() {
         LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
@@ -93,7 +93,7 @@ public class NodeTest {
     }
 
     @Test
-    public void LLD6() {
+    public void llD6() {
         LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
@@ -104,7 +104,7 @@ public class NodeTest {
     }
 
     @Test
-    public void LLD7() {
+    public void llD7() {
         LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
@@ -125,7 +125,7 @@ public class NodeTest {
     }
 
     @Test
-    public void LLD8() {
+    public void llD8() {
         LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
@@ -141,7 +141,7 @@ public class NodeTest {
     }
 
     @Test
-    public void LLD9() {
+    public void llD9() {
         LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
@@ -159,7 +159,7 @@ public class NodeTest {
     }
 
     @Test
-    public void LLD10() {
+    public void llD10() {
         LinkedListDeque linkedListDeque = new LinkedListDeque();
 
 
@@ -176,7 +176,7 @@ public class NodeTest {
 
 
     @Test
-    public void ArrayListTest() {
+    public void arrayListTest() {
         ArrayDeque arrayDeque = new ArrayDeque();
         arrayDeque.addFirst(1);
         arrayDeque.addFirst(2);
@@ -320,7 +320,6 @@ public class NodeTest {
         arrayDeque.addFirst(8);
         arrayDeque.removeLast();
         assertEquals(8, arrayDeque.get(0));
-        ;
     }
 
     @Test
