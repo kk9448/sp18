@@ -2,7 +2,7 @@
 public class LinkedListDequeTest {
 
 
-	/* Utility method for printing out empty checks. */
+	
 	public static boolean checkEmpty(boolean expected, boolean actual) {
 		if (expected != actual) {
 			System.out.println("isEmpty() returned " + actual + ", but expected: " + expected);
