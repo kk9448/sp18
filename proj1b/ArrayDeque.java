@@ -9,7 +9,7 @@ public class ArrayDeque<T> implements Deque<T>{
     private int firstEnd = item.length - 1;
     private int tailFirst = 0;
 
-
+    @Override
     public void addFirst(T x) {
         if (size == item.length || head == tail || tail == head) {
             resize();
@@ -24,7 +24,7 @@ public class ArrayDeque<T> implements Deque<T>{
         }
 
     }
-
+    @Override
     public void addLast(T x) {
         if (size == item.length || head == tail || tail == head) {
 //            sizeTail = sizeTail +1;
@@ -42,6 +42,7 @@ public class ArrayDeque<T> implements Deque<T>{
 
     }
 
+    @Override
     public T removeLast() {
         if (size < item.length / 4) {
             contractedSize();
