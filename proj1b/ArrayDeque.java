@@ -74,7 +74,7 @@ public class ArrayDeque<T> implements Deque<T>{
         return item[tmp];
 
     }
-
+    @Override
     public T removeFirst() {
         if (size < item.length / 4) {
             contractedSize();
@@ -101,7 +101,7 @@ public class ArrayDeque<T> implements Deque<T>{
         return item[tmp];
 
     }
-
+    @Override
     public boolean isEmpty() {
 //        if (size == 0) {
 //            return true;
@@ -114,7 +114,7 @@ public class ArrayDeque<T> implements Deque<T>{
     public int size() {
         return size;
     }
-
+    @Override
     public void printDeque() {
         if (sizeHead > 0) {
             for (int i = head + 1; i <= item.length - 1; i++, head++) {
@@ -127,7 +127,7 @@ public class ArrayDeque<T> implements Deque<T>{
             }
         }
     }
-
+    @Override
     public T get(int index) {
         if (index < 0) {
             return null;
