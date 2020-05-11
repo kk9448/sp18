@@ -2,7 +2,7 @@ import org.w3c.dom.traversal.NodeIterator;
 
 import java.util.Iterator;
 
-public class LinkedListDeque<T> implements Deque<T>, Iterable<T>{
+public class LinkedListDeque<T> implements Deque<T>, Iterable<T> {
 
     private Node sentinel;
 
@@ -20,8 +20,8 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T>{
         }
         int i = 0;
         LinkedListDeque<T> o = (LinkedListDeque<T>) x;
-        for(T item : this) {
-            if (item != o.get(i) ) {
+        for (T item : this) {
+            if (item != o.get(i)) {
                 return false;
             }
             i++;
@@ -36,7 +36,7 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T>{
         return new NodeIterator();
     }
 
-    private class NodeIterator implements Iterator{
+    private class NodeIterator implements Iterator {
         private int num = 0;
 
         @Override
@@ -59,12 +59,12 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T>{
         private Node prev;
         private Node rest;
 
-        public Node() {
+        Node() {
 //            Type;
             size = 0;
             rest = null;
         }
-        public Node(T x) {
+        Node(T x) {
             item = x;
             size = 1;
             rest = null;
@@ -202,7 +202,7 @@ public class LinkedListDeque<T> implements Deque<T>, Iterable<T>{
         if (A.rest == null) {
             return null;
         }
-        for(int i = 0; i < sentinel.size; i++) {
+        for (int i = 0; i < sentinel.size; i++) {
             newString.append(A.rest.item);
             A = A.rest;
         }

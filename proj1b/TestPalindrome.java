@@ -32,7 +32,7 @@ public class TestPalindrome {
 //        assertFalse(d);
 //        boolean a = palindrome.isPalindrome("cat");
 //        assertFalse(a);
-        boolean b = palindrome.isPalindrome("flake",new OffByOne());
+        boolean b = palindrome.isPalindrome("flake", new OffByOne());
         assertTrue(b);
     }
 
@@ -42,7 +42,7 @@ public class TestPalindrome {
 //        assertFalse(d);
 //        boolean a = palindrome.isPalindrome("cat");
 //        assertFalse(a);
-        boolean b = palindrome.isPalindrome("flake",new OffByN(1));
+        boolean b = palindrome.isPalindrome("flake", new OffByN(1));
         assertTrue(b);
     }
 

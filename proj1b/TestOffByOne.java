@@ -8,19 +8,19 @@ public class TestOffByOne {
         OffByOne test = new OffByOne();
         char a = 'a';
         char b = 'b';
-        assertTrue(test.equalChars(a,b));
+        assertTrue(test.equalChars(a, b));
 
         a = 'r';
         b = 'q';
-        assertTrue(test.equalChars(a,b));
+        assertTrue(test.equalChars(a, b));
 
         a = 'a';
         b = 'e';
-        assertFalse(test.equalChars(a,b));
+        assertFalse(test.equalChars(a, b));
 
         a = 'z';
         b = 'a';
-        assertFalse(test.equalChars(a,b));
+        assertFalse(test.equalChars(a, b));
 
 
     }

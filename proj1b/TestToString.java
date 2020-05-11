@@ -3,12 +3,12 @@ import static org.junit.Assert.*;
 public class TestToString {
 
     @Test
-    public void TestLinkListDeque(){
+    public void testLinkListDeque() {
         LinkedListDeque a = new LinkedListDeque();
         a.addLast("c");
         a.addLast("a");
         a.addLast("t");
-        assertEquals("cat",a.toString());
+        assertEquals("cat", a.toString());
     }
 
 

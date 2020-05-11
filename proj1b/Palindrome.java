@@ -33,6 +33,9 @@ public class Palindrome {
 
     }
     public boolean isPalindrome(String word, CharacterComparator cc) {
+        if (word.length() == 1) {
+            return true;
+        }
         ArrayDeque<Character> ori = new ArrayDeque<>();
         ArrayDeque<Character> reverse = new ArrayDeque<>();
         for (int i = 0; i < word.length(); i++) {
@@ -40,14 +43,14 @@ public class Palindrome {
             ori.addLast(word.charAt(i));
         }
 
-        int a = word.length()%2;
-        int b = word.length()/2;
+        int a = word.length() % 2;
+        int b = word.length() / 2;
 
         for (int i = 0; i < word.length(); i++) {
             if (i == b && a != 0) {
                 i++;
             }
-            if (!cc.equalChars(ori.get(i),reverse.get(i))) {
+            if (!cc.equalChars(ori.get(i), reverse.get(i))) {
                 return false;
             }
         }

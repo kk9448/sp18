@@ -1,6 +1,6 @@
 import java.util.Iterator;
 
-public class ArrayDeque<T> implements Deque<T>, Iterable<T>{
+public class ArrayDeque<T> implements Deque<T>, Iterable<T> {
     private T[] item = (T[]) new Object[8];
     private int tail = 0;
     private int head = item.length - 1;
@@ -25,7 +25,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T>{
 
         ArrayDeque<T> o = (ArrayDeque<T>) x;
 
-        for ( int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             if (get(i) != o.get(i)) {
                 return false;
             }
@@ -40,7 +40,7 @@ public class ArrayDeque<T> implements Deque<T>, Iterable<T>{
         return new ArrayListIterator();
     }
 
-    private class ArrayListIterator implements Iterator{
+    private class ArrayListIterator implements Iterator {
         int num = 0;
 
         @Override
