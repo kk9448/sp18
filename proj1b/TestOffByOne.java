@@ -3,24 +3,26 @@ import static org.junit.Assert.*;
 
 public class TestOffByOne {
 
+    static CharacterComparator offByOne = new OffByOne();
+
     @Test
     public void offByOne() {
-        OffByOne test = new OffByOne();
+//        OffByOne test = new OffByOne();
         char a = 'a';
         char b = 'b';
-        assertTrue(test.equalChars(a, b));
+        assertTrue(offByOne.equalChars(a, b));
 
         a = 'r';
         b = 'q';
-        assertTrue(test.equalChars(a, b));
+        assertTrue(offByOne.equalChars(a, b));
 
         a = 'a';
         b = 'e';
-        assertFalse(test.equalChars(a, b));
+        assertFalse(offByOne.equalChars(a, b));
 
         a = 'z';
         b = 'a';
-        assertFalse(test.equalChars(a, b));
+        assertFalse(offByOne.equalChars(a, b));
 
 
     }
