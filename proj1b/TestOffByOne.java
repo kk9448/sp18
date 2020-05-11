@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 public class TestOffByOne {
 
     @Test
-    public void testOffByOne() {
+    public void offByOne() {
         OffByOne test = new OffByOne();
         char a = 'a';
         char b = 'b';
