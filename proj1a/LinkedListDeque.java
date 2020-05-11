@@ -9,7 +9,6 @@ public class LinkedListDeque<T> {
         private Node rest;
 
         public Node() {
-//            Type;
             size = 0;
             rest = null;
         }
@@ -20,9 +19,7 @@ public class LinkedListDeque<T> {
         }
     }
 
-
-
-    public LinkedListDeque() {
+    LinkedListDeque() {
         sentinel = new Node();
     }
 

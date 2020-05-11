@@ -15,4 +15,36 @@ public class TestPalindrome {
         }
         assertEquals("persiflage", actual);
     }
+
+    @Test
+    public void testisPalindrome() {
+//        boolean d = palindrome.isPalindrome("persiflage");
+//        assertFalse(d);
+//        boolean a = palindrome.isPalindrome("cat");
+//        assertFalse(a);
+        boolean b = palindrome.isPalindrome("racecar");
+        assertTrue(b);
+    }
+
+    @Test
+    public void testisPalindrome2() {
+//        boolean d = palindrome.isPalindrome("persiflage");
+//        assertFalse(d);
+//        boolean a = palindrome.isPalindrome("cat");
+//        assertFalse(a);
+        boolean b = palindrome.isPalindrome("flake",new OffByOne());
+        assertTrue(b);
+    }
+
+    @Test
+    public void testisPalindrome3() {
+//        boolean d = palindrome.isPalindrome("persiflage");
+//        assertFalse(d);
+//        boolean a = palindrome.isPalindrome("cat");
+//        assertFalse(a);
+        boolean b = palindrome.isPalindrome("flake",new OffByN(1));
+        assertTrue(b);
+    }
+
+
 }

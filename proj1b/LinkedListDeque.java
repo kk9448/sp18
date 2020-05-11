@@ -1,6 +1,56 @@
-public class LinkedListDeque<T> implements Deque<T>{
+import org.w3c.dom.traversal.NodeIterator;
+
+import java.util.Iterator;
+
+public class LinkedListDeque<T> implements Deque<T>, Iterable<T>{
 
     private Node sentinel;
+
+    @Override
+    public boolean equals(Object x) {
+
+        if (x == this) {
+            return true;
+        }
+        if (x == null) {
+            return false;
+        }
+        if (x.getClass() != this.getClass()) {
+            return false;
+        }
+        int i = 0;
+        LinkedListDeque<T> o = (LinkedListDeque<T>) x;
+        for(T item : this) {
+            if (item != o.get(i) ) {
+                return false;
+            }
+            i++;
+        }
+        return true;
+    }
+
+
+
+    @Override
+    public Iterator<T> iterator() {
+        return new NodeIterator();
+    }
+
+    private class NodeIterator implements Iterator{
+        private int num = 0;
+
+        @Override
+        public boolean hasNext() {
+            return num < sentinel.size;
+        }
+
+        @Override
+        public Object next() {
+            T returnItem = get(num);
+            num++;
+            return returnItem;
+        }
+    }
 
     private class Node {
         private T item;
@@ -44,6 +94,7 @@ public class LinkedListDeque<T> implements Deque<T>{
             System.out.print(A.item + " ");
         }
         System.out.print(A.item + " ");
+        System.out.println();
     }
     @Override
     public void addFirst(T x) {
@@ -142,6 +193,20 @@ public class LinkedListDeque<T> implements Deque<T>{
             i++;
         }
         return A.item;
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder newString = new StringBuilder();
+        Node A = sentinel;
+        if (A.rest == null) {
+            return null;
+        }
+        for(int i = 0; i < sentinel.size; i++) {
+            newString.append(A.rest.item);
+            A = A.rest;
+        }
+        return  newString.toString();
     }
 
     public T getRecursive(int index) {

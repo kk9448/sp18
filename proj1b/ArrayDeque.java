@@ -1,5 +1,6 @@
+import java.util.Iterator;
 
-public class ArrayDeque<T> implements Deque<T>{
+public class ArrayDeque<T> implements Deque<T>, Iterable<T>{
     private T[] item = (T[]) new Object[8];
     private int tail = 0;
     private int head = item.length - 1;
@@ -8,6 +9,62 @@ public class ArrayDeque<T> implements Deque<T>{
     private int size = 0;
     private int firstEnd = item.length - 1;
     private int tailFirst = 0;
+
+
+    @Override
+    public boolean equals(Object x) {
+        if (x == this) {
+            return true;
+        }
+        if (x == null) {
+            return false;
+        }
+        if (x.getClass() != this.getClass()) {
+            return false;
+        }
+
+        ArrayDeque<T> o = (ArrayDeque<T>) x;
+
+        for ( int i = 0; i < size; i++) {
+            if (get(i) != o.get(i)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
+    @Override
+    public Iterator<T> iterator() {
+        return new ArrayListIterator();
+    }
+
+    private class ArrayListIterator implements Iterator{
+        int num = 0;
+
+        @Override
+        public boolean hasNext() {
+            return num < size;
+        }
+
+        @Override
+        public Object next() {
+            T returnItem = item[num];
+            num++;
+            return returnItem;
+        }
+    }
+
+    @Override
+    public String toString() {
+        for (int i = 0; i < size; i++) {
+            get(i).toString();
+        }
+
+        return null;
+    }
+
 
     @Override
     public void addFirst(T x) {
@@ -166,5 +223,6 @@ public class ArrayDeque<T> implements Deque<T>{
         tail = tail - tailFirst;
         tailFirst = 0;
     }
+
 
 }
