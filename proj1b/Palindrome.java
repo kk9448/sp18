@@ -8,6 +8,9 @@ public class Palindrome {
     }
 
     public boolean isPalindrome(String word) {
+        if (word == null) {
+            return false;
+        }
         /** using ArrayDeque*/
         ArrayDeque<Character> ori = new ArrayDeque<>();
         ArrayDeque<Character> reverse = new ArrayDeque<>();
@@ -33,6 +36,9 @@ public class Palindrome {
 
     }
     public boolean isPalindrome(String word, CharacterComparator cc) {
+        if (word == null) {
+            return false;
+        }
         if (word.length() == 1) {
             return true;
         }

@@ -46,5 +46,25 @@ public class TestPalindrome {
         assertTrue(b);
     }
 
+    @Test
+    public void testisPalindrome4() {
+//        boolean d = palindrome.isPalindrome("persiflage");
+//        assertFalse(d);
+//        boolean a = palindrome.isPalindrome("cat");
+//        assertFalse(a);
+        boolean b = palindrome.isPalindrome(null);
+        assertFalse(b);
+    }
+    @Test
+    public void testisPalindrome5() {
+//        boolean d = palindrome.isPalindrome("persiflage");
+//        assertFalse(d);
+//        boolean a = palindrome.isPalindrome("cat");
+//        assertFalse(a);
+        boolean b = palindrome.isPalindrome(null, new OffByN(1));
+        assertFalse(b);
+    }
+
+
 
 }
