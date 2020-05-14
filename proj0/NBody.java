@@ -41,11 +41,11 @@ public class NBody {
 //        Planet[] res = readPlanets("data/planets.txt");
         String background = "images/starfield.jpg";
         StdDraw.setScale(-radius, radius);
-
-        /* Clears the drawing window. */
-//        StdDraw.clear();
-        /* Stamps three copies of advice.png in a triangular pattern. */
-        StdDraw.picture(0, 0, background);
+        StdDraw.clear();
+        examples.StdDraw.picture(0, 0, background);
+//        StdDraw.show();
+//        StdDraw.picture(0, 0, "images/earth.gif");
+//        planets[0].draw();
 //
         for (int i = 0; i < planets.length; i++) {
             planets[i].draw();
