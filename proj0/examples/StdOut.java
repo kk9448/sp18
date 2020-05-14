@@ -1,3 +1,4 @@
+package examples;
 /*************************************************************************
  *  Compilation:  javac StdOut.java
  *  Execution:    java StdOut

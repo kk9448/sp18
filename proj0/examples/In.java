@@ -1,4 +1,4 @@
-/*************************************************************************
+package examples; /*************************************************************************
  *  Compilation:  javac In.java
  *  Execution:    java In   (basic test --- see source for required files)
  *
@@ -59,12 +59,12 @@ public final class In {
     // assume language = English, country = US for consistency with System.out.
     private static final Locale LOCALE = Locale.US;
 
-    // the default token separator; we maintain the invariant that this value 
+    // the default token separator; we maintain the invariant that this value
     // is held by the scanner's delimiter between calls
     private static final Pattern WHITESPACE_PATTERN
         = Pattern.compile("\\p{javaWhitespace}+");
 
-    // makes whitespace characters significant 
+    // makes whitespace characters significant
     private static final Pattern EMPTY_PATTERN
         = Pattern.compile("");
 
@@ -200,7 +200,7 @@ public final class In {
     }
 
     /**
-     * Is the input empty (including whitespace)? Use this to know 
+     * Is the input empty (including whitespace)? Use this to know
      * whether the next call to {@link #readChar()} will succeed. <p> Functionally
      * equivalent to {@link #hasNextLine()}.
      */
@@ -232,7 +232,7 @@ public final class In {
             + " Please contact the authors.";
         scanner.useDelimiter(WHITESPACE_PATTERN);
         return ch.charAt(0);
-    }  
+    }
 
 
    /**
@@ -360,7 +360,7 @@ public final class In {
             vals[i] = Double.parseDouble(fields[i]);
         return vals;
     }
-    
+
     /*** end: section (2 of 2) of code duplicated from In to StdIn */
     
    /**
