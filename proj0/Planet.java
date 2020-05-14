@@ -41,13 +41,13 @@ public class Planet {
 
     double calcForceExertedByX(Planet x) {
         double F = (G * mass * x.mass)/((x.xxPos - xxPos) * (x.xxPos - xxPos) + (x.yyPos - yyPos) * (x.yyPos - yyPos));
-        return (F * abs(x.xxPos - xxPos))/calcDistance(x);
+        return (F * (x.xxPos - xxPos))/calcDistance(x);
     }
 
 
     double calcForceExertedByY(Planet x) {
         double F = (G * mass * x.mass)/((x.xxPos - xxPos) * (x.xxPos - xxPos) + (x.yyPos - yyPos) * (x.yyPos - yyPos));
-        return (F * abs(x.yyPos - yyPos))/calcDistance(x);
+        return (F * (x.yyPos - yyPos))/calcDistance(x);
     }
 
     double calcNetForceExertedByX(Planet[] x) {
