@@ -42,7 +42,7 @@ public class NBody {
         String background = "images/starfield.jpg";
         StdDraw.setScale(-radius, radius);
         StdDraw.clear();
-        examples.StdDraw.picture(0, 0, background);
+        StdDraw.picture(0, 0, background);
 //        StdDraw.show();
 //        StdDraw.picture(0, 0, "images/earth.gif");
 //        planets[0].draw();

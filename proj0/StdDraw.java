@@ -1,3 +1,4 @@
+
 /******************************************************************************
  *  Compilation:  javac StdDraw.java
  *  Execution:    java StdDraw
@@ -682,7 +683,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
 
         // add antialiasing
         RenderingHints hints = new RenderingHints(RenderingHints.KEY_ANTIALIASING,
-                                                  RenderingHints.VALUE_ANTIALIAS_ON);
+                RenderingHints.VALUE_ANTIALIAS_ON);
         hints.put(RenderingHints.KEY_RENDERING, RenderingHints.VALUE_RENDER_QUALITY);
         offscreen.addRenderingHints(hints);
 
@@ -713,15 +714,15 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         JMenuItem menuItem1 = new JMenuItem(" Save...   ");
         menuItem1.addActionListener(std);
         menuItem1.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_S,
-                                Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
+                Toolkit.getDefaultToolkit().getMenuShortcutKeyMask()));
         menu.add(menuItem1);
         return menuBar;
     }
 
 
-   /***************************************************************************
-    *  User and screen coordinate systems.
-    ***************************************************************************/
+    /***************************************************************************
+     *  User and screen coordinate systems.
+     ***************************************************************************/
 
     /**
      * Sets the <em>x</em>-scale to be the default (between 0.0 and 1.0).
@@ -938,9 +939,9 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     }
 
 
-   /***************************************************************************
-    *  Drawing geometric shapes.
-    ***************************************************************************/
+    /***************************************************************************
+     *  Drawing geometric shapes.
+     ***************************************************************************/
 
     /**
      * Draws a line segment between (<em>x</em><sub>0</sub>, <em>y</em><sub>0</sub>) and
@@ -987,7 +988,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         // if (ws <= 1 && hs <= 1) pixel(x, y);
         if (scaledPenRadius <= 1) pixel(x, y);
         else offscreen.fill(new Ellipse2D.Double(xs - scaledPenRadius/2, ys - scaledPenRadius/2,
-                                                 scaledPenRadius, scaledPenRadius));
+                scaledPenRadius, scaledPenRadius));
         draw();
     }
 
@@ -1242,9 +1243,9 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     }
 
 
-   /***************************************************************************
-    *  Drawing images.
-    ***************************************************************************/
+    /***************************************************************************
+     *  Drawing images.
+     ***************************************************************************/
     // get an image from the given filename
     private static Image getImage(String filename) {
         if (filename == null) throw new IllegalArgumentException();
@@ -1280,13 +1281,13 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         return icon.getImage();
     }
 
-   /***************************************************************************
-    * [Summer 2016] Should we update to use ImageIO instead of ImageIcon()?
-    *               Seems to have some issues loading images on some systems
-    *               and slows things down on other systems.
-    *               especially if you don't call ImageIO.setUseCache(false)
-    *               One advantage is that it returns a BufferedImage.
-    ***************************************************************************/
+    /***************************************************************************
+     * [Summer 2016] Should we update to use ImageIO instead of ImageIcon()?
+     *               Seems to have some issues loading images on some systems
+     *               and slows things down on other systems.
+     *               especially if you don't call ImageIO.setUseCache(false)
+     *               One advantage is that it returns a BufferedImage.
+     ***************************************************************************/
 /*
     private static BufferedImage getImage(String filename) {
         if (filename == null) throw new IllegalArgumentException();
@@ -1406,9 +1407,9 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
         if (ws <= 1 && hs <= 1) pixel(x, y);
         else {
             offscreen.drawImage(image, (int) Math.round(xs - ws/2.0),
-                                       (int) Math.round(ys - hs/2.0),
-                                       (int) Math.round(ws),
-                                       (int) Math.round(hs), null);
+                    (int) Math.round(ys - hs/2.0),
+                    (int) Math.round(ws),
+                    (int) Math.round(hs), null);
         }
         draw();
     }
@@ -1442,17 +1443,17 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
 
         offscreen.rotate(Math.toRadians(-degrees), xs, ys);
         offscreen.drawImage(image, (int) Math.round(xs - ws/2.0),
-                                   (int) Math.round(ys - hs/2.0),
-                                   (int) Math.round(ws),
-                                   (int) Math.round(hs), null);
+                (int) Math.round(ys - hs/2.0),
+                (int) Math.round(ws),
+                (int) Math.round(hs), null);
         offscreen.rotate(Math.toRadians(+degrees), xs, ys);
 
         draw();
     }
 
-   /***************************************************************************
-    *  Drawing text.
-    ***************************************************************************/
+    /***************************************************************************
+     *  Drawing text.
+     ***************************************************************************/
 
     /**
      * Write the given text string in the current font, centered at (<em>x</em>, <em>y</em>).
@@ -1590,9 +1591,9 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     }
 
 
-   /***************************************************************************
-    *  Save drawing to a file.
-    ***************************************************************************/
+    /***************************************************************************
+     *  Save drawing to a file.
+     ***************************************************************************/
 
     /**
      * Saves the drawing to using the specified filename.
@@ -1624,9 +1625,9 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
             newRaster = raster.createWritableChild(0, 0, width, height, 0, 0, new int[] {0, 1, 2});
             DirectColorModel cm = (DirectColorModel) onscreenImage.getColorModel();
             DirectColorModel newCM = new DirectColorModel(cm.getPixelSize(),
-                                                          cm.getRedMask(),
-                                                          cm.getGreenMask(),
-                                                          cm.getBlueMask());
+                    cm.getRedMask(),
+                    cm.getGreenMask(),
+                    cm.getBlueMask());
             BufferedImage rgbBuffer = new BufferedImage(newCM, newRaster, false,  null);
             try {
                 ImageIO.write(rgbBuffer, suffix, file);
@@ -1656,9 +1657,9 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     }
 
 
-   /***************************************************************************
-    *  Mouse interactions.
-    ***************************************************************************/
+    /***************************************************************************
+     *  Mouse interactions.
+     ***************************************************************************/
 
     /**
      * Returns true if the mouse is being pressed.
@@ -1776,9 +1777,9 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
     }
 
 
-   /***************************************************************************
-    *  Keyboard interactions.
-    ***************************************************************************/
+    /***************************************************************************
+     *  Keyboard interactions.
+     ***************************************************************************/
 
     /**
      * Returns true if the user has typed a key (that has not yet been processed).
@@ -1818,7 +1819,7 @@ public final class StdDraw implements ActionListener, MouseListener, MouseMotion
      * Returns true if the given key is being pressed.
      * <p>
      * This method takes the keycode (corresponding to a physical key)
-    *  as an argument. It can handle action keys
+     *  as an argument. It can handle action keys
      * (such as F1 and arrow keys) and modifier keys (such as shift and control).
      * See {@link KeyEvent} for a description of key codes.
      *

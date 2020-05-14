@@ -4,7 +4,7 @@ import static java.lang.Math.pow;
 import static java.lang.Math.abs;
 
 public class Planet {
-    public double G = 6.67e-11;
+    private double G = 6.67e-11;
     public double xxPos;
     public double yyPos;
     public double xxVel;
@@ -30,27 +30,27 @@ public class Planet {
         imgFileName = p.imgFileName;
     }
 
-    double calcDistance(Planet x){
+    public double calcDistance(Planet x){
 //        return 3.0;
         return sqrt((x.xxPos - xxPos) * (x.xxPos - xxPos) + (x.yyPos - yyPos) * (x.yyPos - yyPos));
     }
 
-    double calcForceExertedBy(Planet x) {
+    public double calcForceExertedBy(Planet x) {
        return (G * mass * x.mass)/((x.xxPos - xxPos) * (x.xxPos - xxPos) + (x.yyPos - yyPos) * (x.yyPos - yyPos));
     }
 
-    double calcForceExertedByX(Planet x) {
+    public double calcForceExertedByX(Planet x) {
         double F = (G * mass * x.mass)/((x.xxPos - xxPos) * (x.xxPos - xxPos) + (x.yyPos - yyPos) * (x.yyPos - yyPos));
         return (F * (x.xxPos - xxPos))/calcDistance(x);
     }
 
 
-    double calcForceExertedByY(Planet x) {
+    public double calcForceExertedByY(Planet x) {
         double F = (G * mass * x.mass)/((x.xxPos - xxPos) * (x.xxPos - xxPos) + (x.yyPos - yyPos) * (x.yyPos - yyPos));
         return (F * (x.yyPos - yyPos))/calcDistance(x);
     }
 
-    double calcNetForceExertedByX(Planet[] x) {
+    public double calcNetForceExertedByX(Planet[] x) {
         double forceX = 0;
         for (int i = 0; i < x.length; i++ ) {
             if (!this.equals(x[i])) {
@@ -59,7 +59,7 @@ public class Planet {
         }
         return forceX;
     }
-    double calcNetForceExertedByY(Planet[] x) {
+    public double calcNetForceExertedByY(Planet[] x) {
         double forceY = 0;
         for (int i = 0; i < x.length; i++ ) {
             if (!this.equals(x[i])) {
