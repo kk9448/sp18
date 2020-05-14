@@ -70,7 +70,7 @@ public class Planet {
 
     }
 
-    void update(double t, double fx, double fy) {
+    public void update(double t, double fx, double fy) {
         double avx = fx / mass;
         double avy = fy / mass;
         xxVel = xxVel + avx * t;
@@ -80,7 +80,7 @@ public class Planet {
 
     }
 
-   void draw() {
+   public void draw() {
        examples.StdDraw.picture(xxPos, yyPos, imgFileName);
    }
 
