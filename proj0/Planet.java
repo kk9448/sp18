@@ -1,7 +1,5 @@
 
 import static java.lang.Math.sqrt;
-import static java.lang.Math.pow;
-import static java.lang.Math.abs;
 
 public class Planet {
     private double G = 6.67e-11;
