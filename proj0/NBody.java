@@ -1,4 +1,4 @@
-//import examples.StdDraw;
+import examples.StdDraw;
 
 public class NBody {
 
