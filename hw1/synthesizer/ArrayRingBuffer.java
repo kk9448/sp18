@@ -1,6 +1,6 @@
 // TODO: Make sure to make this class a part of the synthesizer package
 package synthesizer;
-import org.omg.CORBA.Object;
+//import org.omg.CORBA.Object;
 
 import java.util.Iterator;
 
@@ -19,11 +19,14 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
      */
     public ArrayRingBuffer(int capacity) {
 
-        rb =(T[]) new Object[this.capacity];
+        rb =(T[]) new Object[capacity];
+//        for (int i = 0; i < capacity; i++) {
+//            rb[i] =(T) new Double(0);
+//        }
+        this.capacity = capacity;
         fillCount = 0;
         first = 0;
         last = 0;
-
 
         // TODO: Create new array with capacity elements.
         //       first, last, and fillCount should all be set to 0.
@@ -39,10 +42,22 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
      */
     @Override
     public void enqueue(T x) {
+        if (isFull()) {
+            throw new RuntimeException("Ring buffer overflow");
+        }
+        if (fillCount == 0) {
+            rb[first] = x;
+        } else {
+            last = last + 1;
+            if (last > capacity) {
+                last = 0;
+            }
+            rb[last] = x;
 
-        rb[first] = x;
-        fillCount = fillCount + 1;
-        last = last + 1;
+        }
+//        rb[first] = x;
+
+
         // TODO: Enqueue the item. Don't forget to increase fillCount and update last.
 
     }
@@ -52,10 +67,18 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
      * throw new RuntimeException("Ring buffer underflow"). Exceptions
      * covered Monday.
      */
+    @Override
     public T dequeue() {
+        if (fillCount == 0) {
+            throw new RuntimeException("Ring buffer underflow");
+        }
+        T returnItem = rb[first];
         first = first + 1;
+        if (first == capacity) {
+            first = 0;
+        }
         fillCount = fillCount - 1;
-
+        return  returnItem;
         // TODO: Dequeue the first item. Don't forget to decrease fillCount and update
     }
 
@@ -63,7 +86,9 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
     /**
      * Return oldest item, but don't remove it.
      */
+    @Override
     public T peek() {
+        return rb[first];
         // TODO: Return the first item. None of your instance variables should change.
     }
 
