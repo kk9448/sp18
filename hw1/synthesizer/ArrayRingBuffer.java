@@ -1,7 +1,6 @@
 // TODO: Make sure to make this class a part of the synthesizer package
 package synthesizer;
 //import org.omg.CORBA.Object;
-
 import java.util.Iterator;
 
 //TODO: Make sure to make this class and all of its methods public
@@ -19,10 +18,7 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
      */
     public ArrayRingBuffer(int capacity) {
 
-        rb =(T[]) new Object[capacity];
-//        for (int i = 0; i < capacity; i++) {
-//            rb[i] =(T) new Double(0);
-//        }
+        rb = (T[]) new Object[capacity];
         this.capacity = capacity;
         fillCount = 0;
         first = 0;
@@ -49,13 +45,13 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
             rb[first] = x;
         } else {
             last = last + 1;
-            if (last > capacity) {
+            if (last > capacity - 1) {
                 last = 0;
             }
             rb[last] = x;
 
         }
-//        rb[first] = x;
+        fillCount += 1;
 
 
         // TODO: Enqueue the item. Don't forget to increase fillCount and update last.
@@ -74,7 +70,7 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
         }
         T returnItem = rb[first];
         first = first + 1;
-        if (first == capacity) {
+        if (first == capacity - 1) {
             first = 0;
         }
         fillCount = fillCount - 1;
