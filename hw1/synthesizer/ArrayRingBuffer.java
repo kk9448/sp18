@@ -69,10 +69,14 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
             throw new RuntimeException("Ring buffer underflow");
         }
         T returnItem = rb[first];
-        first = first + 1;
-        if (first == capacity - 1) {
-            first = 0;
-        }
+        first = (first + 1) / capacity;
+//        if (first == capacity - 1) {
+//            first = 0;
+//            fillCount = fillCount - 1;
+//            return  returnItem;
+//        }
+//        first = first + 1;
+
         fillCount = fillCount - 1;
         return  returnItem;
         // TODO: Dequeue the first item. Don't forget to decrease fillCount and update
