@@ -32,10 +32,6 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
     }
 
 
-    @Override
-    public boolean isEmpty() {
-        return fillCount == 0;
-    }
 
     /**
      * Adds x to the end of the ring buffer. If there is no room, then
