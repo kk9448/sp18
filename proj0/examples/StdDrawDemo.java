@@ -9,7 +9,6 @@ package examples;/*
  *   http://introcs.cs.princeton.edu/java/15inout/javadoc/StdDraw.html
  */
 
-import edu.princeton.cs.algs4.StdRandom;
 
 public class StdDrawDemo {
 	public static String imageToDraw = "advice.png";

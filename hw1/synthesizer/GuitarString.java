@@ -18,9 +18,10 @@ public class GuitarString {
     public GuitarString(double frequency) {
         double capacity = Math.round(SR / frequency);
         buffer = new ArrayRingBuffer<>((int) capacity);
-//        for (int i = 0; i < (int) capacity; i++ ) {
-//            buffer.enqueue(0.0);
-//        }
+        for (int i = 0; i < (int) capacity; i++ ) {
+            buffer.enqueue(0.0);
+        }
+        buffer.empty();
 
         // TODO: Create a buffer with capacity = SR / frequency. You'll need to
         //       cast the result of this divsion operation into an int. For better
@@ -31,7 +32,7 @@ public class GuitarString {
 
     /* Pluck the guitar string by replacing the buffer with white noise. */
     public void pluck() {
-
+        buffer.empty();
         for (int i = 0; i < buffer.capacity(); i++) {
 //            buffer.dequeue();
             double r = Math.random() - 0.5;

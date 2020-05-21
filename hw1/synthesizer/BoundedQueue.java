@@ -12,4 +12,6 @@ public interface BoundedQueue<T> {
     default boolean isFull() {
         return false;
     }
+
+    void empty();
 }

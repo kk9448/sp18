@@ -1,4 +1,4 @@
-
+import examples.StdDraw;
 /*************************************************************************
  *  Compilation:  javac StdOut.java
  *  Execution:    java StdOut

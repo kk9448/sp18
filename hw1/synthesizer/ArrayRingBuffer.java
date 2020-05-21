@@ -41,16 +41,20 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
         if (isFull()) {
             throw new RuntimeException("Ring buffer overflow");
         }
-        if (fillCount == 0) {
-            rb[first] = x;
-        } else {
-            last = last + 1;
-            if (last > capacity - 1) {
-                last = 0;
-            }
-            rb[last] = x;
-
-        }
+        rb[last] = x;
+        /** better way */
+        last = (last + 1) % capacity;
+        /** normal way */
+//        if (fillCount == 0) {
+//            rb[first] = x;
+//        } else {
+//            last = last + 1;
+//            if (last > capacity - 1) {
+//                last = 0;
+//            }
+//            rb[last] = x;
+//
+//        }
         fillCount += 1;
 
 
@@ -69,7 +73,9 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
             throw new RuntimeException("Ring buffer underflow");
         }
         T returnItem = rb[first];
-        first = (first + 1) / capacity;
+        /** better way */
+        first = (first + 1) % capacity;
+        /** normal way */
 //        if (first == capacity - 1) {
 //            first = 0;
 //            fillCount = fillCount - 1;
@@ -90,6 +96,12 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
     public T peek() {
         return rb[first];
         // TODO: Return the first item. None of your instance variables should change.
+    }
+
+    public void empty() {
+        fillCount = 0;
+//        first = 0;
+//        last = 0;
     }
 
     // TODO: When you get to part 5, implement the needed code to support iteration.
