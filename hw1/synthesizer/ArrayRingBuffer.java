@@ -31,7 +31,15 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
         //       you'll need to use this.capacity to set the capacity.
     }
 
+    @Override
+    public boolean isEmpty() {
+        return fillCount == 0;
+    }
 
+    @Override
+    public boolean isFull() {
+        return fillCount == capacity;
+    }
 
     /**
      * Adds x to the end of the ring buffer. If there is no room, then
