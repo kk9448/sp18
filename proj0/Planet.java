@@ -79,7 +79,7 @@ public class Planet {
     }
 
    public void draw() {
-       examples.StdDraw.picture(xxPos, yyPos, imgFileName);
+       StdDraw.picture(xxPos, yyPos, imgFileName);
    }
 
 

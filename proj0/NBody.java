@@ -1,4 +1,3 @@
-//import examples.StdDraw;
 public class NBody {
 
     public static double readRadius(String x) {
@@ -42,13 +41,14 @@ public class NBody {
         StdDraw.setScale(-radius, radius);
         StdDraw.clear();
         StdDraw.picture(0, 0, background);
-//        StdDraw.show();
+        StdDraw.show();
 //        StdDraw.picture(0, 0, "images/earth.gif");
 //        planets[0].draw();
 //
 //        for (int i = 0; i < planets.length; i++) {
 //            planets[i].draw();
 //        }
+//        StdDraw.show();
 
         double time = 0;
         double[] xForce = new double[planets.length];
