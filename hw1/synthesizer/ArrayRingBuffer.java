@@ -104,5 +104,29 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
 //        last = 0;
     }
 
+    @Override
+    public Iterator<T> iterator() {
+        return new KeyIterator();
+    }
+
+    private class KeyIterator implements Iterator<T>{
+        private int num = first;
+        @Override
+        public boolean hasNext() {
+            if (first == last && fillCount == capacity) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        @Override
+        public T next() {
+            T returnItem = rb[num];
+            num += 1;
+            return returnItem;
+        }
+    }
+
     // TODO: When you get to part 5, implement the needed code to support iteration.
 }
