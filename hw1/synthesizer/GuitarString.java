@@ -1,7 +1,7 @@
-package synthesizer;// TODO: Make sure to make this class a part of the synthesizer package
+package synthesizer;
+// DONE: Make sure to make this class a part of the synthesizer package
 //package <package name>;
 
-import synthesizer.BoundedQueue;
 
 //Make sure this class is public
 public class GuitarString {
@@ -18,12 +18,12 @@ public class GuitarString {
     public GuitarString(double frequency) {
         double capacity = Math.round(SR / frequency);
         buffer = new ArrayRingBuffer<>((int) capacity);
-        for (int i = 0; i < (int) capacity; i++ ) {
+        for (int i = 0; i < (int) capacity; i++) {
             buffer.enqueue(0.0);
         }
         buffer.empty();
 
-        // TODO: Create a buffer with capacity = SR / frequency. You'll need to
+        // DONE: Create a buffer with capacity = SR / frequency. You'll need to
         //       cast the result of this divsion operation into an int. For better
         //       accuracy, use the Math.round() function before casting.
         //       Your buffer should be initially filled with zeros.
@@ -39,7 +39,7 @@ public class GuitarString {
             buffer.enqueue(r);
         }
 
-        // TODO: Dequeue everything in the buffer, and replace it with random numbers
+        // DONE: Dequeue everything in the buffer, and replace it with random numbers
         //       between -0.5 and 0.5. You can get such a number by using:
         //       double r = Math.random() - 0.5;
         //
@@ -52,11 +52,11 @@ public class GuitarString {
     public void tic() {
         double a = buffer.dequeue();
         double b = buffer.peek();
-        double newValue = ((a + b) *0.5) * DECAY;
+        double newValue = ((a + b) * 0.5) * DECAY;
         buffer.enqueue(newValue);
 
 
-        // TODO: Dequeue the front sample and enqueue a new sample that is
+        // DONE: Dequeue the front sample and enqueue a new sample that is
         //       the average of the two multiplied by the DECAY factor.
         //       Do not call StdAudio.play().
     }
@@ -64,6 +64,6 @@ public class GuitarString {
     /* Return the double at the front of the buffer. */
     public double sample() {
         return buffer.peek();
-        // TODO: Return the correct thing.
+        // : Return the correct thing.
     }
 }

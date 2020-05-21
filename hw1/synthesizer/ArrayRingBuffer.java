@@ -1,10 +1,10 @@
-// TODO: Make sure to make this class a part of the synthesizer package
+// DONE: Make sure to make this class a part of the synthesizer package
 package synthesizer;
 //import org.omg.CORBA.Object;
 import java.util.Iterator;
 
-//TODO: Make sure to make this class and all of its methods public
-//TODO: Make sure to make this class extend AbstractBoundedQueue<t>
+//DONE: Make sure to make this class and all of its methods public
+//DONE: Make sure to make this class extend AbstractBoundedQueue<t>
 public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
     /* Index for the next dequeue or peek. */
     private int first;            // index for the next dequeue or peek
@@ -24,7 +24,7 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
         first = 0;
         last = 0;
 
-        // TODO: Create new array with capacity elements.
+        // DONE: Create new array with capacity elements.
         //       first, last, and fillCount should all be set to 0.
         //       this.capacity should be set appropriately. Note that the local variable
         //       here shadows the field we inherit from AbstractBoundedQueue, so
@@ -58,7 +58,7 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
         fillCount += 1;
 
 
-        // TODO: Enqueue the item. Don't forget to increase fillCount and update last.
+        // DONE: Enqueue the item. Don't forget to increase fillCount and update last.
 
     }
 
@@ -85,7 +85,7 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
 
         fillCount = fillCount - 1;
         return  returnItem;
-        // TODO: Dequeue the first item. Don't forget to decrease fillCount and update
+        // DONE: Dequeue the first item. Don't forget to decrease fillCount and update
     }
 
 
@@ -94,8 +94,11 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
      */
     @Override
     public T peek() {
+        if (fillCount == 0) {
+            throw new RuntimeException("Ring buffer underflow");
+        }
         return rb[first];
-        // TODO: Return the first item. None of your instance variables should change.
+        // DONE: Return the first item. None of your instance variables should change.
     }
 
     public void empty() {
@@ -109,15 +112,21 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
         return new KeyIterator();
     }
 
-    private class KeyIterator implements Iterator<T>{
+    private class KeyIterator implements Iterator<T> {
         private int num = first;
         @Override
         public boolean hasNext() {
-            if (first == last && fillCount == capacity) {
-                return false;
-            } else {
-                return true;
-            }
+            /** not a good way 1 */
+//            if (first == last && fillCount == capacity) {
+//                return false;
+//            } else {
+//                return true;
+//            }
+            /** not a good way 2 */
+//            boolean ans = first == last && fillCount == capacity;
+//            return !ans;
+
+            return first != last || fillCount != capacity;
         }
 
         @Override
@@ -128,5 +137,5 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
         }
     }
 
-    // TODO: When you get to part 5, implement the needed code to support iteration.
+    // DONE: When you get to part 5, implement the needed code to support iteration.
 }
