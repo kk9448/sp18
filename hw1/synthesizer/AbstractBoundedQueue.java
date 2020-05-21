@@ -24,6 +24,6 @@ public abstract class AbstractBoundedQueue<T> implements BoundedQueue<T> {
     public abstract T dequeue();
     @Override
     public abstract void enqueue(T x);
-    @Override
-    public abstract void empty();
+//    @Override
+//    public abstract void empty();
 }

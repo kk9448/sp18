@@ -21,7 +21,7 @@ public class GuitarString {
         for (int i = 0; i < (int) capacity; i++) {
             buffer.enqueue(0.0);
         }
-        buffer.empty();
+//        buffer.empty();
 
         // DONE: Create a buffer with capacity = SR / frequency. You'll need to
         //       cast the result of this divsion operation into an int. For better
@@ -32,9 +32,9 @@ public class GuitarString {
 
     /* Pluck the guitar string by replacing the buffer with white noise. */
     public void pluck() {
-        buffer.empty();
+//        buffer.empty();
         for (int i = 0; i < buffer.capacity(); i++) {
-//            buffer.dequeue();
+            buffer.dequeue();
             double r = Math.random() - 0.5;
             buffer.enqueue(r);
         }

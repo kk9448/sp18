@@ -13,5 +13,5 @@ public interface BoundedQueue<T> extends Iterable<T> {
         return false;
     }
 
-    void empty();
+//    void empty();
 }

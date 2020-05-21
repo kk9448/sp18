@@ -102,11 +102,10 @@ public class ArrayRingBuffer<T>  extends AbstractBoundedQueue<T> {
 
     }
 
-    public void empty() {
-        fillCount = 0;
-//        first = 0;
-//        last = 0;
-    }
+//    public void empty() {
+//        fillCount = 0;
+//
+//    }
 
     @Override
     public Iterator<T> iterator() {
