@@ -11,7 +11,7 @@ public class ArrayDeque<T> {
 
 
     public void addFirst(T x) {
-        if (size == item.length || head == tail || tail == head) {
+        if (size == item.length || head == tail) {
             resize();
         }
         item[head] = x;
@@ -26,7 +26,7 @@ public class ArrayDeque<T> {
     }
 
     public void addLast(T x) {
-        if (size == item.length || head == tail || tail == head) {
+        if (size == item.length || head == tail) {
 //            sizeTail = sizeTail +1;
             resize();
         }
