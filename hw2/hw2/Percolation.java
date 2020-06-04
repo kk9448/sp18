@@ -85,6 +85,10 @@ public class Percolation {
             throw new IndexOutOfBoundsException();
         }
         int singleNumber = convertToSingle(row, col);
+
+        if (row == size - 1 && !x.connected(singleNumber, size * size)) {
+            return false;
+        }
 //        if (x.find(singleNumber) == size * size + 1) {
 //
 //        }
@@ -107,6 +111,6 @@ public class Percolation {
     }
 
     // use for unit testing (not required)
-    
+
 
 }

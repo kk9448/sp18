@@ -30,20 +30,17 @@ public class PercolationStats {
 
 
     private int singleResult() {
-        int i;
+        int i = 0;
         x = factory.make(size);
-        for (i = 0; i < size * size; ) {
+        while (!x.percolates()) {
             int row = (int) Math.round((size - 1) * StdRandom.uniform());
             int col = (int) Math.round((size - 1) * StdRandom.uniform());
             if (!x.isOpen(row, col)) {
                 x.open(row, col);
-                if (x.percolates()) {
-                    return i;
-                }
                 i++;
             }
         }
-        return 0;
+        return i;
 
     }
 
@@ -58,6 +55,13 @@ public class PercolationStats {
     }                                 // low endpoint of 95% confidence interval
     public double confidenceHigh() {
         return mean() + 1.96 * Math.sqrt(stddev()) / Math.sqrt(T);
+    }
+
+    public static void main(String[] args){
+        PercolationFactory factory = new PercolationFactory();
+//        Percolation x1 = factory.make(10);
+        System.out.println(factory);
+        PercolationStats x = new PercolationStats(10, 20, factory);
     }
 
 
