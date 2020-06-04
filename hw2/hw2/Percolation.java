@@ -33,13 +33,14 @@ public class Percolation {
                 x.union(singleNumber, size * size);
             }
             if ((singleNumber >= size * (size - 1))
-                    && (singleNumber < size * size)
-                    && (x.connected(singleNumber, size * size))) {
-                x.union(singleNumber, size * size + 1);
+                    && (singleNumber < size * size)) {
+                if (!percolates()) {
+                    x.union(singleNumber, size * size + 1);
+                }
             }
         }
 
-//        System.out.println(x.find(55));
+        System.out.println(x.find(singleNumber));
 
 //        System.out.println(singleNumber);
 //        boolean result = x.connected(4,5);
@@ -77,7 +78,6 @@ public class Percolation {
             }
         }
 
-
     }
     // is the site (row, col) full?
     public boolean isFull(int row, int col) {
@@ -85,6 +85,9 @@ public class Percolation {
             throw new IndexOutOfBoundsException();
         }
         int singleNumber = convertToSingle(row, col);
+//        if (x.find(singleNumber) == size * size + 1) {
+//
+//        }
         return x.connected(singleNumber, size * size);
     }
 
