@@ -28,16 +28,17 @@ public class Percolation {
         if (!isOpen(row, col)) {
             status[singleNumber] = true;
             openedSite++;
+            connectAdjacent(row, col, singleNumber);
             if (singleNumber < size) {
                 x.union(singleNumber, size * size);
             }
             if ((singleNumber >= size * (size - 1))
-                    && (singleNumber <= size * size)
+                    && (singleNumber < size * size)
                     && (x.connected(singleNumber, size * size))) {
                 x.union(singleNumber, size * size + 1);
             }
         }
-        connectAdjacent(row, col, singleNumber);
+
 //        System.out.println(x.find(55));
 
 //        System.out.println(singleNumber);
