@@ -60,12 +60,5 @@ public class PercolationStats {
         return mean() + 1.96 * Math.sqrt(stddev()) / Math.sqrt(T);
     }
 
-    public static void main(String[] args) {
-        PercolationFactory factory = new PercolationFactory();
-//        Percolation x1 = factory.make(10);
-        System.out.println(factory);
-        PercolationStats x = new PercolationStats(10, 20, factory);
-
-    }
 
 }
