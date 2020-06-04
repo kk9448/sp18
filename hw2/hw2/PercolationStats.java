@@ -64,7 +64,7 @@ public class PercolationStats {
         PercolationFactory factory = new PercolationFactory();
 //        Percolation x1 = factory.make(10);
         System.out.println(factory);
-        PercolationStats x = new PercolationStats(10,20,factory);
+        PercolationStats x = new PercolationStats(10, 20, factory);
 
     }
 

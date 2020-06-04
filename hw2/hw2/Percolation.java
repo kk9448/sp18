@@ -31,7 +31,9 @@ public class Percolation {
             if (singleNumber < size) {
                 x.union(singleNumber, size * size);
             }
-            if ((singleNumber > size * (size - 1)) && (singleNumber <= size * size)) {
+            if ((singleNumber >= size * (size - 1))
+                    && (singleNumber <= size * size)
+                    && (x.connected(singleNumber, size * size))) {
                 x.union(singleNumber, size * size + 1);
             }
         }
