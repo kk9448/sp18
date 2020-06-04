@@ -4,9 +4,9 @@ import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
 public class Percolation {
     private int size;
-    boolean [] status;
-    int openedSite;
-    WeightedQuickUnionUF x;
+    private boolean [] status;
+    private int openedSite;
+    private WeightedQuickUnionUF x;
     // create N-by-N grid, with all sites initially blocked
     public Percolation(int N) {
         openedSite = 0;
@@ -31,11 +31,12 @@ public class Percolation {
             if (singleNumber < size) {
                 x.union(singleNumber, size * size);
             }
-            if ((singleNumber > size * (size - 1)) && (singleNumber < size * size)) {
+            if ((singleNumber > size * (size - 1)) && (singleNumber <= size * size)) {
                 x.union(singleNumber, size * size + 1);
             }
         }
         connectAdjacent(row, col, singleNumber);
+//        System.out.println(x.find(55));
 
 //        System.out.println(singleNumber);
 //        boolean result = x.connected(4,5);
@@ -83,6 +84,7 @@ public class Percolation {
         int singleNumber = convertToSingle(row, col);
         return x.connected(singleNumber, size * size);
     }
+
     // number of open sites
     public int numberOfOpenSites() {
         return openedSite;
@@ -99,9 +101,9 @@ public class Percolation {
     }
 
     // use for unit testing (not required)
-    public static void main(String[] args) {
-
-    }
+//    public static void main(String[] args) {
+//
+//    }
 
 
 

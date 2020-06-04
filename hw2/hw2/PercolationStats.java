@@ -4,20 +4,22 @@ import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.introcs.StdStats;
 
 public class PercolationStats {
-    int size;
-    int T;
-    int[] save;
-    Percolation x;
+    private int size;
+    private int T;
+    private int[] save;
+    private Percolation x;
+    private PercolationFactory factory;
 
     public PercolationStats(int N, int T, PercolationFactory pf) {
-        save = new int[N];
-        size = N;
-        this.T = T;
         if (N <= 0 || T <= 0) {
             throw new IllegalArgumentException();
         }
-        x = pf.make(N);
+        save = new int[T];
+        size = N;
+        this.T = T;
+        factory = pf;
         saveToArray(T);
+
 
     }  // perform T independent experiments on an N-by-N grid
     private void saveToArray(int times) {
@@ -29,9 +31,10 @@ public class PercolationStats {
 
     private int singleResult() {
         int i;
+        x = factory.make(size);
         for (i = 0; i < size * size; ) {
-            int row = (int) Math.round(size * StdRandom.uniform());
-            int col = (int) Math.round(size * StdRandom.uniform());
+            int row = (int) Math.round((size - 1) * StdRandom.uniform());
+            int col = (int) Math.round((size - 1) * StdRandom.uniform());
             if (!x.isOpen(row, col)) {
                 x.open(row, col);
                 if (x.percolates()) {
@@ -58,6 +61,10 @@ public class PercolationStats {
     }
 
     public static void main(String[] args) {
+        PercolationFactory factory = new PercolationFactory();
+//        Percolation x1 = factory.make(10);
+        System.out.println(factory);
+        PercolationStats x = new PercolationStats(10,20,factory);
 
     }
 
