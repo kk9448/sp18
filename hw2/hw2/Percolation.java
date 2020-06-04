@@ -54,22 +54,22 @@ public class Percolation {
     private void connectAdjacent(int row, int col, int singleNumber) {
         if (row - 1 >= 0) {
             if (isOpen(row - 1, col)) {
-                x.union(singleNumber,singleNumber - size);
+                x.union(singleNumber, singleNumber - size);
             }
         }
         if (row + 1 < size) {
             if (isOpen(row + 1, col)) {
-                x.union(singleNumber,singleNumber + size);
+                x.union(singleNumber, singleNumber + size);
             }
         }
         if (col - 1 >= 0) {
-            if (isOpen(row, col -1)) {
-                x.union(singleNumber,singleNumber - 1);
+            if (isOpen(row, col - 1)) {
+                x.union(singleNumber, singleNumber - 1);
             }
         }
         if (col + 1 < size) {
-            if (isOpen(row, col +1)) {
-                x.union(singleNumber,singleNumber + 1);
+            if (isOpen(row, col + 1)) {
+                x.union(singleNumber, singleNumber + 1);
             }
         }
 
