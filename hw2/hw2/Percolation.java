@@ -37,9 +37,6 @@ public class Percolation {
             }
         }
 
-
-        System.out.println(x.find(singleNumber));
-
 //        System.out.println(singleNumber);
 //        boolean result = x.connected(4,5);
 //        System.out.println("4,5" + result);
