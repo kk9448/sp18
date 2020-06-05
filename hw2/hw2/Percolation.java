@@ -9,16 +9,14 @@ public class Percolation {
     private boolean [] status;
     private int openedSite;
     private WeightedQuickUnionUF x;
+    private WeightedQuickUnionUF onlyTop;
     // create N-by-N grid, with all sites initially blocked
     public Percolation(int N) {
         openedSite = 0;
         size = N;
         status = new boolean[N * N];
         x = new WeightedQuickUnionUF(N * N + 2);
-//        for (int i = 0; i < N; i++) {
-//            x.union(i, N * N);
-//            x.union(N * N - 1 - i, N * N + 1);
-//        }
+        onlyTop = new WeightedQuickUnionUF(N * N + 1);
     }
 
     // open the site (row, col) if it is not open already
@@ -31,19 +29,12 @@ public class Percolation {
             status[singleNumber] = true;
             openedSite++;
             connectAdjacent(row, col, singleNumber);
-            if (singleNumber < size) {
+            if (row == 0) {
                 x.union(singleNumber, size * size);
+                onlyTop.union(singleNumber, size * size);
             }
-            if ((singleNumber >= size * (size - 1))
-                    && (singleNumber < size * size)) {
-                if (!percolates()) {
+            if (row == size - 1) {
                     x.union(singleNumber, size * size + 1);
-                }
-            }
-        }
-        for(int i = size * (size - 1); i < size * size; i++){
-            if (x.connected(i, size * size)) {
-                x.union(i, size * size + 1);
             }
         }
 
@@ -67,22 +58,30 @@ public class Percolation {
     private void connectAdjacent(int row, int col, int singleNumber) {
         if (row - 1 >= 0) {
             if (isOpen(row - 1, col)) {
-                x.union(singleNumber, singleNumber - size);
+                int aroundItem = convertToSingle(row - 1, col);
+                x.union(singleNumber, aroundItem);
+                onlyTop.union(singleNumber,aroundItem);
             }
         }
         if (row + 1 < size) {
             if (isOpen(row + 1, col)) {
-                x.union(singleNumber, singleNumber + size);
+                int aroundItem = convertToSingle(row + 1, col);
+                x.union(singleNumber, aroundItem);
+                onlyTop.union(singleNumber,aroundItem);
             }
         }
         if (col - 1 >= 0) {
             if (isOpen(row, col - 1)) {
-                x.union(singleNumber, singleNumber - 1);
+                int aroundItem = convertToSingle(row, col - 1);
+                x.union(singleNumber, aroundItem);
+                onlyTop.union(singleNumber,aroundItem);
             }
         }
         if (col + 1 < size) {
             if (isOpen(row, col + 1)) {
-                x.union(singleNumber, singleNumber + 1);
+                int aroundItem = convertToSingle(row, col + 1);
+                x.union(singleNumber, aroundItem);
+                onlyTop.union(singleNumber,aroundItem);
             }
         }
 
@@ -94,7 +93,7 @@ public class Percolation {
         }
         int singleNumber = convertToSingle(row, col);
 
-        return x.connected(singleNumber, size * size);
+        return onlyTop.connected(singleNumber, size * size);
     }
 
     // number of open sites
@@ -104,7 +103,9 @@ public class Percolation {
 
     // does the system percolate?
     public boolean percolates() {
+
         return x.connected(size * size, size * size + 1);
+
     }
     // a = row , b = column
     private int convertToSingle(int a, int b) {
