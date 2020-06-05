@@ -41,6 +41,11 @@ public class Percolation {
                 }
             }
         }
+        for(int i = size * (size - 1); i < size * size; i++){
+            if (x.connected(i, size * size)) {
+                x.union(i, size * size + 1);
+            }
+        }
 
 
         System.out.println(x.find(singleNumber));
@@ -99,11 +104,6 @@ public class Percolation {
 
     // does the system percolate?
     public boolean percolates() {
-        for(int i = size * (size - 1); i < size * size; i++){
-            if (x.connected(i, size * size)) {
-                x.union(i, size * size + 1);
-            }
-        }
         return x.connected(size * size, size * size + 1);
     }
     // a = row , b = column
