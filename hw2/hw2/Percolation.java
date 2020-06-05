@@ -2,6 +2,8 @@ package hw2;
 
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
+import java.util.HashSet;
+
 public class Percolation {
     private int size;
     private boolean [] status;
@@ -39,6 +41,7 @@ public class Percolation {
                 }
             }
         }
+
 
         System.out.println(x.find(singleNumber));
 
@@ -86,12 +89,6 @@ public class Percolation {
         }
         int singleNumber = convertToSingle(row, col);
 
-        if (row == size - 1 && !x.connected(singleNumber, size * size)) {
-            return false;
-        }
-//        if (x.find(singleNumber) == size * size + 1) {
-//
-//        }
         return x.connected(singleNumber, size * size);
     }
 
@@ -102,6 +99,11 @@ public class Percolation {
 
     // does the system percolate?
     public boolean percolates() {
+        for(int i = size * (size - 1); i < size * size; i++){
+            if (x.connected(i, size * size)) {
+                x.union(i, size * size + 1);
+            }
+        }
         return x.connected(size * size, size * size + 1);
     }
     // a = row , b = column
