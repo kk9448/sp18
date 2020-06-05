@@ -24,7 +24,7 @@ public class PercolationStats {
     }  // perform T independent experiments on an N-by-N grid
     private void saveToArray(int times) {
         for (int i = 0; i < times; i++) {
-            save[i] = singleResult() / T;
+            save[i] = singleResult() / (size * size);
         }
     }
 
