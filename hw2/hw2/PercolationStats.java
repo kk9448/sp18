@@ -6,7 +6,7 @@ import edu.princeton.cs.introcs.StdStats;
 public class PercolationStats {
     private int size;
     private int T;
-    private int[] save;
+    private double[] save;
     private Percolation x;
     private PercolationFactory factory;
 
@@ -14,7 +14,7 @@ public class PercolationStats {
         if (N <= 0 || T <= 0) {
             throw new IllegalArgumentException();
         }
-        save = new int[T];
+        save = new double[T];
         size = N;
         this.T = T;
         factory = pf;
@@ -51,18 +51,18 @@ public class PercolationStats {
         return StdStats.stddev(save);
     }                                        // sample standard deviation of percolation threshold
     public double confidenceLow() {
-        return mean() - 1.96 * Math.sqrt(stddev()) / Math.sqrt(T);
+        return mean() - 1.96 * stddev() / Math.sqrt(T);
     }                                 // low endpoint of 95% confidence interval
     public double confidenceHigh() {
-        return mean() + 1.96 * Math.sqrt(stddev()) / Math.sqrt(T);
+        return mean() + 1.96 * stddev() / Math.sqrt(T);
     }
 
-    public static void main(String[] args){
-        PercolationFactory factory = new PercolationFactory();
-        Percolation x1 = factory.make(10);
-        System.out.println(factory);
-        PercolationStats x = new PercolationStats(10, 20, factory);
-    }
+//    public static void main(String[] args){
+//        PercolationFactory factory = new PercolationFactory();
+//        Percolation x1 = factory.make(10);
+//        System.out.println(factory);
+//        PercolationStats x = new PercolationStats(10, 20, factory);
+//    }
 
 
 }
