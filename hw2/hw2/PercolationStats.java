@@ -24,7 +24,7 @@ public class PercolationStats {
     }  // perform T independent experiments on an N-by-N grid
     private void saveToArray(int times) {
         for (int i = 0; i < times; i++) {
-            save[i] = singleResult();
+            save[i] = singleResult() / T;
         }
     }
 
@@ -57,12 +57,12 @@ public class PercolationStats {
         return mean() + 1.96 * Math.sqrt(stddev()) / Math.sqrt(T);
     }
 
-//    public static void main(String[] args){
-//        PercolationFactory factory = new PercolationFactory();
-//        Percolation x1 = factory.make(10);
-//        System.out.println(factory);
-//        PercolationStats x = new PercolationStats(10, 20, factory);
-//    }
+    public static void main(String[] args){
+        PercolationFactory factory = new PercolationFactory();
+        Percolation x1 = factory.make(10);
+        System.out.println(factory);
+        PercolationStats x = new PercolationStats(10, 20, factory);
+    }
 
 
 }
