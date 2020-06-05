@@ -2,7 +2,6 @@ package hw2;
 
 import edu.princeton.cs.algs4.WeightedQuickUnionUF;
 
-import java.util.HashSet;
 
 public class Percolation {
     private int size;
@@ -34,7 +33,7 @@ public class Percolation {
                 onlyTop.union(singleNumber, size * size);
             }
             if (row == size - 1) {
-                    x.union(singleNumber, size * size + 1);
+                x.union(singleNumber, size * size + 1);
             }
         }
 
@@ -60,28 +59,28 @@ public class Percolation {
             if (isOpen(row - 1, col)) {
                 int aroundItem = convertToSingle(row - 1, col);
                 x.union(singleNumber, aroundItem);
-                onlyTop.union(singleNumber,aroundItem);
+                onlyTop.union(singleNumber, aroundItem);
             }
         }
         if (row + 1 < size) {
             if (isOpen(row + 1, col)) {
                 int aroundItem = convertToSingle(row + 1, col);
                 x.union(singleNumber, aroundItem);
-                onlyTop.union(singleNumber,aroundItem);
+                onlyTop.union(singleNumber, aroundItem);
             }
         }
         if (col - 1 >= 0) {
             if (isOpen(row, col - 1)) {
                 int aroundItem = convertToSingle(row, col - 1);
                 x.union(singleNumber, aroundItem);
-                onlyTop.union(singleNumber,aroundItem);
+                onlyTop.union(singleNumber, aroundItem);
             }
         }
         if (col + 1 < size) {
             if (isOpen(row, col + 1)) {
                 int aroundItem = convertToSingle(row, col + 1);
                 x.union(singleNumber, aroundItem);
-                onlyTop.union(singleNumber,aroundItem);
+                onlyTop.union(singleNumber, aroundItem);
             }
         }
 
