@@ -58,10 +58,10 @@ public class PercolationStats {
         return mean() + 1.96 * stddev() / Math.sqrt(T);
     }
 
-    public static void main(String[] args){
-        PercolationFactory factory = new PercolationFactory();
-        PercolationStats x = new PercolationStats(10, 20, factory);
-    }
+//    public static void main(String[] args) {
+//        PercolationFactory factory = new PercolationFactory();
+//        PercolationStats x = new PercolationStats(10, 20, factory);
+//    }
 
 
 }
