@@ -34,8 +34,8 @@ public class PercolationStats {
         int i = 0;
         x = factory.make(size);
         while (!x.percolates()) {
-            int row = (int) Math.round((size - 1) * StdRandom.uniform());
-            int col = (int) Math.round((size - 1) * StdRandom.uniform());
+            int row = StdRandom.uniform(size);
+            int col = StdRandom.uniform(size);
             if (!x.isOpen(row, col)) {
                 x.open(row, col);
                 i++;
@@ -59,8 +59,14 @@ public class PercolationStats {
     }
 
 //    public static void main(String[] args) {
-//        PercolationFactory factory = new PercolationFactory();
-//        PercolationStats x = new PercolationStats(10, 20, factory);
+////        PercolationFactory factory = new PercolationFactory();
+////        PercolationStats x = new PercolationStats(10, 20, factory);
+//        for (int i = 0; i < 10; i ++) {
+//            double a = Math.random();
+//            System.out.print(Math.random());
+//        }
+//
+//
 //    }
 
 
