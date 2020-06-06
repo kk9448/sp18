@@ -121,6 +121,37 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
 
     //////////////// EVERYTHING BELOW THIS LINE IS OPTIONAL ////////////////
 
+    private class MapIterator implements Iterator {
+
+        @Override
+        public boolean hasNext() {
+            if (root == null) {
+                return false;
+            }
+            return hasNextHelper(root);
+        }
+
+        public boolean hasNextHelper (Node x) {
+            if (x == null) {
+                return true;
+            } else {
+                hasNextHelper(x.left);
+                hasNextHelper(x.right);
+            }
+            if (x == root) {
+                return true;
+            } else {
+                return false;
+            }
+
+        }
+
+        @Override
+        public Object next() {
+            return null;
+        }
+    }
+
     /* Returns a Set view of the keys contained in this map. */
     @Override
     public Set<K> keySet() {
@@ -147,6 +178,7 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
 
     @Override
     public Iterator<K> iterator() {
+
         throw new UnsupportedOperationException();
     }
 }
