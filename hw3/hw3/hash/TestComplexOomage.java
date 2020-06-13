@@ -42,9 +42,9 @@ public class TestComplexOomage {
         List<Oomage> deadlyList = new ArrayList<>();
         List<Integer> deadArgument = new ArrayList<>();
 
-        int N = 1000;
+        int N = 100;
 
-        for (int j = 0; j < 100; j++){
+        for (int j = 0; j < 10000; j++) {
             for (int i = 0; i < N; i += 1) {
                 deadArgument.add(1);
             }
