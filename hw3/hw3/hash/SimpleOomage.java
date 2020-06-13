@@ -39,7 +39,7 @@ public class SimpleOomage implements Oomage {
             return red + green + blue;
         } else {
             // DONE: Write a perfect hash function for Simple Oomages.
-            return red / 5 + blue / 5 * 37 + green / 5 * 37 * 37;
+            return red / 5 + blue / 5 * 53 + green / 5 * 53 * 53;
         }
     }
 
