@@ -15,14 +15,16 @@ public class SimpleOomage implements Oomage {
     @Override
     public boolean equals(Object o) {
         //DONE: Write this method.
-        if(o == null) {
+        if (o == null) {
             return false;
         }
         if (o.getClass() != this.getClass()) {
             return false;
         }
         SimpleOomage receiveItem = (SimpleOomage) o;
-        if (receiveItem.red == this.red && receiveItem.blue == this.blue && receiveItem.green == this.green) {
+        if (receiveItem.red == this.red
+                && receiveItem.blue == this.blue
+                && receiveItem.green == this.green) {
             return true;
         }
         return false;

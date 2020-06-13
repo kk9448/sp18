@@ -28,7 +28,7 @@ public class TestSimpleOomage {
         // DONE: Write a test that ensures the hashCode is perfect,
         SimpleOomage ooA = new SimpleOomage(5, 10, 20);
         SimpleOomage ooA2 = new SimpleOomage(10, 5, 20);
-        assertNotEquals(ooA.hashCode(),ooA2.hashCode());
+        assertNotEquals(ooA.hashCode(), ooA2.hashCode());
 //          meaning no two SimpleOomages should EVER have the same
 //          hashCode UNLESS they have the same red, blue, and green values!
 
