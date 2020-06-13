@@ -131,18 +131,14 @@ public class BSTMap<K extends Comparable<K>, V> implements Map61B<K, V> {
             return hasNextHelper(root);
         }
 
-        public boolean hasNextHelper (Node x) {
+        public boolean hasNextHelper(Node x) {
             if (x == null) {
                 return true;
             } else {
                 hasNextHelper(x.left);
                 hasNextHelper(x.right);
             }
-            if (x == root) {
-                return true;
-            } else {
-                return false;
-            }
+            return x == root;
 
         }
 

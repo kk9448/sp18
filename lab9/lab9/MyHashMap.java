@@ -23,7 +23,6 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
 
     public MyHashMap() {
         buckets = new ArrayMap[DEFAULT_SIZE];
-        size = 0;
         this.clear();
     }
 
@@ -32,7 +31,7 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
     public void clear() {
         this.size = 0;
         for (int i = 0; i < this.buckets.length; i += 1) {
-            this.buckets[i] = new ArrayMap<>();
+            this.buckets[i] = new ArrayMap<>( );
         }
     }
 
@@ -50,14 +49,13 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
     }
 
     private void resize() {
-        int hashCode;
         int oldLength = buckets.length;
         ArrayMap<K, V>[] oldBuckets = buckets;
         buckets = new ArrayMap[buckets.length * 2];
         this.clear();
-        for(int i = 0; i < oldLength; i++){
-            for(K x:oldBuckets[i]){
-                put(x,oldBuckets[i].get(x));
+        for (int i = 0; i < oldLength; i++) {
+            for (K x:oldBuckets[i]) {
+                put(x, oldBuckets[i].get(x));
             }
         }
 
@@ -77,11 +75,9 @@ public class MyHashMap<K, V> implements Map61B<K, V> {
     @Override
     public void put(K key, V value) {
 //        throw new UnsupportedOperationException();
-
-        if (loadFactor() >= MAX_LF ) {
+        if (loadFactor() >= MAX_LF) {
             resize();
         }
-
         int hashCode = hash(key);
         V result = buckets[hashCode].get(key);
         buckets[hashCode].put(key, value);
