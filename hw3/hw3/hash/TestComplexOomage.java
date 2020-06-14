@@ -44,7 +44,7 @@ public class TestComplexOomage {
 
 
         for (int j = 0; j < 10; j++) {
-                deadArgument.add(j);
+            deadArgument.add(j);
             for (int i = 0; i < 5; i += 1) {
                 deadArgument.add(1);
             }
