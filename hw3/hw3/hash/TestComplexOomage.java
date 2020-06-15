@@ -52,10 +52,6 @@ public class TestComplexOomage {
         }
         // Your code here.
         assertTrue(OomageTestUtility.haveNiceHashCodeSpread(deadlyList, 10));
-
-        // Your code here.
-
-        assertTrue(OomageTestUtility.haveNiceHashCodeSpread(deadlyList, 10));
     }
 
     /** Calls tests for SimpleOomage. */
