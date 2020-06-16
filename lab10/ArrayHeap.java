@@ -268,8 +268,6 @@ public class ArrayHeap<T> implements ExtrinsicPQ<T> {
                 tmpPriority = contents[i].priority();
                 contents[i].myPriority = priority;
                 break;
-            } else {
-                return;
             }
         }
         if (priority > tmpPriority) {
