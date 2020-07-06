@@ -1,28 +1,32 @@
 package hw4.puzzle;
 
 import edu.princeton.cs.algs4.MinPQ;
+import edu.princeton.cs.algs4.SET;
 
 import java.util.*;
 
 public class Solver {
-    private Queue<WorldState> q;
+    private Deque<WorldState> q;
+    private Node result;
+    int finalStepNumber;
 
-    private class Node extends Word{
+    private class Node {
         private int totalValue = 0;
         private int stepNum = 0;
-        private Node pre = null;
+        private Node pre;
         private boolean mark = false;
-        /**
-         * Creates a new Word.
-         *
-         * @param w
-         * @param g
-         */
-        public Node(String w, String g) {
-            super(w, g);
+//        private int es;
+//        Iterable<WorldState> it;
+        WorldState ws;
+
+        public Node (WorldState x) {
+            ws = x;
+//            es = x.estimatedDistanceToGoal();
+//            it = x.neighbors();
         }
+
         public void calTotal(){
-            totalValue =  stepNum + estimatedDistanceToGoal();
+            totalValue =  stepNum + ws.estimatedDistanceToGoal();
         }
 
     }
@@ -31,36 +35,46 @@ public class Solver {
         if (initial == null) {
             return;
         }
-        if (initial.estimatedDistanceToGoal() == 0) {
-            q.add(initial);
-            return;
-        }
-        Node aNode = (Node) initial;
-        MinPQ<Node> pq = new MinPQ<>(new CompareNode());
-        q = new LinkedList<>();
-        for (WorldState x : initial.neighbors()) {
-            Node nodeX = (Node) x;
-            if (nodeX.mark == false) {
-                nodeX.stepNum++;
-                nodeX.calTotal();
-                nodeX.pre = aNode;
-                nodeX.mark = true;
-                pq.insert(nodeX);
+        Node aNode = new Node(initial);
+        MinPQ<Node> pq1 = new MinPQ<>(new CompareNode());
+        Set<WorldState> checkReuse= new HashSet<>();
+        q = new ArrayDeque<>();
+        aNode.mark = true;
+        pq1.insert(aNode);
+        checkReuse.add(aNode.ws);
+        result = pq1.delMin();
+        int stepNumber = 0;
+        while (result.ws.estimatedDistanceToGoal() != 0) {
+            stepNumber = stepNumber + 1;
+            for (WorldState x : result.ws.neighbors()) {
+                Node nodeX = new Node(x);
+
+                if (checkReuse.contains(x) == false) {
+                    nodeX.stepNum = stepNumber;
+                    nodeX.calTotal();
+                    nodeX.pre = result;
+//                    nodeX.mark = true;
+                    checkReuse.add(x);
+                    pq1.insert(nodeX);
+                }
             }
-        }
-        Node result = pq.delMin();
-        while (result.estimatedDistanceToGoal() != 0) {
-            if (pq.isEmpty()) {
-                q = null;
+            if (pq1.isEmpty()) {
+                result = null;
                 break;
             }
-            result = pq.delMin();
-            for (WorldState x : result.neighbors()) {
-                Node nodeX = (Node) x;
-                pq.insert(nodeX);
-            }
+            result = pq1.delMin();
         }
 
+        finalStepNumber = result.stepNum;
+
+        if (result != null) {
+            while (result.pre != null) {
+                q.addFirst(result.ws);
+                result = result.pre;
+            }
+            q.addFirst(aNode.ws);
+//            Collections.reverse(q);
+        }
     }
 
     class CompareNode implements Comparator<Node> {
@@ -72,7 +86,7 @@ public class Solver {
 
 
     public int moves(){
-        return stepNum;
+        return finalStepNumber;
     }
     public Iterable<WorldState> solution() {
         return q;
