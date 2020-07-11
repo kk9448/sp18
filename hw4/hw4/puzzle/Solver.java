@@ -15,17 +15,13 @@ public class Solver {
         private int stepNum = 0;
         private Node pre;
         WorldState ws;
-
         public Node (WorldState x) {
             ws = x;
         }
-
         public int calTotal(){
             return totalValue =  stepNum + ws.estimatedDistanceToGoal();
         }
-
     }
-
     public Solver(WorldState initial){
         if (initial == null) {
             return;
