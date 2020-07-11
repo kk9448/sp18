@@ -14,19 +14,14 @@ public class Solver {
         private int totalValue = 0;
         private int stepNum = 0;
         private Node pre;
-        private boolean mark = false;
-//        private int es;
-//        Iterable<WorldState> it;
         WorldState ws;
 
         public Node (WorldState x) {
             ws = x;
-//            es = x.estimatedDistanceToGoal();
-//            it = x.neighbors();
         }
 
-        public void calTotal(){
-            totalValue =  stepNum + ws.estimatedDistanceToGoal();
+        public int calTotal(){
+            return totalValue =  stepNum + ws.estimatedDistanceToGoal();
         }
 
     }
@@ -38,42 +33,46 @@ public class Solver {
         Node aNode = new Node(initial);
         MinPQ<Node> pq1 = new MinPQ<>(new CompareNode());
         Set<WorldState> checkReuse= new HashSet<>();
+        Map<WorldState, Integer> alreadyBeen= new HashMap<>();
         q = new ArrayDeque<>();
-        aNode.mark = true;
         pq1.insert(aNode);
         checkReuse.add(aNode.ws);
         result = pq1.delMin();
-        int stepNumber = 0;
+        int total;
         while (result.ws.estimatedDistanceToGoal() != 0) {
-            stepNumber = stepNumber + 1;
             for (WorldState x : result.ws.neighbors()) {
                 Node nodeX = new Node(x);
-
-                if (checkReuse.contains(x) == false) {
-                    nodeX.stepNum = stepNumber;
-                    nodeX.calTotal();
+                int newTotal = result.stepNum + 1 + x.estimatedDistanceToGoal();
+//              DONE: if the previous num is small, can not update yje step number;
+                if (alreadyBeen.get(x) == null) {
                     nodeX.pre = result;
-//                    nodeX.mark = true;
-                    checkReuse.add(x);
+                    nodeX.stepNum = result.stepNum + 1;
+                    nodeX.totalValue = nodeX.calTotal();
                     pq1.insert(nodeX);
-                }
+//                  alreadyBeen.put(x, total);不能加在这里,只能在remove PQ后
+//              Done: update pre pointer;
+                } else if (alreadyBeen.get(x) > newTotal ) {
+                    nodeX.pre = result;
+                    nodeX.totalValue = newTotal;
+                    pq1.insert(nodeX);
+//                  alreadyBeen.put(x, total);不能加在这里, 只能在remove PQ后
+                 }
             }
             if (pq1.isEmpty()) {
                 result = null;
                 break;
             }
             result = pq1.delMin();
+            alreadyBeen.put(result.ws, result.totalValue);
         }
-
-        finalStepNumber = result.stepNum;
 
         if (result != null) {
             while (result.pre != null) {
                 q.addFirst(result.ws);
                 result = result.pre;
+                finalStepNumber++;
             }
             q.addFirst(aNode.ws);
-//            Collections.reverse(q);
         }
     }
 

@@ -12,6 +12,7 @@ public class WordPuzzleSolver {
 
         String start = "horse";
         String goal = "nurse";
+//        String goal = "horse";
 
         Word startState = new Word(start, goal);
         Solver solver = new Solver(startState);
