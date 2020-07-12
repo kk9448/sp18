@@ -42,14 +42,17 @@ public class Board implements WorldState{
         return num;
     }
     public int manhattan() {
-
         int distance = 0;
         for (int i = 0; i < size(); i++) {
             for (int j = 0; j < size(); j++) {
                 if (intBoard[i][j] != goal[i][j]) {
-                    int norRow =(int) Math.ceil(intBoard[i][j] / size) - 1;
-                    int norCol =(int) intBoard[i][j] - (norRow - 1) * size - 1;
-                    distance = distance + Math.abs(norRow - i) + Math.abs(norCol - j);
+                    if (intBoard[i][j] == 0) {
+                        distance = (size - i - 1) + (size - j - 1);
+                    } else {
+                        int norRow =(int) Math.ceil(intBoard[i][j] / size) - 1;
+                        int norCol =(int) intBoard[i][j] - norRow * size - 1;
+                        distance = distance + Math.abs(norRow - i) + Math.abs(norCol - j);
+                    }
                 }
             }
         }
@@ -92,9 +95,9 @@ public class Board implements WorldState{
     }
 
     /**
-     * @author Josh Hug
+     * Returns neighbors of this board.
+     * SPOILERZ: This is the answer.
      */
-
     @Override
     public Iterable<WorldState> neighbors() {
         Queue<WorldState> neighbors = new Queue<>();
