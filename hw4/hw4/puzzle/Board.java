@@ -22,6 +22,9 @@ public class Board implements WorldState{
         goal[size - 1][size - 1] = BLANK;
     }
     public int tileAt(int i, int j){
+        if (i < 0 && i >= size && j < 0 && j >= size) {
+            throw  new java.lang.IndexOutOfBoundsException();
+        }
         return intBoard[i][j];
     }
     public int size() {
@@ -84,7 +87,8 @@ public class Board implements WorldState{
     }
     @Override
     public int estimatedDistanceToGoal() {
-        return manhattan();
+        int esDistance = manhattan();
+        return esDistance;
     }
 
     /**

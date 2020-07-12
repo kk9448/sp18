@@ -45,13 +45,13 @@ public class Solver {
                     nodeX.stepNum = result.stepNum + 1;
                     nodeX.totalValue = nodeX.calTotal();
                     pq1.insert(nodeX);
-//                  alreadyBeen.put(x, total);不能加在这里,只能在remove PQ后
+/**                  alreadyBeen.put(x, total);不能加在这里,只能在remove PQ后 */
 //              Done: update pre pointer;
                 } else if (alreadyBeen.get(x) > newTotal ) {
                     nodeX.pre = result;
                     nodeX.totalValue = newTotal;
                     pq1.insert(nodeX);
-//                  alreadyBeen.put(x, total);不能加在这里, 只能在remove PQ后
+/**                 alreadyBeen.put(x, total);不能加在这里, 只能在remove PQ后 */
                  }
             }
             if (pq1.isEmpty()) {
