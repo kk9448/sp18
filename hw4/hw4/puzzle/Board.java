@@ -4,10 +4,10 @@ import edu.princeton.cs.algs4.Queue;
 
 public class Board implements WorldState {
 
-    int [][] intBoard;
-    int [][] goal;
-    int size;
-    int BLANK = 0;
+    private int [][] intBoard;
+    private int [][] goal;
+    private int size;
+    private int BLANK = 0;
     public Board(int[][] tiles) {
 
         size = tiles.length;
@@ -37,39 +37,50 @@ public class Board implements WorldState {
     public int size() {
         return size;
     }
+
     public int hamming() {
         int num = 0;
         for (int i = 0; i < size(); i++) {
             for (int j = 0; j < size(); j++) {
                 if (intBoard[i][j] != goal[i][j]) {
-                    num++;
+
                 }
             }
         }
         return num;
     }
+
     public int manhattan() {
         int distance = 0;
         for (int i = 0; i < size(); i++) {
             for (int j = 0; j < size(); j++) {
                 if (intBoard[i][j] != goal[i][j]) {
-                    if (intBoard[i][j] == 0) {
-                        distance = (size - i - 1) + (size - j - 1);
-                    } else {
-                        int norRow = (int) Math.ceil(intBoard[i][j] / size) - 1;
-                        int norCol = (int) intBoard[i][j] - norRow * size - 1;
-                        distance = distance + Math.abs(norRow - i) + Math.abs(norCol - j);
+                    if (i != size || j != size) {
+                        if (intBoard[i][j] == 0) {
+                            distance = (size - i - 1) + (size - j - 1);
+                        } else {
+                            int norRow = (int) Math.ceil(intBoard[i][j] / size) - 1;
+                            int norCol = (int) intBoard[i][j] - norRow * size - 1;
+                            distance = distance + Math.abs(norRow - i) + Math.abs(norCol - j);
+                        }
                     }
+
                 }
             }
         }
         return distance;
     }
     public boolean equals(Object y) {
+        if (y == null) {
+            return false;
+        }
         if (y.getClass() != Board.class) {
             return false;
         }
         Board x = (Board) y;
+        if (x.size != size) {
+            return false;
+        }
         for (int i = 0; i < size(); i++) {
             for (int j = 0; j < size(); j++) {
                 if (intBoard[i][j] != x.tileAt(i, j)) {
