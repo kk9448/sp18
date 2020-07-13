@@ -2,15 +2,22 @@ package hw4.puzzle;
 
 import edu.princeton.cs.algs4.Queue;
 
-public class Board implements WorldState{
+public class Board implements WorldState {
 
     int [][] intBoard;
     int [][] goal;
     int size;
     int BLANK = 0;
-    public Board(int[][] tiles){
-        intBoard = tiles;
-        size = intBoard.length;
+    public Board(int[][] tiles) {
+
+        size = tiles.length;
+        intBoard = new int[size][size];
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                intBoard[i][j] = tiles[i][j];
+            }
+        }
+
         goal = new int[size][size];
         int k = 0;
         for (int i = 0; i < size; i++) {
@@ -21,7 +28,7 @@ public class Board implements WorldState{
         }
         goal[size - 1][size - 1] = BLANK;
     }
-    public int tileAt(int i, int j){
+    public int tileAt(int i, int j) {
         if (i < 0 && i >= size && j < 0 && j >= size) {
             throw  new java.lang.IndexOutOfBoundsException();
         }
@@ -49,8 +56,8 @@ public class Board implements WorldState{
                     if (intBoard[i][j] == 0) {
                         distance = (size - i - 1) + (size - j - 1);
                     } else {
-                        int norRow =(int) Math.ceil(intBoard[i][j] / size) - 1;
-                        int norCol =(int) intBoard[i][j] - norRow * size - 1;
+                        int norRow = (int) Math.ceil(intBoard[i][j] / size) - 1;
+                        int norCol = (int) intBoard[i][j] - norRow * size - 1;
                         distance = distance + Math.abs(norRow - i) + Math.abs(norCol - j);
                     }
                 }
@@ -65,12 +72,20 @@ public class Board implements WorldState{
         Board x = (Board) y;
         for (int i = 0; i < size(); i++) {
             for (int j = 0; j < size(); j++) {
-                if (intBoard[i][j] != x.tileAt(i,j)) {
+                if (intBoard[i][j] != x.tileAt(i, j)) {
                     return false;
                 }
             }
         }
         return true;
+    }
+
+
+    @Override
+    public int hashCode() {
+        int result = intBoard != null ? intBoard.hashCode() : 0;
+        result = 31 * result + (goal != null ? goal.hashCode() : 0);
+        return result;
     }
 
     /** Returns the string representation of the board. 
@@ -81,7 +96,7 @@ public class Board implements WorldState{
         s.append(N + "\n");
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < N; j++) {
-                s.append(String.format("%2d ", tileAt(i,j)));
+                s.append(String.format("%2d ", tileAt(i, j)));
             }
             s.append("\n");
         }
