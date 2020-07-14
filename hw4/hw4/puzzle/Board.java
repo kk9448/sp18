@@ -59,7 +59,7 @@ public class Board implements WorldState {
                 if (intBoard[i][j] != goal[i][j]) {
                     if (intBoard[i][j] != 0) {
                         int norRow = (int) Math.ceil(intBoard[i][j] / size) - 1;
-                        int norCol = (int) intBoard[i][j] - ((norRow - 1) * size) - 1;
+                        int norCol = (int) intBoard[i][j] - norRow  * size - 1;
                         distance = distance + Math.abs(norRow - i) + Math.abs(norCol - j);
                     }
                 }
