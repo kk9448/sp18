@@ -9,9 +9,18 @@ public class MazeBreadthFirstPaths extends MazeExplorer {
     public int[] edgeTo;
     public boolean[] marked;
     */
+    private int s;
+    private int t;
+    private boolean targetFound = false;
+    private Maze maze;
 
     public MazeBreadthFirstPaths(Maze m, int sourceX, int sourceY, int targetX, int targetY) {
         super(m);
+        maze = m;
+        s = maze.xyTo1D(sourceX, sourceY);
+        t = maze.xyTo1D(targetX, targetY);
+        distTo[s] = 0;
+        edgeTo[s] = s;
         // Add more variables here!
     }
 
