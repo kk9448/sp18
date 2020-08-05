@@ -9,7 +9,6 @@ public class CyclesDemo {
     
     public static void main(String[] args) {
         Maze maze = new Maze("lab11/graphs/maze.txt");
-
         MazeCycles mc = new MazeCycles(maze);
         mc.solve();
     }
