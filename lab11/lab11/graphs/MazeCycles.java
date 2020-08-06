@@ -33,9 +33,7 @@ public class MazeCycles extends MazeExplorer {
         }
         marked[v] = true;
         announce();
-
         for (int w : maze.adj(v)) {
-
             /** use distance*/
 //            if (marked[w] == true && distTo[w] != distTo[v] - 1) {
 //                edgeTo[w] = v;
@@ -43,16 +41,13 @@ public class MazeCycles extends MazeExplorer {
 //                announce();
 //                return;
 //            }
-
             /** use father Node*/
-
             if (marked[w] == true && edgeTo[v] != w) {
                 edgeTo[w] = v;
                 circleFound = true;
                 announce();
                 return;
             }
-
             if (!marked[w]) {
                 edgeTo[w] = v;
                 distTo[w] = distTo[v] + 1;
