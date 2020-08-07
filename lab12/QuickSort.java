@@ -62,12 +62,15 @@ public class QuickSort {
     /** Returns a Queue that contains the given items sorted from least to greatest. */
     public static <Item extends Comparable> Queue<Item> quickSort(
             Queue<Item> items) {
+
+        if (items.size() <= 1) { // Return `items` itself when `items.size() < 0` (Base case)
+            return items;
+        }
         // Your code here!
         Queue<Item> less = new Queue<>();
         Queue<Item> equal = new Queue();
         Queue<Item> greater = new Queue();
         partition(items, getRandomItem(items), less, equal, greater);
-
         Queue<Item> sortedLess = quickSort(less);
         Queue<Item> res = catenate(sortedLess, equal);
         Queue<Item> sortedGreater = quickSort(greater);
