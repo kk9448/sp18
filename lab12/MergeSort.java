@@ -1,4 +1,11 @@
 import edu.princeton.cs.algs4.Queue;
+//import java.util.*;
+import org.junit.Test;
+
+import java.util.LinkedList;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class MergeSort {
     /**
@@ -11,8 +18,7 @@ public class MergeSort {
      * @param   q2  A Queue in sorted order from least to greatest.
      * @return      The smallest item that is in q1 or q2.
      */
-    private static <Item extends Comparable> Item getMin(
-            Queue<Item> q1, Queue<Item> q2) {
+    private static <Item extends Comparable> Item getMin(Queue<Item> q1, Queue<Item> q2) {
         if (q1.isEmpty()) {
             return q2.dequeue();
         } else if (q2.isEmpty()) {
@@ -32,10 +38,18 @@ public class MergeSort {
     }
 
     /** Returns a queue of queues that each contain one item from items. */
-    private static <Item extends Comparable> Queue<Queue<Item>>
-            makeSingleItemQueues(Queue<Item> items) {
-        // Your code here!
-        return null;
+    /** 返回类型为 Queue<Queue<Item>> 前面的<>括号, 声明Item继承了Comparable */
+
+
+    private static <Item extends Comparable> Queue<Queue<Item>> makeSingleItemQueues(Queue<Item> items) {
+        // DONE: Your code here!
+        Queue<Queue<Item>> res = new Queue<>();
+        for(Item x : items) {
+            Queue<Item> q = new Queue<>();
+            q.enqueue(x);
+            res.enqueue(q);
+        }
+        return res;
     }
 
     /**
@@ -51,29 +65,48 @@ public class MergeSort {
      *              greatest.
      *
      */
-    private static <Item extends Comparable> Queue<Item> mergeSortedQueues(
-            Queue<Item> q1, Queue<Item> q2) {
-        // Your code here!
-        return null;
+    private static <Item extends Comparable> Queue<Item> mergeSortedQueues(Queue<Item> q1, Queue<Item> q2) {
+        //DONE: Your code here!
+        Queue res = new Queue();
+        while(!q1.isEmpty() || !q2.isEmpty()) {
+            if(q1.isEmpty()) {
+                res.enqueue(q2.dequeue());
+            } else if(q2.isEmpty()) {
+                res.enqueue(q1.dequeue());
+            } else {
+                res.enqueue(getMin(q1, q2));
+            }
+        }
+        return res;
     }
 
     /** Returns a Queue that contains the given items sorted from least to greatest. */
-    public static <Item extends Comparable> Queue<Item> mergeSort(
-            Queue<Item> items) {
-        // Your code here!
+    public static <Item extends Comparable> Queue<Item> mergeSort(Queue<Item> items) {
+        //DONE: Your code here!
+        Queue<Queue<Item>> singleQueue = makeSingleItemQueues(items);
+        items = singleQueue.dequeue();
+        while(singleQueue.size() != 0) {
+            items = mergeSortedQueues(items, singleQueue.dequeue());
+        }
         return items;
     }
-    public static void main(String[] args) {
+
+    @Test
+    public void test1() {
         Queue<String> students = new Queue<String>();
+        Queue<String> rightAns = new Queue<String>();
         students.enqueue("Alice");
         students.enqueue("Vanessa");
         students.enqueue("Ethan");
-        for(String x : students) {
-            System.out.println(x);
+
+        rightAns.enqueue("Alice");
+        rightAns.enqueue("Ethan");
+        rightAns.enqueue("Vanessa");
+        Queue<String> res = mergeSort(students);
+        for(int i = 0; i < students.size(); i++) {
+            assertEquals(res.dequeue(), rightAns.dequeue());
         }
-//        MergeSort.mergeSort(students);
-        for(String x : MergeSort.mergeSort(students)) {
-            System.out.println(x);
-        }
+        assertTrue(true);
+
     }
 }
