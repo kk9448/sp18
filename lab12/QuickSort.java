@@ -1,4 +1,8 @@
 import edu.princeton.cs.algs4.Queue;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class QuickSort {
     /**
@@ -62,7 +66,6 @@ public class QuickSort {
     /** Returns a Queue that contains the given items sorted from least to greatest. */
     public static <Item extends Comparable> Queue<Item> quickSort(
             Queue<Item> items) {
-
         if (items.size() <= 1) { // Return `items` itself when `items.size() < 0` (Base case)
             return items;
         }
@@ -74,7 +77,26 @@ public class QuickSort {
         Queue<Item> sortedLess = quickSort(less);
         Queue<Item> res = catenate(sortedLess, equal);
         Queue<Item> sortedGreater = quickSort(greater);
-        res =catenate(equal, sortedGreater);
+        res =catenate(res, sortedGreater);
         return res;
+    }
+
+    @Test
+    public void test2() {
+        Queue<String> students = new Queue<String>();
+        Queue<String> rightAns = new Queue<String>();
+        students.enqueue("Alice");
+        students.enqueue("Vanessa");
+        students.enqueue("Ethan");
+
+        rightAns.enqueue("Alice");
+        rightAns.enqueue("Ethan");
+        rightAns.enqueue("Vanessa");
+        Queue<String> res = quickSort(students);
+        for (int i = 0; i < students.size(); i++) {
+            assertEquals(rightAns.dequeue(), res.dequeue());
+        }
+        assertTrue(true);
+
     }
 }
