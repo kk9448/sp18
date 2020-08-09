@@ -73,20 +73,21 @@ public class MergeSort {
         if (items.size() <= 1) {
             return items;
         }
-        Queue<Queue<Item>> queues = makeSingleItemQueues(items);
-        Queue<Item> qLeft = new Queue<>();
-        Queue<Item> qRight = new Queue<>();
-        int leftSize = queues.size() / 2; // Make left queue
-        for (int i = 0; i < leftSize; i += 1) {
-            qLeft.enqueue(queues.dequeue().dequeue());
+
+        Queue<Queue<Item>> singleQueue = makeSingleItemQueues(items);
+        Queue leftQueue = new Queue();
+        Queue rightQueue = new Queue();
+        int sizeLeft = singleQueue.size() / 2;
+        for (int i = 0; i < sizeLeft; i++) {
+            leftQueue.enqueue(singleQueue.dequeue().dequeue());
         }
-        int rightSize = queues.size(); // Make right queue
-        for (int i = 0; i < rightSize; i += 1) {
-            qRight.enqueue(queues.dequeue().dequeue());
+        int sizeRight = singleQueue.size();
+        for (int i = 0; i < sizeRight; i++) {
+            rightQueue.enqueue(singleQueue.dequeue().dequeue());
         }
-        Queue<Item> q1 = mergeSort(qLeft);
-        Queue<Item> q2 = mergeSort(qRight);
-        return mergeSortedQueues(q1, q2);
+        Queue<Item> left = mergeSort(leftQueue);
+        Queue<Item> right = mergeSort(rightQueue);
+        return mergeSortedQueues(left, right);
     }
 
     public static void main(String[] args) {
