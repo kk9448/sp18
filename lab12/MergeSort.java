@@ -109,8 +109,6 @@ public class MergeSort {
          */
         if (items.size() <= 1) {
             return items;
-
-            ssss
         }
         Queue<Queue<Item>> singleQueue = makeSingleItemQueues(items);
         Queue leftQueue = new Queue();
@@ -121,7 +119,7 @@ public class MergeSort {
         }
         int sizeRight = items.size();
         for (int i = 0; i < sizeRight; i++) {
-            leftQueue.enqueue(items.dequeue());
+            rightQueue.enqueue(items.dequeue());
         }
         Queue<Item> left = mergeSort(leftQueue);
         Queue<Item> right = mergeSort(rightQueue);
