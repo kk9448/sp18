@@ -84,26 +84,14 @@ public class MergeSort {
         for (int i = 0; i < rightSize; i += 1) {
             qRight.enqueue(queues.dequeue().dequeue());
         }
+        Queue<Item> left = mergeSort(leftQueue);
+        Queue<Item> right = mergeSort(rightQueue);
+        ssssssss;
+        return mergeSortedQueues(left, right);
+
         Queue<Item> q1 = mergeSort(qLeft);
         Queue<Item> q2 = mergeSort(qRight);
         return mergeSortedQueues(q1, q2);
-    }
-
-    public static void main(String[] args) {
-        Queue<String> languages = new Queue<>();
-        languages.enqueue("Python"); // Add my language-learning history
-        languages.enqueue("SQL");
-        languages.enqueue("Java");
-        languages.enqueue("Julia");
-        languages.enqueue("JavaScripts");
-        languages.enqueue("Lisp??");
-        languages.enqueue("Lisp??"); // Checks duplicated
-        Queue<String> sortedLanguages = MergeSort.mergeSort(languages);
-
-        // Should print `Python SQL Java Julia JavaScripts Lisp?? Lisp??`
-        System.out.println(languages.toString());
-        // Should print `Java JavaScript Julia Lisp?? Lisp?? Python SQL`
-        System.out.println(sortedLanguages.toString());
     }
 
 }
