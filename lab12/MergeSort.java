@@ -111,11 +111,19 @@ public class MergeSort {
             return items;
         }
         Queue<Queue<Item>> singleQueue = makeSingleItemQueues(items);
-        items = singleQueue.dequeue();
-        while (singleQueue.size() != 0) {
-            items = mergeSortedQueues(items, singleQueue.dequeue());
+        Queue leftQueue = new Queue();
+        Queue rightQueue = new Queue();
+        int sizeLeft = items.size() / 2;
+        for (int i = 0; i < sizeLeft; i++) {
+            leftQueue.enqueue(items.dequeue());
         }
-        return items;
+        int sizeRight = items.size();
+        for (int i = 0; i < sizeRight; i++) {
+            leftQueue.enqueue(items.dequeue());
+        }
+        Queue<Item> left = mergeSort(leftQueue);
+        Queue<Item> right = mergeSort(rightQueue);
+        return mergeSortedQueues(left, right);
     }
     /**
      * test mergeSort
@@ -127,7 +135,6 @@ public class MergeSort {
         students.enqueue("Alice");
         students.enqueue("Vanessa");
         students.enqueue("Ethan");
-
         rightAns.enqueue("Alice");
         rightAns.enqueue("Ethan");
         rightAns.enqueue("Vanessa");
