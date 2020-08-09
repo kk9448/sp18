@@ -69,7 +69,6 @@ public class QuickSort {
         if (items.size() <= 1) { // Return `items` itself when `items.size() < 0` (Base case)
             return items;
         }
-        // Your code here!
         Queue<Item> less = new Queue<>();
         Queue<Item> equal = new Queue();
         Queue<Item> greater = new Queue();
@@ -77,14 +76,14 @@ public class QuickSort {
         Queue<Item> sortedLess = quickSort(less);
         Queue<Item> res = catenate(sortedLess, equal);
         Queue<Item> sortedGreater = quickSort(greater);
-        res =catenate(res, sortedGreater);
+        res = catenate(res, sortedGreater);
         return res;
     }
 
     @Test
     public void test2() {
-        Queue<String> students = new Queue<String>();
-        Queue<String> rightAns = new Queue<String>();
+        Queue<String> students = new Queue<>();
+        Queue<String> rightAns = new Queue<>();
         students.enqueue("Alice");
         students.enqueue("Vanessa");
         students.enqueue("Ethan");
