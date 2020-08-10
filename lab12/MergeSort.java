@@ -1,4 +1,8 @@
 import edu.princeton.cs.algs4.Queue;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class MergeSort {
 
@@ -74,37 +78,54 @@ public class MergeSort {
             return items;
         }
 
+        /** Bad Way Complexity will be N^2*/
+//        Queue<Queue<Item>> singleQueue = makeSingleItemQueues(items);
+//        Queue leftQueue = new Queue();
+//        Queue rightQueue = new Queue();
+//        int sizeLeft = singleQueue.size() / 2;
+//        for (int i = 0; i < sizeLeft; i++) {
+//            leftQueue.enqueue(singleQueue.dequeue().dequeue());
+//        }
+//        int sizeRight = singleQueue.size();
+//        for (int i = 0; i < sizeRight; i++) {
+//            rightQueue.enqueue(singleQueue.dequeue().dequeue());
+//        }
+//        Queue<Item> left = mergeSort(leftQueue);
+//        Queue<Item> right = mergeSort(rightQueue);
+//        return mergeSortedQueues(left, right);
+        /** Good way, complexity will be N*/
         Queue<Queue<Item>> singleQueue = makeSingleItemQueues(items);
-        Queue leftQueue = new Queue();
-        Queue rightQueue = new Queue();
-        int sizeLeft = singleQueue.size() / 2;
-        for (int i = 0; i < sizeLeft; i++) {
-            leftQueue.enqueue(singleQueue.dequeue().dequeue());
+        while (singleQueue.size() != 1) {
+            Queue q1 = singleQueue.dequeue();
+            Queue q2 = singleQueue.dequeue();
+            singleQueue.enqueue(mergeSortedQueues(q1, q2));
         }
-        int sizeRight = singleQueue.size();
-        for (int i = 0; i < sizeRight; i++) {
-            rightQueue.enqueue(singleQueue.dequeue().dequeue());
-        }
-        Queue<Item> left = mergeSort(leftQueue);
-        Queue<Item> right = mergeSort(rightQueue);
-        return mergeSortedQueues(left, right);
+        return singleQueue.dequeue();
     }
 
-    public static void main(String[] args) {
-        Queue<String> languages = new Queue<>();
-        languages.enqueue("Python"); // Add my language-learning history
-        languages.enqueue("SQL");
-        languages.enqueue("Java");
-        languages.enqueue("Julia");
-        languages.enqueue("JavaScripts");
-        languages.enqueue("Lisp??");
-        languages.enqueue("Lisp??"); // Checks duplicated
-        Queue<String> sortedLanguages = MergeSort.mergeSort(languages);
+    @Test
+    public void test1() {
+        Queue<String> students = new Queue<String>();
+        Queue<String> rightAns = new Queue<String>();
+        students.enqueue("Alice");
+        students.enqueue("Vanessa");
+        students.enqueue("Ethan");
+        for(String x : students) {
+            System.out.println(x);
+        }
+//        MergeSort.mergeSort(students);
+        for(String x : MergeSort.mergeSort(students)) {
+            System.out.println(x);
 
-        // Should print `Python SQL Java Julia JavaScripts Lisp?? Lisp??`
-        System.out.println(languages.toString());
-        // Should print `Java JavaScript Julia Lisp?? Lisp?? Python SQL`
-        System.out.println(sortedLanguages.toString());
+            rightAns.enqueue("Alice");
+            rightAns.enqueue("Ethan");
+            rightAns.enqueue("Vanessa");
+            Queue<String> res = mergeSort(students);
+            for (int i = 0; i < students.size(); i++) {
+                assertEquals(res.dequeue(), rightAns.dequeue());
+            }
+            assertTrue(true);
+        }
+
     }
-
 }
