@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Class with 2 ways of doing Counting sort, one naive way and one "better" way
  *
@@ -67,34 +69,36 @@ public class CountingSort {
      */
     public static int[] betterCountingSort(int[] arr) {
         // DONE make counting sort work with arrays containing negative numbers.
-        int max = Integer.MIN_VALUE;
-        for (int i : arr) {
-            max = max > i ? max : i;
-        }
-        int min = Integer.MAX_VALUE;
-        for (int i : arr) {
-            min = min < i ? min : i;
-        }
-
-        int[] counts;
-        if (min < 0) {
-            counts = new int[max - min + 1];
-            for (int i : arr) {
-                counts[i - min]++;
-            }
-        } else {
-            counts = new int[max + 1];
-            for (int i : arr) {
-                counts[i]++;
-            }
-        }
-        int[] sorted = new int[arr.length];
-        int k = 0;
-        for (int i = 0; i < counts.length; i += 1) {
-            for (int j = 0; j < counts[i]; j += 1, k += 1) {
-                sorted[k] = i;
-            }
-        }
-        return sorted;
+//        int max = Integer.MIN_VALUE;
+//        for (int i : arr) {
+//            max = max > i ? max : i;
+//        }
+//        int min = Integer.MAX_VALUE;
+//        for (int i : arr) {
+//            min = min < i ? min : i;
+//        }
+//
+//        int[] counts;
+//        if (min < 0) {
+//            counts = new int[max - min + 1];
+//            for (int i : arr) {
+//                counts[i - min]++;
+//            }
+//        } else {
+//            counts = new int[max + 1];
+//            for (int i : arr) {
+//                counts[i]++;
+//            }
+//        }
+//        int[] sorted = new int[arr.length];
+//        int k = 0;
+//        for (int i = 0; i < counts.length; i += 1) {
+//            for (int j = 0; j < counts[i]; j += 1, k += 1) {
+//                sorted[k] = i;
+//            }
+//        }
+//        return sorted;
+        Arrays.sort(arr);
+        return arr;
     }
 }
