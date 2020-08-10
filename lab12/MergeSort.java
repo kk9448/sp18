@@ -79,6 +79,15 @@ public class MergeSort {
         }
 
         /** Bad Way Complexity will be N^2*/
+
+//        Queue<Queue<Item>> singleQueue = makeSingleItemQueues(items);
+//        items = singleQueue.dequeue();
+//        while(singleQueue.size() != 0) {
+//            items = mergeSortedQueues(items, singleQueue.dequeue());
+//        }
+//        return items;
+
+        /** This way similar like quickSort*/
 //        Queue<Queue<Item>> singleQueue = makeSingleItemQueues(items);
 //        Queue leftQueue = new Queue();
 //        Queue rightQueue = new Queue();
@@ -93,6 +102,7 @@ public class MergeSort {
 //        Queue<Item> left = mergeSort(leftQueue);
 //        Queue<Item> right = mergeSort(rightQueue);
 //        return mergeSortedQueues(left, right);
+
         /** Good way, complexity will be N*/
         Queue<Queue<Item>> singleQueue = makeSingleItemQueues(items);
         while (singleQueue.size() != 1) {
