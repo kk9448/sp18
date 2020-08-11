@@ -7,7 +7,7 @@ import java.util.Arrays;
  *
  */
 public class RadixSort {
-    private static int RADIX = 256;
+//    private static int RADIX = 256;
     /**
      * Does LSD radix sort on the passed in array with the following restrictions:
      * The array can only have ASCII Strings (sequence of 1 byte characters)
@@ -39,7 +39,7 @@ public class RadixSort {
      * @param index The position to sort the Strings on.
      */
     private static String[] sortHelperLSD(String[] asciis, int index) {
-        int[] count = new int[RADIX];
+        int[] count = new int[256];
         String[] res = new String[asciis.length];
         for (String x : asciis) {
             if (x.length() - 1 < index) {
@@ -48,9 +48,9 @@ public class RadixSort {
                 count[x.charAt(index)]++;
             }
         }
-        int[] starts = new int[RADIX];
+        int[] starts = new int[256];
         int place = 0;
-        for (int i = 0; i < RADIX; i++) {
+        for (int i = 0; i < 256; i++) {
             starts[i] = place;
             place += count[i];
         }
@@ -59,13 +59,12 @@ public class RadixSort {
             int pos;
             if (x.length() - 1 < index) {
                 pos = starts[0];
-                res[pos] = x;
                 starts[0]++;
             } else {
                 pos = starts[x.charAt(index)];
-                res[pos] = x;
                 starts[x.charAt(index)]++;
             }
+            res[pos] = x;
         }
         return res;
     }
