@@ -22,9 +22,7 @@ public class RadixSort {
         // TODO: Implement LSD Sort
         int max = Integer.MIN_VALUE;;
         for (int i = 0; i < asciis.length; i++) {
-            if (asciis[i].length() > max) {
-                max = asciis[i].length();
-            }
+            max = asciis[i].length() > max ? asciis[i].length() : max;
         }
         String[] sorted = Arrays.copyOf(asciis, asciis.length);
         for (int i = max - 1; i >= 0; i--) {
@@ -53,7 +51,7 @@ public class RadixSort {
         int place = 0;
         for (int i = 0; i < RADIX; i++) {
             starts[i] = place;
-            place = place + count[i];
+            place += count[i];
         }
 
         for (String x : asciis) {
