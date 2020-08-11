@@ -26,9 +26,8 @@ public class RadixSort {
                 max = asciis[i].length();
             }
         }
-        String[] sorted = new String[asciis.length];
-        sorted = Arrays.copyOf(asciis, asciis.length);
-        for (int i = max; i > 0; i--) {
+        String[] sorted = Arrays.copyOf(asciis, asciis.length);
+        for (int i = max - 1; i >= 0; i--) {
             sortHelperLSD(sorted, i);
         }
         return sorted;
