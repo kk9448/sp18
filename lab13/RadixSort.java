@@ -42,7 +42,7 @@ public class RadixSort {
      */
     private static void sortHelperLSD(String[] asciis, int index) {
         int[] count = new int[RADIX];
-        String[] res = new String[RADIX];
+        String[] res = new String[asciis.length];
         for (String x : asciis) {
             if (x.length() - 1 < index) {
                 count[0]++;
@@ -58,8 +58,13 @@ public class RadixSort {
         }
 
         for (String x : asciis) {
-            res[starts[x.charAt(index)]] = x;
-            starts[x.charAt(index)]++;
+            if (x.length() - 1 < index) {
+                res[starts[0]] = x;
+                starts[0]++;
+            } else {
+                res[starts[x.charAt(index)]] = x;
+                starts[x.charAt(index)]++;
+            }
         }
         return;
     }
