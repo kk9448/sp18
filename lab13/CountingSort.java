@@ -54,8 +54,6 @@ public class CountingSort {
             sorted2[place] = item;
             starts[item] += 1;
         }
-
-        // return the sorted array
         return sorted;
     }
 

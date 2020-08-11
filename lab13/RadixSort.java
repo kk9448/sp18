@@ -7,6 +7,7 @@ import java.util.Arrays;
  *
  */
 public class RadixSort {
+    private static int RADIX = 256;
     /**
      * Does LSD radix sort on the passed in array with the following restrictions:
      * The array can only have ASCII Strings (sequence of 1 byte characters)
@@ -19,22 +20,18 @@ public class RadixSort {
      */
     public static String[] sort(String[] asciis) {
         // TODO: Implement LSD Sort
-//        int longer = 0;
-//        for (int i = 0; i < asciis.length; i++) {
-//            if(asciis[i].length() > longer) {
-//                longer = asciis[i].length();
-//            }
-//        }
-//        for (int i = 0; i < asciis.length; i++) {
-//            if(asciis[i].length() < longer) {
-//                String tmpStr = new StringBuilder(asciis[i]).toString();
-//                for (int j = asciis[i].length() - 1; j < longer; j++) {
-//                    tmpStr = new StringBuilder(tmpStr).append("_").toString();
-//                }
-//            }
-//        }
-        Arrays.sort(asciis);
-        return asciis;
+        int max = 0;
+        for (int i = 0; i < asciis.length; i++) {
+            if (asciis[i].length() > max) {
+                max = asciis[i].length();
+            }
+        }
+        String[] sorted = new String[asciis.length];
+        sorted = Arrays.copyOf(asciis, asciis.length);
+        for (int i = max; i > 0; i--) {
+            sortHelperLSD(sorted, i);
+        }
+        return sorted;
     }
 
     /**
@@ -44,7 +41,26 @@ public class RadixSort {
      * @param index The position to sort the Strings on.
      */
     private static void sortHelperLSD(String[] asciis, int index) {
-        // Optional LSD helper method for required LSD radix sort
+        int[] count = new int[RADIX];
+        String[] res = new String[RADIX];
+        for (String x : asciis) {
+            if (x.length() - 1 < index) {
+                count[0]++;
+            } else {
+                count[x.charAt(index)]++;
+            }
+        }
+        int[] starts = new int[RADIX];
+        int place = 0;
+        for (int i = 0; i < RADIX; i++) {
+            starts[i] = place;
+            place = place + count[i];
+        }
+
+        for (String x : asciis) {
+            res[starts[x.charAt(index)]] = x;
+            starts[x.charAt(index)]++;
+        }
         return;
     }
 
