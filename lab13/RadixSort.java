@@ -1,4 +1,3 @@
-import java.util.Arrays;
 
 /**
  * Class for doing Radix sort
@@ -21,8 +20,11 @@ public class RadixSort {
     public static String[] sort(String[] asciis) {
         // TODO: Implement LSD Sort
         int max = Integer.MIN_VALUE;;
-        for (int i = 0; i < asciis.length; i++) {
-            max = asciis[i].length() > max ? asciis[i].length() : max;
+//        for (int i = 0; i < asciis.length; i++) {
+//            max = asciis[i].length() > max ? asciis[i].length() : max;
+//        }
+        for (String s : asciis) {
+            max = max > s.length() ? max : s.length();
         }
         String[] sorted = new String[asciis.length];
         System.arraycopy(asciis, 0, sorted, 0, asciis.length);
