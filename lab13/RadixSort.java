@@ -57,11 +57,14 @@ public class RadixSort {
         }
 
         for (String x : asciis) {
+            int pos;
             if (x.length() - 1 < index) {
-                res[starts[0]] = x;
+                pos = starts[0];
+                res[pos] = x;
                 starts[0]++;
             } else {
-                res[starts[x.charAt(index)]] = x;
+                pos = starts[x.charAt(index)];
+                res[pos] = x;
                 starts[x.charAt(index)]++;
             }
         }
