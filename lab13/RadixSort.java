@@ -47,7 +47,7 @@ public class RadixSort {
             if (x.length() - 1 < index) {
                 count[0]++;
             } else {
-                count[x.charAt(index)]++;
+                count[(int) x.charAt(index)]++;
             }
         }
         int[] starts = new int[256];
@@ -63,8 +63,8 @@ public class RadixSort {
                 pos = starts[0];
                 starts[0]++;
             } else {
-                pos = starts[x.charAt(index)];
-                starts[x.charAt(index)]++;
+                pos = starts[(int) x.charAt(index)];
+                starts[(int) x.charAt(index)]++;
             }
             res[pos] = x;
         }
