@@ -18,10 +18,10 @@ public class RadixSort {
      * @return String[] the sorted array
      */
     public static String[] sort(String[] asciis) {
+        // TODO: Implement LSD Sort
         if (asciis.length == 0 || asciis.length == 1) {
             return asciis;
         }
-        // TODO: Implement LSD Sort
         int max = Integer.MIN_VALUE;;
 //        for (int i = 0; i < asciis.length; i++) {
 //            max = asciis[i].length() > max ? asciis[i].length() : max;
@@ -87,5 +87,13 @@ public class RadixSort {
     private static void sortHelperMSD(String[] asciis, int start, int end, int index) {
         // Optional MSD helper method for optional MSD radix sort
         return;
+    }
+
+    public static void main(String args[]) {
+        String[] strs = {"abcc", "abcd", "ggg", "vcx", "crx", "pyf"};
+        String[] sorted = sort(strs);
+        for (String s : sorted) {
+            System.out.print(s + " ");
+        }
     }
 }
