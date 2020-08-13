@@ -6,20 +6,17 @@ import lab14lib.GeneratorAudioVisualizer;
 public class SawToothGenerator implements Generator {
     private double period;
     private int state;
-    private double res;
 
     public SawToothGenerator(int period) {
         state = 0;
-        res = 0;
         this.period = period;
     }
 
     @Override
     public double next() {
         state = (state + 1);
-        System.out.println(state % 500);
-//        System.out.println(state % 500.0 / 5000);
-        double res = -1 +2 * (state % 500.0 / 500);
+        /** 遇到小数问题,如果全部是int型, 计算时可以直接加.0 */
+        double res = -1 + 2 * (state % 500.0 / 500);
         return res;
     }
 
