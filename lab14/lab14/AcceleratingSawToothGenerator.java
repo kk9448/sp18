@@ -3,34 +3,39 @@ package lab14;
 import lab14lib.Generator;
 import lab14lib.GeneratorAudioVisualizer;
 
-public class SawToothGenerator implements Generator {
+public class AcceleratingSawToothGenerator implements Generator {
     private double period;
     private int state;
+    double factor;
 
-    public SawToothGenerator(int period) {
+    public AcceleratingSawToothGenerator(double period, double x) {
         state = 0;
         this.period = period;
+        factor = x;
     }
 
     @Override
     public double next() {
         state = (state + 1);
-        /** 遇到小数问题,如果全部是int型, 计算时可以直接加.0 */
-//        double res = -1 + 2 * (state % 500.0 / 500);
-//        return res;
-        state = state % 500;
+        state = state % (int) period;
+        if (state == 0) {
+            period = period * factor;
+        }
         return normalize(state);
     }
 
-
-    private double normalize(double x) {
-        return -1 + 2 / period * x;
+    private double normalize(int x) {
+        double res = -1 + 2 / period * x;
+        return res;
     }
 
     public static void main(String[] args) {
         /** Your code here. */
-        Generator generator = new SawToothGenerator(512);
+        Generator generator = new AcceleratingSawToothGenerator(200, 1.1);
         GeneratorAudioVisualizer gav = new GeneratorAudioVisualizer(generator);
         gav.drawAndPlay(4096, 1000000);
     }
+
+
+
 }
