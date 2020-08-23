@@ -93,9 +93,9 @@ public class Rasterer {
 
         int m = 0;
         int n = 0;
-        for (int j = ulColNum; j <= lrColNum; j++, n++) {
-            for (int i = ulRowNum; i <= lrRowNum; i++, m++) {
-                pictureSet[n][m] = picture(j, i, depth);
+        for (int i = ulColNum; i <= lrColNum; i++, n++) {
+            for (int j = ulRowNum; j <= lrRowNum; j++, m++) {
+                pictureSet[n][m] = picture(i, j, depth);
             }
             m = 0;
         }
