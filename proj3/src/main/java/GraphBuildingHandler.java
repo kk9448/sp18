@@ -68,6 +68,12 @@ public class GraphBuildingHandler extends DefaultHandler {
         if (qName.equals("node")) {
             /* We encountered a new <node...> tag. */
             activeState = "node";
+            GraphDB.Node c = new GraphDB.Node();
+            c.id = attributes.getValue("id");
+            c.lat = attributes.getValue("lat");
+            c.lon = attributes.getValue("lon");
+            g.addNode(c);
+
 //            System.out.println("Node id: " + attributes.getValue("id"));
 //            System.out.println("Node lon: " + attributes.getValue("lon"));
 //            System.out.println("Node lat: " + attributes.getValue("lat"));
@@ -82,6 +88,9 @@ public class GraphBuildingHandler extends DefaultHandler {
         } else if (activeState.equals("way") && qName.equals("nd")) {
             /* While looking at a way, we found a <nd...> tag. */
             //System.out.println("Id of a node in this way: " + attributes.getValue("ref"));
+
+            g.nodeMap.get(attributes.getValue("ref")).adj.add(qName);
+
 
             /* TODO Use the above id to make "possible" connections between the nodes in this way */
             /* Hint1: It would be useful to remember what was the last node in this way. */

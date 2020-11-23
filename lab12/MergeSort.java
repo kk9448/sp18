@@ -78,7 +78,7 @@ public class MergeSort {
             return items;
         }
 
-        /** Bad Way Complexity will be N^2*/
+        /** Bad Way Complexity will be N^2 */
 
 //        Queue<Queue<Item>> singleQueue = makeSingleItemQueues(items);
 //        items = singleQueue.dequeue();
@@ -110,6 +110,13 @@ public class MergeSort {
             Queue q2 = singleQueue.dequeue();
             singleQueue.enqueue(mergeSortedQueues(q1, q2));
         }
+        /**
+         * first round finish , every queue have 2 item
+         * second round finish, every queue hae 4 item
+         * ...
+         * a big queue have n item
+         * return
+         * */
         return singleQueue.dequeue();
     }
 
